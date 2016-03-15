@@ -9,7 +9,7 @@
 
 <!-- 测试spring -->
 <bean id="testService" class="com.alcoholsale.test.ServiceTest">
-	<property name="name" value="刘成" />
+	<property name="name" value="" />
 </bean>
 <!-- 配置数据源 -->
 <bean id='dataSource' class="org.apache.commons.dbcp.BasicDataSource">
