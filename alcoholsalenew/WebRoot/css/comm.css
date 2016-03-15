@@ -13,6 +13,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fiel
 body{
 	font-size: 12px;
 	margin: 0px;
+	background: url(../images/others/bg_a.jpg) repeat;
 }
 
 /* 定义常用的字体颜色 */
@@ -80,7 +81,6 @@ table {
 	cursor: hand;
 	width: 161px;
 	height: 41px;
-	background-image: url("/xiaonei/images/front/regbtn.gif");
 	background-repeat: no-repeat;
 	background-position: center;
 	text-align: center;
