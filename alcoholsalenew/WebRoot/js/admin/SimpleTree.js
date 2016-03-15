@@ -24,7 +24,7 @@ $(function(){
 			
 			/* 设置所有超链接不响应单击事件 */
 			this.find("a").click(function(){ $(this).parent("li").click(); 
-			var str="http://localhost:8080/alcoholsale/#";
+			var str="http://localhost:8080/alcoholsalenew/#";
 				//alert(test.lastIndexOf("#"));
 			if(str==link){
 				return false;

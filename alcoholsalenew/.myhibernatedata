@@ -16,5 +16,5 @@ sessionFactoryId=
 basePersistenceClass=
 genAnnotations=false
 reSettingsFile=
-configFile=/alcoholsale/src/hibernate.cfg.xml
+configFile=/alcoholsalenew/src/hibernate.cfg.xml
 createConfigFile=true

@@ -23,7 +23,7 @@
 			<span>欢迎登录</span>
 		</div>
 		<div class="l_user">
-			<form action="login" post="method">
+			<form action="login" method="post">
 			<input type="text" class="name" name="username" placeholder="请输入用户名" /> 
 			<input type="password" class="pass" name="password" placeholder="请输入密码" /> 
 			<!-- <input type="password" class="pass" name="checkcode" placeholder="请输入验证码" /> -->

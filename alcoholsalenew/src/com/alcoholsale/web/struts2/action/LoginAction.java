@@ -86,8 +86,8 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 			return "success";
 			}
 		} else {
-			System.out.println("failer¡£¡£¡£");			
-			session.setAttribute("logininfo", "ÓÃ»§ÃûÃÜÂë´íÎó£¡");
+			System.out.println("failerã€‚ã€‚ã€‚");			
+			session.setAttribute("logininfo", "ç”¨æˆ·åå¯†ç é”™è¯¯ï¼");
 			return "failer";
 		}
 	}
@@ -120,7 +120,7 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 		return "success";
 	}
 	public String reg() throws Exception {
-		// ²åÈëÓÃ»§ĞÅÏ¢µ½Êı¾İ¿â
+		// æ’å…¥ç”¨æˆ·ä¿¡æ¯åˆ°æ•°æ®åº“
 //		user.setUsername("liucheng");
 		user.setRegdate(new java.util.Date());
 		user.setGrade(2);

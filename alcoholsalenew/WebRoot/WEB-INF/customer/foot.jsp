@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/customer/foot.css" type="text/css" />
-	<div style="width:100%; height:180px; background: #F2F2F2;">
+	<div style="width:100%; height:180px; background: #F2F2F2;margin-top:20px;">
 	<div class="foot">
 		<div class="footerContact">
 			<img style="float:left;" src="${pageContext.request.contextPath }/images/others/phonelogo.png">
