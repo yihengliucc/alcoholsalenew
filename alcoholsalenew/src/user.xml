@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+	<struts>
+	<constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory"></constant>
+	<package name="default"  extends="struts-default">
+	    <action name="login" class="LoginAction" method="login">
+	    	<result name="input">/WEB-INF\customer\login.jsp</result>
+	    	<result name="success">/WEB-INF\customer\index.jsp</result>
+	    	<result name="adminsuccess" >/WEB-INF/admin/admin.jsp</result>
+	    	<result name="failer">/WEB-INF\customer\login.jsp</result>
+	    </action>
+	    <action name="goLoginUI" class="LoginAction" method="goLoginUI">
+	    	<result name="success">/WEB-INF\customer\login.jsp</result>
+	    </action>
+	    <action name="exit" class="LoginAction" method="exit">
+	    	<result name="success">/WEB-INF\customer\index.jsp</result>
+	    </action>
+	    <action name="left" class="LoginAction" method="left">
+	    	<result name="success">/WEB-INF\admin\left.jsp</result>
+	    </action>
+	    <action name="right" class="LoginAction" method="right">
+	    	<result name="success">/WEB-INF\admin\right.jsp</result>
+	    </action>
+	    <action name="queryuser" class="LoginAction" method="queryuser">
+	    	<result name="success">/WEB-INF\admin\allUser.jsp</result>
+	    </action>
+	    <action name="deleteUser" class="LoginAction" method="deleteUser">
+	    	 <result name="success" type="chain">queryuser</result>  
+	    </action>
+	     <action name="goRegUI" class="LoginAction" method="goRegUI">
+	    	<result name="success">/WEB-INF\customer\reg.jsp</result>
+	    </action>
+	    <action name="reg" class="LoginAction" method="reg">
+	    	<result name="success">/WEB-INF\customer\regok.jsp</result>
+	    </action>
+	</package> 
+	</struts>

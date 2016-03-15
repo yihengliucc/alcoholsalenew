@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+	<struts>
+	<constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory"></constant>
+	<constant name="struts.multipart.maxSize" value="1000000000"></constant>
+	<package name="product"  extends="struts-default">
+	    <action name="queryallproduct" class="ProductAction" method="queryall">
+	    	<result name="success">/WEB-INF\admin\allProduct.jsp</result>
+	    </action>
+	    <action name="addproductUi" class="ProductAction" method="addproductUi">
+	    	<result name="success">/WEB-INF\admin\addProduct.jsp</result>
+	    </action>
+	     <action name="addproduct" class="ProductAction" method="addproduct">
+	    	<result type="chain">queryallproduct</result>
+	    </action>
+	    <action name="deleteproduct" class="ProductAction" method="deleteproduct">
+	    	<result type="chain">queryallproduct</result>
+	    </action>
+	    <action name="findproduct" class="ProductAction" method="findproduct">
+	    	<result name="success">/WEB-INF\admin\updateProduct.jsp</result>
+	    </action>
+	    <action name="updateproduct" class="ProductAction" method="updateProduct">
+	    	<result type="chain">queryallproduct</result>
+	    </action>
+	</package> 
+	</struts>

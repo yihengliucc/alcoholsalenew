@@ -1,0 +1,99 @@
+HTML {
+    FONT-FAMILY: Arial,Helvetica,sans-serif,"宋体";
+    text-align: left;
+    word-break: break-all;
+    text-overflow: ellipsis;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+    padding: 0;
+    margin: 0;
+}
+
+body{
+	font-size: 12px;
+	margin: 0px;
+}
+
+/* 定义常用的字体颜色 */
+.font1 {
+	color: #3B5888;
+	text-decoration: none;
+}
+
+.font2 {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+/* 浅灰色 */
+.font3 {
+	color: #8C8A94;
+	/* line-height: 20px; */
+}
+
+.font4 {
+	color: #8C8A94;
+	line-height: 20px;
+	font-weight: bold;
+}
+
+.font5 {
+	color: black;
+	line-height: 20px;
+	font-weight: bold;
+}
+
+.font6 {
+	font-size: 20px;
+	font-weight: bold;	
+}
+
+.font7 {
+	color:red;
+}
+
+/*定义一些常用的超链接样式*/
+a.anavi:link,a.anavi:visited,a.anavi:hover,a.anavi:active {
+	color: #8C8A94;
+	text-decoration: none;
+}
+
+/* 通用的link */
+a, a.link, a:visited, a:active {
+	color: #8C8A94;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #cc0001;
+	text-decoration: underline;
+}
+
+table {
+	font-size: 12px;
+}
+
+/* 按钮样式 */
+.button1 {
+	background-color: #ffffff;
+	cursor: hand;
+	width: 161px;
+	height: 41px;
+	background-image: url("/xiaonei/images/front/regbtn.gif");
+	background-repeat: no-repeat;
+	background-position: center;
+	text-align: center;
+	border: none;
+}
+
+/* 提示文字底板 */
+.spanVal {
+	background-color: #FFFFCD;
+	font-size: 12px;
+	padding: 3px;
+	width: 200px;
+	hight: 14px;
+	border: 3px #E7C437 solid;
+}
+

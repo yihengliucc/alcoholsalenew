@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping >
+    <class name="com.alcoholsale.domain.TImage" table="tb_image" >
+        <id name="imageid" type="java.lang.Integer">
+            <column name="imageid" precision="22" scale="0" />
+            <generator class="sequence" >
+            	<param name="sequence">seq_image</param>
+            </generator>
+        </id>
+	<property name="imagename" type="java.lang.String">
+	<column name="imagename" length="64"></column>
+	</property>
+	<many-to-one name="product" column="product_id" lazy="false"  />
+    </class>
+</hibernate-mapping>
