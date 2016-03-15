@@ -7,10 +7,7 @@
 				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
 				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 
-<!-- 测试spring -->
-<bean id="testService" class="com.alcoholsale.test.ServiceTest">
-	<property name="name" value="" />
-</bean>
+
 <!-- 配置数据源 -->
 <bean id='dataSource' class="org.apache.commons.dbcp.BasicDataSource">
 <property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
@@ -71,6 +68,4 @@ hibernate.show_sql=true
 <bean id="LoginAction" class="com.alcoholsale.web.struts2.action.LoginAction">
 <property name="userservice" ref="userservice"></property>
 </bean>
-
-
 </beans>
