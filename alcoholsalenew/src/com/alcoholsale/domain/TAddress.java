@@ -1,6 +1,8 @@
 package com.alcoholsale.domain;
 
-public class TAddress {
+import java.io.Serializable;
+
+public class TAddress implements Serializable {
 	private Integer addressid;
 	private String addressname;
 	private TUser  user;

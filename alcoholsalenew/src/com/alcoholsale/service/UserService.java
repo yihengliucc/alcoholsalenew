@@ -9,4 +9,6 @@ public interface UserService  extends BaseService {
 	public   TUser checkUser(String name,String password);
 //分页查询所有用户
 	public List queryAllUser(int pageSize,int PageNow);
+//修改用户信息
+	public void updateUser(TUser tuser);
 }

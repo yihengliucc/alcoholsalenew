@@ -20,6 +20,7 @@ public class TProduct implements java.io.Serializable {
 	private Double memberprice;
 	private Date pubdate;
 	private BigDecimal sales;
+	private String image;
 	private Set TOrderitems = new HashSet(0);
 	private  TStock stockid;
 	private Set<TImage> imageid;
@@ -115,6 +116,14 @@ public class TProduct implements java.io.Serializable {
 
 	public void setCommtentid(Set<TComment> commtentid) {
 		this.commtentid = commtentid;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 	
 }

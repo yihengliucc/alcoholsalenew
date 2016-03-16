@@ -18,6 +18,9 @@
         <property name="descr" type="java.lang.String">
             <column name="DESCR" />
         </property>
+        <property name="image" type="java.lang.String">
+            <column name="image" />
+        </property>
         <property name="normalprice" type="java.lang.Double">
             <column name="NORMALPRICE" precision="8" />
         </property>
@@ -38,11 +41,11 @@
         </set>
     <many-to-one name="stockid" column="stockid"  unique="true" lazy="false" cascade="all"></many-to-one>
     
-    <set name="imageid" cascade="all">
+    <set name="imageid" cascade="all" lazy="false">
 		<key column="product_id" ></key>
 	<one-to-many class="com.alcoholsale.domain.TImage"/>
 	</set>
-	 <set name="commtentid" cascade="all">
+	 <set name="commtentid" cascade="all" lazy="false">
 		<key column="product_id" ></key>
 	<one-to-many class="com.alcoholsale.domain.TComment"/>
 </set>

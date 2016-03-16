@@ -1,8 +1,11 @@
 package com.alcoholsale.web.struts2.action;
 
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +14,8 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
 
+import com.alcoholsale.domain.TAddress;
+import com.alcoholsale.domain.TProduct;
 import com.alcoholsale.domain.TUser;
 import com.alcoholsale.service.UserService;
 import com.opensymphony.xwork2.ActionContext;
@@ -25,7 +30,7 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 	private int pageSize;
 	private int pageNow;
 	private int userid;
-	
+	private List<TAddress> address;
 	private TUser user;
 	public TUser getUser() {
 		return user;
@@ -65,8 +70,14 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 	public void setPageNow(int pageNow) {
 		this.pageNow = pageNow;
 	}
-	
 
+	
+	public List<TAddress> getAddress() {
+		return address;
+	}
+	public void setAddress(List<TAddress> address) {
+		this.address = address;
+	}
 	@Override
 	public void setServletRequest(HttpServletRequest ServletRequest) {
 		ServletRequest =this.ServletRequest;
@@ -107,6 +118,25 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 		userservice.deleteObject(tuser);
 		return "success";
 	}
+	
+	public String goUpdate(){
+		return SUCCESS;
+	}
+	
+	public String updateUser(){
+		ServletRequest=ServletActionContext.getRequest();
+		session = ServletRequest.getSession();
+		TUser tuser = (TUser) session.getAttribute("user");
+	    Set<TAddress> tSet = new HashSet<TAddress>(address);  
+		tuser.setAddress(tSet);
+	    tuser.setEmail(user.getEmail());
+	    tuser.setPassword(user.getPassword());
+	    tuser.setPhone(user.getPhone());
+	    tuser.setUsername(user.getUsername());
+	    userservice.updateUser(tuser);
+		return SUCCESS;
+	}
+	
 	public String goLoginUI() throws Exception {
 		return "success";
 	}

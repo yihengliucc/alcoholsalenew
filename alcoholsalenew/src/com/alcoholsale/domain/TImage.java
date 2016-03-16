@@ -1,6 +1,12 @@
 package com.alcoholsale.domain;
 
-public class TImage {
+import java.io.Serializable;
+
+public class TImage implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer imageid;
 	private String imagename;
 	private TProduct product;

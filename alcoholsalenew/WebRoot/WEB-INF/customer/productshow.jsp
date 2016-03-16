@@ -1,9 +1,10 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/customer/productshow.css" type="text/css" />
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/customer/page/pageGroup.css"/>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/customer/pageGroup.js"></script>
-
+${test}
 <div class="lay_1 clearfix contentFirst">
 	<div style="width:120px;height:600px;float:left;"></div>
 	<div class="indexTabBox">
@@ -19,233 +20,23 @@
 		<div class="indexTabConWrap">
 			<div class="indexTabCon" style="display: block;">
 				<ul class="clearfix">
-				
-				
+				<c:forEach items="${products}" var="product">				
 					<li><div class="indexTabPic">
 							<a
 								href="#"
-								target="_blank" title="53°茅台飞天500ml"><img
-								src="${pageContext.request.contextPath }/images/product/little_images/alcohol_2.jpg"
-								width="160" height="160" alt="53°茅台飞天500ml"></a>
+								target="_blank" title="${product.proname }"><img
+								src="${pageContext.request.contextPath }/myfile/${product.image}"
+								width="160" height="160" alt="${product.proname}"></a>
 						</div>
 						<div class="indexTabTit">
 							<a
 								href="#"
-								target="_blank" title="53°茅台飞天500ml">53°茅台飞天500ml</a>
+								target="_blank" title="${product.proname }">${product.proname}</a>
 						</div>
 						<div class="indexTabPrice homegoodPrice">
-							<strong goodid="3" class="jxIndex_nowPrice_3">￥868.00</strong>
+							<strong goodid="3" class="jxIndex_nowPrice_3">￥${product.normalprice}</strong>
 						</div></li>
-					<li><div class="indexTabPic">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml"><img
-								src="${pageContext.request.contextPath }/images/product/little_images/alcohol_2.jpg"
-								width="160" height="160" alt="53°茅台飞天500ml"></a>
-						</div>
-						<div class="indexTabTit">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml">53°茅台飞天500ml</a>
-						</div>
-						<div class="indexTabPrice homegoodPrice">
-							<strong goodid="3" class="jxIndex_nowPrice_3">￥868.00</strong>
-						</div></li>
-						<li><div class="indexTabPic">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml"><img
-								src="${pageContext.request.contextPath }/images/product/little_images/alcohol_2.jpg"
-								width="160" height="160" alt="53°茅台飞天500ml"></a>
-						</div>
-						<div class="indexTabTit">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml">53°茅台飞天500ml</a>
-						</div>
-						<div class="indexTabPrice homegoodPrice">
-							<strong goodid="3" class="jxIndex_nowPrice_3">￥868.00</strong>
-						</div></li>
-						<li><div class="indexTabPic">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml"><img
-								src="${pageContext.request.contextPath }/images/product/little_images/alcohol_2.jpg"
-								width="160" height="160" alt="53°茅台飞天500ml"></a>
-						</div>
-						<div class="indexTabTit">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml">53°茅台飞天500ml</a>
-						</div>
-						<div class="indexTabPrice homegoodPrice">
-							<strong goodid="3" class="jxIndex_nowPrice_3">￥868.00</strong>
-						</div></li>
-						<li><div class="indexTabPic">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml"><img
-								src="${pageContext.request.contextPath }/images/product/little_images/alcohol_2.jpg"
-								width="160" height="160" alt="53°茅台飞天500ml"></a>
-						</div>
-						<div class="indexTabTit">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml">53°茅台飞天500ml</a>
-						</div>
-						<div class="indexTabPrice homegoodPrice">
-							<strong goodid="3" class="jxIndex_nowPrice_3">￥868.00</strong>
-						</div></li>
-						<li><div class="indexTabPic">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml"><img
-								src="${pageContext.request.contextPath }/images/product/little_images/alcohol_2.jpg"
-								width="160" height="160" alt="53°茅台飞天500ml"></a>
-						</div>
-						<div class="indexTabTit">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml">53°茅台飞天500ml</a>
-						</div>
-						<div class="indexTabPrice homegoodPrice">
-							<strong goodid="3" class="jxIndex_nowPrice_3">￥868.00</strong>
-						</div></li>
-						<li><div class="indexTabPic">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml"><img
-								src="${pageContext.request.contextPath }/images/product/little_images/alcohol_2.jpg"
-								width="160" height="160" alt="53°茅台飞天500ml"></a>
-						</div>
-						<div class="indexTabTit">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml">53°茅台飞天500ml</a>
-						</div>
-						<div class="indexTabPrice homegoodPrice">
-							<strong goodid="3" class="jxIndex_nowPrice_3">￥868.00</strong>
-						</div></li>
-						<li><div class="indexTabPic">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml"><img
-								src="${pageContext.request.contextPath }/images/product/little_images/alcohol_2.jpg"
-								width="160" height="160" alt="53°茅台飞天500ml"></a>
-						</div>
-						<div class="indexTabTit">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml">53°茅台飞天500ml</a>
-						</div>
-						<div class="indexTabPrice homegoodPrice">
-							<strong goodid="3" class="jxIndex_nowPrice_3">￥868.00</strong>
-						</div></li>
-						<li><div class="indexTabPic">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml"><img
-								src="${pageContext.request.contextPath }/images/product/little_images/alcohol_2.jpg"
-								width="160" height="160" alt="53°茅台飞天500ml"></a>
-						</div>
-						<div class="indexTabTit">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml">53°茅台飞天500ml</a>
-						</div>
-						<div class="indexTabPrice homegoodPrice">
-							<strong goodid="3" class="jxIndex_nowPrice_3">￥868.00</strong>
-						</div></li>
-						<li><div class="indexTabPic">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml"><img
-								src="${pageContext.request.contextPath }/images/product/little_images/alcohol_2.jpg"
-								width="160" height="160" alt="53°茅台飞天500ml"></a>
-						</div>
-						<div class="indexTabTit">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml">53°茅台飞天500ml</a>
-						</div>
-						<div class="indexTabPrice homegoodPrice">
-							<strong goodid="3" class="jxIndex_nowPrice_3">￥868.00</strong>
-						</div></li>
-						<li><div class="indexTabPic">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml"><img
-								src="${pageContext.request.contextPath }/images/product/little_images/alcohol_2.jpg"
-								width="160" height="160" alt="53°茅台飞天500ml"></a>
-						</div>
-						<div class="indexTabTit">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml">53°茅台飞天500ml</a>
-						</div>
-						<div class="indexTabPrice homegoodPrice">
-							<strong goodid="3" class="jxIndex_nowPrice_3">￥868.00</strong>
-						</div></li>
-						<li><div class="indexTabPic">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml"><img
-								src="${pageContext.request.contextPath }/images/product/little_images/alcohol_2.jpg"
-								width="160" height="160" alt="53°茅台飞天500ml"></a>
-						</div>
-						<div class="indexTabTit">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml">53°茅台飞天500ml</a>
-						</div>
-						<div class="indexTabPrice homegoodPrice">
-							<strong goodid="3" class="jxIndex_nowPrice_3">￥868.00</strong>
-						</div></li>
-						<li><div class="indexTabPic">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml"><img
-								src="${pageContext.request.contextPath }/images/product/little_images/alcohol_2.jpg"
-								width="160" height="160" alt="53°茅台飞天500ml"></a>
-						</div>
-						<div class="indexTabTit">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml">53°茅台飞天500ml</a>
-						</div>
-						<div class="indexTabPrice homegoodPrice">
-							<strong goodid="3" class="jxIndex_nowPrice_3">￥868.00</strong>
-						</div></li>
-						<li><div class="indexTabPic">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml"><img
-								src="${pageContext.request.contextPath }/images/product/little_images/alcohol_2.jpg"
-								width="160" height="160" alt="53°茅台飞天500ml"></a>
-						</div>
-						<div class="indexTabTit">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml">53°茅台飞天500ml</a>
-						</div>
-						<div class="indexTabPrice homegoodPrice">
-							<strong goodid="3" class="jxIndex_nowPrice_3">￥868.00</strong>
-						</div></li>
-						<li><div class="indexTabPic">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml"><img
-								src="${pageContext.request.contextPath }/images/product/little_images/alcohol_2.jpg"
-								width="160" height="160" alt="53°茅台飞天500ml"></a>
-						</div>
-						<div class="indexTabTit">
-							<a
-								href="#"
-								target="_blank" title="53°茅台飞天500ml">53°茅台飞天500ml</a>
-						</div>
-						<div class="indexTabPrice homegoodPrice">
-							<strong goodid="3" class="jxIndex_nowPrice_3">￥868.00</strong>
-						</div></li>		
+		</c:forEach>				
 				</ul>
 				
 				<!-------------------------------------------分页----------------------------------------------------------------->

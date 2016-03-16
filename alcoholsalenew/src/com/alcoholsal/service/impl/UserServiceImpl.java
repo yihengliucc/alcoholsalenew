@@ -13,7 +13,6 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
 	@Override
 	public TUser checkUser(String name, String password) {
 		try {
-			System.out.println("================="+password);
 			String hql = " from TUser where username=? and password=?";
 			Object obj[]={name,password};
 			List<TUser> lst = this.getResult(hql, obj);
@@ -41,5 +40,9 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
 		}
 	}
 
-	
+	@Override
+	public void updateUser(TUser tuser) {
+		this.updateObject(tuser);
+	}
+
 }

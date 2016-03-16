@@ -36,13 +36,13 @@
             </key>
             <one-to-many class="com.alcoholsale.domain.TOrder" />
         </set>
-		<set name="address">
+		<set name="address" lazy="false" cascade="all">
 			<key>
 				<column name = "user_id" />
 			</key>
 			<one-to-many class="com.alcoholsale.domain.TAddress"/>		
 		</set>
-	<set name="tusercomment">
+	<set name="tusercomment" cascade="all">
 		<key column="tusercomment"></key>
 		<one-to-many class="com.alcoholsale.domain.TUserComment"/>
 	</set>

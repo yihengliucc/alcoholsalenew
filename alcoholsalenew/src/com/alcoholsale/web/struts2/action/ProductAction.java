@@ -101,6 +101,7 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
 		Date pubdate=sdf.parse(sdf.format(date));
 		product.setPubdate(pubdate);
+		product.setImage(myfileFileName[0]);
 		productservice.saveObject(stock);
 		product.setStockid(stock);
 		productservice.saveObject(product);
