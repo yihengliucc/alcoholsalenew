@@ -15,15 +15,13 @@ public class TUser implements java.io.Serializable {
 
 	private Integer userid;
 	private String username;
-	private String passwd;
+	private String password;
 	private String email;
 	private String phone;
-	private String addr1;
-	private String addr2;
 	private Date regdate;
 	private Integer grade;
 	private Set TOrders = new HashSet(0);
-
+	private Set<TAddress> address = new HashSet<TAddress>();
 	// Constructors
 
 	/** default constructor */
@@ -36,17 +34,16 @@ public class TUser implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public TUser(String username, String passwd, String email, String phone,
-			String addr1, String addr2, Date regdate,Integer grade, Set TOrders) {
+	public TUser(String username, String password, String email, String phone,
+			 Date regdate,Integer grade, Set TOrders, Set<TAddress> address) {
 		this.username = username;
-		this.passwd = passwd;
+		this.password = password;
 		this.email = email;
 		this.phone = phone;
-		this.addr1 = addr1;
-		this.addr2 = addr2;
 		this.regdate = regdate;
 		this.grade=grade;
 		this.TOrders = TOrders;
+		this.address=address;
 	}
 	
 	// Property accessors
@@ -69,12 +66,12 @@ public class TUser implements java.io.Serializable {
 		this.username = username;
 	}
 
-	public String getPasswd() {
-		return this.passwd;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPasswd(String passwd) {
-		this.passwd = passwd;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getEmail() {
@@ -91,22 +88,6 @@ public class TUser implements java.io.Serializable {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
-	}
-
-	public String getAddr1() {
-		return this.addr1;
-	}
-
-	public void setAddr1(String addr1) {
-		this.addr1 = addr1;
-	}
-
-	public String getAddr2() {
-		return this.addr2;
-	}
-
-	public void setAddr2(String addr2) {
-		this.addr2 = addr2;
 	}
 
 	public Date getRegdate() {
@@ -131,6 +112,14 @@ public class TUser implements java.io.Serializable {
 
 	public void setTOrders(Set TOrders) {
 		this.TOrders = TOrders;
+	}
+
+	public Set<TAddress> getAddress() {
+		return address;
+	}
+
+	public void setAddress(Set<TAddress> address) {
+		this.address = address;
 	}
 
 }

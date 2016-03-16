@@ -15,26 +15,20 @@
         <property name="username" type="java.lang.String">
             <column name="USERNAME" length="64" not-null="true" />
         </property>
-        <property name="passwd" type="java.lang.String">
-            <column name="PASSWD" length="16" />
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" length="16" />
         </property>
         <property name="email" type="java.lang.String">
-            <column name="EMAIL" length="64" />
+            <column name="EMAIL" length="64" not-null="true" />
         </property>
         <property name="phone" type="java.lang.String">
             <column name="PHONE" length="20" />
-        </property>
-        <property name="addr1" type="java.lang.String">
-            <column name="ADDR1" />
-        </property>
-        <property name="addr2" type="java.lang.String">
-            <column name="ADDR2" />
         </property>
         <property name="regdate" type="java.util.Date">
             <column name="REGDATE" length="7" />
         </property>
         <property name="grade" type="java.lang.Integer">
-            <column name="grade" length="7" />
+            <column name="grade" length="7" not-null="true" />
         </property>
         <set name="TOrders" inverse="true">
             <key>
@@ -42,5 +36,11 @@
             </key>
             <one-to-many class="com.alcoholsale.domain.TOrder" />
         </set>
+		<set name="address">
+			<key>
+				<column name = "user_id" />
+			</key>
+			<one-to-many class="com.alcoholsale.domain.TAddress"/>		
+		</set>
     </class>
 </hibernate-mapping>

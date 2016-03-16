@@ -16,17 +16,39 @@ CONNECT alcoholsale/abc123@VM;
 
 -- 用户表
 DROP TABLE t_user;
-CREATE TABLE t_user(
-  userid NUMBER PRIMARY KEY,
-  username VARCHAR2(64) NOT NULL,
-  passwd VARCHAR2(16),
-  email VARCHAR2(64) ,
-  phone VARCHAR2(20),
-  addr1 VARCHAR2(255),
-  addr2 VARCHAR2(255),
-  grade number,
-  regdate DATE
+-- Create table
+create table T_USER
+(
+  userid   NUMBER(10) not null,
+  username VARCHAR2(64) not null,
+  passwd   VARCHAR2(16),
+  email    VARCHAR2(64),
+  phone    VARCHAR2(20),
+  regdate  DATE,
+  grade    NUMBER(10)
 );
+-- Add comments to the table 
+comment on table T_USER
+  is '用户信息表';
+-- Add comments to the columns 
+comment on column T_USER.userid
+  is '用户编号';
+comment on column T_USER.username
+  is '用户姓名';
+comment on column T_USER.passwd
+  is '用户密码';
+comment on column T_USER.email
+  is '用户邮箱';
+comment on column T_USER.phone
+  is '联系方式';
+comment on column T_USER.regdate
+  is '注册时间';
+comment on column T_USER.grade
+  is '权限级别';
+
+alter table T_USER
+  add primary key (USERID);
+
 
 -- 商品类别表
 -- 商品类别
@@ -147,6 +169,58 @@ INSERT INTO T_USER
   (USERID, USERNAME, PASSWD, EMAIL, PHONE, ADDR1, REGDATE, GRADE)
 VALUES
   (SEQ_USER.NEXTVAL, 'cc', '123', 'liucheng@163.com', '13800000000','江西南昌',SYSDATE, 2);
+  
+  
+  COMMENT ON TABLE t_user IS '用户信息表';
+COMMENT ON COLUMN t_user.userid IS '用户编号';
+COMMENT ON COLUMN t_user.username IS '用户姓名';
+COMMENT ON COLUMN t_user.password IS '用户密码';
+COMMENT ON COLUMN t_user.email IS '用户邮箱';
+COMMENT ON COLUMN t_user.phone IS '联系方式';
+COMMENT ON COLUMN t_user.regdate IS '注册时间';
+COMMENT ON COLUMN t_user.grade IS '权限级别';
+
+COMMENT ON TABLE t_stock IS '库存信息表';
+COMMENT ON COLUMN t_stock.stockid IS '库存编号';
+COMMENT ON COLUMN t_stock.quantity IS '库存量';
+
+COMMENT ON TABLE t_product IS '商品信息表';
+COMMENT ON COLUMN t_product.proid IS '商品信息编号';
+COMMENT ON COLUMN t_product.proname IS '商品名称';
+COMMENT ON COLUMN t_product.descr IS '商品描述';
+COMMENT ON COLUMN t_product.normalprice IS '商品价格';
+COMMENT ON COLUMN t_product.memberprice IS '会员价格';
+COMMENT ON COLUMN t_product.sales IS '销量';
+COMMENT ON COLUMN t_product.pubdate IS '商品入库日期';
+COMMENT ON COLUMN t_product.stockid IS '库存编号';
+
+COMMENT ON TABLE tb_image IS '商品图片信息';
+COMMENT ON COLUMN tb_image.imageid IS '图片编号';
+COMMENT ON COLUMN tb_image.imagename IS '图片名称';
+COMMENT ON COLUMN tb_image.product_id IS '商品编号';
+
+COMMENT ON TABLE tb_address IS '收货地址信息表';
+COMMENT ON COLUMN tb_address.addressid IS '收货地址编号';
+COMMENT ON COLUMN tb_address.addressname IS '收货地址';
+COMMENT ON COLUMN tb_address.user_id IS '用户编号';
+
+COMMENT ON TABLE t_order IS '订单信息表';
+COMMENT ON COLUMN t_order.orderid IS '订单编号';
+COMMENT ON COLUMN t_order.userid IS '用户id';
+COMMENT ON COLUMN t_order.addrid IS '收货地址编号';
+COMMENT ON COLUMN t_order.oderdate IS '订单生成时间';
+COMMENT ON COLUMN t_order.status IS '订单状态';
+COMMENT ON COLUMN t_order.orderitem IS '订单详细信息编号';
+COMMENT ON COLUMN t_order.paydate IS '订单付款时间';
+
+COMMENT ON TABLE t_orderitem IS '订单详细信息';
+COMMENT ON COLUMN t_orderitem.itemid IS '订单详细信息编号';
+COMMENT ON COLUMN t_orderitem.proid IS '订单对应商品编号';
+COMMENT ON COLUMN t_orderitem.unitprice IS '商品单价';
+COMMENT ON COLUMN t_orderitem.pcount IS '购买数量';
+
+
+ 
 
 
 

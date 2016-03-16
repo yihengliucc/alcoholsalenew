@@ -14,10 +14,8 @@ public class TProduct implements java.io.Serializable {
 	// Fields
 
 	private Integer proid;
-	private TCategory TCategory;
 	private String proname;
 	private String descr;
-	private String img;
 	private Double normalprice;
 	private Double memberprice;
 	private Date pubdate;
@@ -33,13 +31,11 @@ public class TProduct implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public TProduct(TCategory TCategory, String proname, String descr,
+	public TProduct(String proname, String descr,
 			String img, Double normalprice, Double memberprice, Date pubdate,
 			BigDecimal sales, Set TOrderitems, TStock stockid,Set<TImage> imageid) {
-		this.TCategory = TCategory;
 		this.proname = proname;
 		this.descr = descr;
-		this.img = img;
 		this.normalprice = normalprice;
 		this.memberprice = memberprice;
 		this.pubdate = pubdate;
@@ -49,13 +45,6 @@ public class TProduct implements java.io.Serializable {
 		this.imageid=imageid;
 	}
 
-	// Property accessors
-
-	
-
-	public TCategory getTCategory() {
-		return this.TCategory;
-	}
 
 	public Integer getProid() {
 		return proid;
@@ -63,10 +52,6 @@ public class TProduct implements java.io.Serializable {
 
 	public void setProid(Integer proid) {
 		this.proid = proid;
-	}
-
-	public void setTCategory(TCategory TCategory) {
-		this.TCategory = TCategory;
 	}
 
 	public String getProname() {
@@ -83,14 +68,6 @@ public class TProduct implements java.io.Serializable {
 
 	public void setDescr(String descr) {
 		this.descr = descr;
-	}
-
-	public String getImg() {
-		return this.img;
-	}
-
-	public void setImg(String img) {
-		this.img = img;
 	}
 
 	public Double getNormalprice() {

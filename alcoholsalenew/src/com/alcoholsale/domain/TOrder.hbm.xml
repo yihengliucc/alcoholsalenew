@@ -15,9 +15,6 @@
         <many-to-one name="TUser" class="com.alcoholsale.domain.TUser" fetch="select">
             <column name="USERID" precision="22" scale="0" />
         </many-to-one>
-        <property name="addr" type="java.lang.String">
-            <column name="ADDR" />
-        </property>
         <property name="oderdate" type="java.util.Date">
             <column name="ODERDATE" length="7" />
         </property>
@@ -27,11 +24,7 @@
         <property name="paydate" type="java.util.Date">
             <column name="PAYDATE" length="7" />
         </property>
-        <set name="TOrderitems" inverse="true">
-            <key>
-                <column name="ORDERID" precision="22" scale="0" />
-            </key>
-            <one-to-many class="com.alcoholsale.domain.TOrderitem" />
-        </set>
+        <many-to-one name="addr" column="addrid" unique="true"></many-to-one>
+        <many-to-one name="orderitem" cascade="all"></many-to-one>
     </class>
 </hibernate-mapping>

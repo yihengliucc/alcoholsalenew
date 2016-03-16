@@ -71,7 +71,7 @@ function test1(obj)
             <dl>
                 <!-- <dt class="f14 b">帐户安全设置</dt>  -->
                 <dd><span class="title">登录账号：</span><input class="reg_input" name="user.username" id="t_UserName" onblur="checkusername(this.value);" type="text" /><span id="t_UserNameTip" class="onshow"></span></dd>
-                <dd><span class="title">登录密码：</span><input class="reg_input" onblur="return checkpasswd(this);" id="t_UserPass" name="user.passwd" type="password"/><span id="t_UserPassTip" class="onshow"></span></dd>
+                <dd><span class="title">登录密码：</span><input class="reg_input" onblur="return checkpasswd(this);" id="t_UserPass" name="user.password" type="password"/><span id="t_UserPassTip" class="onshow"></span></dd>
                 <dd><span class="title">确认登录密码：</span><input onblur="checkdoublepassword();" class="reg_input" type="password" id="t_RePass" name="t_RePass"/><span id="t_RePassTip" class="onshow"></span></dd>
                 <dd><span class="title">邮箱地址：</span><input class="reg_input" name="user.email" type="text" id="t_Email" onblur="checkemail(this.value)" /><span id="t_EmailTip" class="onshow"></span></dd>
                 <dd><span class="title">手机号码：</span><input class="reg_input" name='user.phone' type='text' id='iptPhone' onblur="return checktheform();" /><span id="iptPhoneTip" class="onshow"></span></dd>               

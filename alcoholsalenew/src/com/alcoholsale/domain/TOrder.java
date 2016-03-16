@@ -15,11 +15,11 @@ public class TOrder implements java.io.Serializable {
 
 	private  Integer orderid;
 	private TUser TUser;
-	private String addr;
+	private TAddress addr;
 	private Date oderdate;
 	private  Integer status;
 	private Date paydate;
-	private Set TOrderitems = new HashSet(0);
+	private TOrderitem orderitem;
 
 	// Constructors
 
@@ -28,14 +28,14 @@ public class TOrder implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public TOrder(TUser TUser, String addr, Date oderdate, Integer status,
-			Date paydate, Set TOrderitems) {
+	public TOrder(TUser TUser, TAddress addr, Date oderdate, Integer status,
+			Date paydate, TOrderitem orderitem) {
 		this.TUser = TUser;
 		this.addr = addr;
 		this.oderdate = oderdate;
 		this.status = status;
 		this.paydate = paydate;
-		this.TOrderitems = TOrderitems;
+		this.orderitem = orderitem;
 	}
 
 	// Property accessors
@@ -56,11 +56,11 @@ public class TOrder implements java.io.Serializable {
 		this.TUser = TUser;
 	}
 
-	public String getAddr() {
-		return this.addr;
+	public TAddress getAddr() {
+		return addr;
 	}
 
-	public void setAddr(String addr) {
+	public void setAddr(TAddress addr) {
 		this.addr = addr;
 	}
 
@@ -88,12 +88,11 @@ public class TOrder implements java.io.Serializable {
 		this.paydate = paydate;
 	}
 
-	public Set getTOrderitems() {
-		return this.TOrderitems;
+	public TOrderitem getOrderitem() {
+		return orderitem;
 	}
 
-	public void setTOrderitems(Set TOrderitems) {
-		this.TOrderitems = TOrderitems;
+	public void setOrderitem(TOrderitem orderitem) {
+		this.orderitem = orderitem;
 	}
-
 }
