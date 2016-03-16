@@ -22,31 +22,17 @@ public class TUser implements java.io.Serializable {
 	private Integer grade;
 	private Set TOrders = new HashSet(0);
 	private Set<TAddress> address = new HashSet<TAddress>();
+	private Set<TUserComment> tusercomment = new HashSet<TUserComment>();
 	// Constructors
 
 	/** default constructor */
 	public TUser() {
 	}
 
-	/** minimal constructor */
 	public TUser(String username) {
 		this.username = username;
 	}
 
-	/** full constructor */
-	public TUser(String username, String password, String email, String phone,
-			 Date regdate,Integer grade, Set TOrders, Set<TAddress> address) {
-		this.username = username;
-		this.password = password;
-		this.email = email;
-		this.phone = phone;
-		this.regdate = regdate;
-		this.grade=grade;
-		this.TOrders = TOrders;
-		this.address=address;
-	}
-	
-	// Property accessors
 
 	
 
@@ -120,6 +106,14 @@ public class TUser implements java.io.Serializable {
 
 	public void setAddress(Set<TAddress> address) {
 		this.address = address;
+	}
+
+	public Set<TUserComment> getTusercomment() {
+		return tusercomment;
+	}
+
+	public void setTusercomment(Set<TUserComment> tusercomment) {
+		this.tusercomment = tusercomment;
 	}
 
 }

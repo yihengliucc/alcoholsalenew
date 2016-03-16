@@ -42,5 +42,9 @@
 			</key>
 			<one-to-many class="com.alcoholsale.domain.TAddress"/>		
 		</set>
+	<set name="tusercomment">
+		<key column="tusercomment"></key>
+		<one-to-many class="com.alcoholsale.domain.TUserComment"/>
+	</set>
     </class>
 </hibernate-mapping>

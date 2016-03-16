@@ -12,17 +12,11 @@
             	<param name="sequence">seq_product</param>
             </generator>
         </id>
-        <many-to-one name="TCategory" class="com.alcoholsale.domain.TCategory" fetch="select">
-            <column name="CATID1" precision="22" scale="0" />
-        </many-to-one>
         <property name="proname" type="java.lang.String">
             <column name="PRONAME" />
         </property>
         <property name="descr" type="java.lang.String">
             <column name="DESCR" />
-        </property>
-        <property name="img" type="java.lang.String">
-            <column name="IMG" />
         </property>
         <property name="normalprice" type="java.lang.Double">
             <column name="NORMALPRICE" precision="8" />
@@ -43,9 +37,14 @@
             <one-to-many class="com.alcoholsale.domain.TOrderitem" />
         </set>
     <many-to-one name="stockid" column="stockid"  unique="true" lazy="false" cascade="all"></many-to-one>
+    
     <set name="imageid" cascade="all">
-	<key column="product_id" ></key>
+		<key column="product_id" ></key>
 	<one-to-many class="com.alcoholsale.domain.TImage"/>
+	</set>
+	 <set name="commtentid" cascade="all">
+		<key column="product_id" ></key>
+	<one-to-many class="com.alcoholsale.domain.TComment"/>
 </set>
     </class>
 </hibernate-mapping>

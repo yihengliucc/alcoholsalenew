@@ -23,28 +23,11 @@ public class TProduct implements java.io.Serializable {
 	private Set TOrderitems = new HashSet(0);
 	private  TStock stockid;
 	private Set<TImage> imageid;
+	private Set<TComment> commtentid;
 
-	// Constructors
 
-	/** default constructor */
 	public TProduct() {
 	}
-
-	/** full constructor */
-	public TProduct(String proname, String descr,
-			String img, Double normalprice, Double memberprice, Date pubdate,
-			BigDecimal sales, Set TOrderitems, TStock stockid,Set<TImage> imageid) {
-		this.proname = proname;
-		this.descr = descr;
-		this.normalprice = normalprice;
-		this.memberprice = memberprice;
-		this.pubdate = pubdate;
-		this.sales = sales;
-		this.TOrderitems = TOrderitems;
-		this.stockid = stockid;
-		this.imageid=imageid;
-	}
-
 
 	public Integer getProid() {
 		return proid;
@@ -126,4 +109,12 @@ public class TProduct implements java.io.Serializable {
 		this.imageid = imageid;
 	}
 
+	public Set<TComment> getCommtentid() {
+		return commtentid;
+	}
+
+	public void setCommtentid(Set<TComment> commtentid) {
+		this.commtentid = commtentid;
+	}
+	
 }

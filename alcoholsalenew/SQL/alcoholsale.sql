@@ -220,6 +220,55 @@ COMMENT ON COLUMN t_orderitem.unitprice IS '商品单价';
 COMMENT ON COLUMN t_orderitem.pcount IS '购买数量';
 
 
+CREATE OR REPLACE PROCEDURE p_pay_order(
+v_orderid INTEGER,
+v_ret IN OUT SMALLINT
+)
+AS
+v_productid INTEGER; --商品编号
+v_orderitem INTEGER;--详细订单编号
+v_stockid INTEGER; --库存编号
+v_quantity INTEGER; --库存量
+v_pcount INTEGER;--购买数量
+v_sales INTEGER;--商品销售量
+v_errorcode NUMBER;
+v_errormsg VARCHAR2(100);
+BEGIN
+ --查询商品库存量
+ --查询订单信息表中的订单详细信息编号
+ SELECT orderitem INTO v_orderitem FROM t_order WHERE orderid=v_orderid;
+ --查询订单详细信息中的商品编号
+ SELECT proid,pcount INTO v_productid,v_pcount FROM t_orderitem WHERE itemid=v_orderitem;
+ --查询出商品信息的库存编号
+  SELECT stockid,sales INTO v_stockid,v_sales FROM t_product  WHERE proid=v_productid; 
+  --查询出商品库存量
+  SELECT quantity INTO v_quantity FROM t_stock WHERE stockid=v_stockid;
+  --判断是否有足够的库存
+  IF v_quantity>v_pcount THEN --库存足够
+    --修改订单支付时间
+    UPDATE t_order SET paydate=TO_date(to_char(SYSDATE,'yyyy-mm-dd'),'yyyy-mm-dd') WHERE orderid=v_orderid;
+    --减少库存量
+    UPDATE t_stock SET quantity=v_quantity-v_pcount WHERE stockid=v_stockid;
+    --修改商品销售量
+    UPDATE t_product SET sales=v_sales+v_pcount  WHERE proid=v_productid;
+    v_ret:=0;
+    COMMIT;
+    RETURN;
+  ELSE
+    v_ret:=99;
+    RETURN;
+  END IF;
+EXCEPTION
+  WHEN OTHERS THEN
+  ROLLBACK;
+  v_errorcode:=SQLCODE;
+  v_errormsg:=SQLERRM;
+  INSERT INTO tb_log_err VALUES ('p_pay_order',SYSDATE,v_errorcode,v_errormsg);
+  COMMIT;
+  v_ret:=99;
+END;
+
+
  
 
 

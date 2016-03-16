@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping >
+    <class name="com.alcoholsale.domain.TComment" table="tb_comment" >
+        <id name="tcommentid" type="java.lang.Integer">
+            <column name="tcommentid" precision="22" scale="0" />
+            <generator class="sequence" >
+            	<param name="sequence">seq_commentid</param>
+            </generator>
+        </id>
+	<property name="commentmsg" type="java.lang.String">
+	<column name="commentmsg" length="64"></column>
+	</property>
+	<many-to-one name="productid" column="product_id" lazy="false"/>
+	<set name="tusercomment">
+	<key column="tusercomment"></key>
+	<one-to-many class="com.alcoholsale.domain.TUserComment"/>
+	</set>
+    </class>
+</hibernate-mapping>
