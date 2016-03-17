@@ -126,8 +126,8 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 	}
 	
 	public String updateUser(){
-		ServletRequest=ServletActionContext.getRequest();
-		session = ServletRequest.getSession();
+		servletRequest=ServletActionContext.getRequest();
+		session = servletRequest.getSession();
 		TUser tuser = (TUser) session.getAttribute("user");
 	    Set<TAddress> tSet = new HashSet<TAddress>(address);  
 		tuser.setAddress(tSet);

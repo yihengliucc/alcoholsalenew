@@ -23,7 +23,7 @@
 				<c:forEach items="${products}" var="product">				
 					<li><div class="indexTabPic">
 							<a
-								href="#"
+								href="customershowdetail.action"
 								target="_blank" title="${product.proname }"><img
 								src="${pageContext.request.contextPath }/myfile/${product.image}"
 								width="160" height="160" alt="${product.proname}"></a>
