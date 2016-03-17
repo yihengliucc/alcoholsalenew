@@ -11,7 +11,7 @@
 <!-- 配置数据源 -->
 <bean id='dataSource' class="org.apache.commons.dbcp.BasicDataSource">
 <property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
-<property name="url" value="jdbc:oracle:thin:@192.168.0.196:1521:orcl"/>
+<property name="url" value="jdbc:oracle:thin:@192.168.37.128:1521:bob"/>
 <property name="username" value="alcoholsale"/>
 <property name="password" value="abc123"/>
 <!-- 连接池启动的初始值 -->
@@ -71,7 +71,7 @@ hibernate.show_sql=true
 </bean>
 
 <bean id="CommentAction" class="com.alcoholsale.web.struts2.action.CommentAction">
-<property name="commentservice" ref="commentservice"></property>
+<property name="commentService" ref="commentservice"></property>
 </bean>
 <bean id="OrderAction" class="com.alcoholsale.web.struts2.action.OrdersAction">
 <property name="orderservice" ref="orderservice"></property>

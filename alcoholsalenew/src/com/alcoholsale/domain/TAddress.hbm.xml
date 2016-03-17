@@ -9,7 +9,7 @@
             	<param name="sequence">seq_address</param>
             </generator>
         </id>
-	<property name="addressname" type="java.lang.String">
+	<property name="addressname" type="java.lang.String" >
 	<column name="addressname" length="64"></column>
 	</property>
 	<many-to-one name="user" column="user_id" lazy="false"  />

@@ -151,7 +151,6 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 	}
 	public String reg() throws Exception {
 		// 插入用户信息到数据库
-//		user.setUsername("liucheng");
 		user.setRegdate(new java.util.Date());
 		user.setGrade(2);
 		userservice.saveObject(user);

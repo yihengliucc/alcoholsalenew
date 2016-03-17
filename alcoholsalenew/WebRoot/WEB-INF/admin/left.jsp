@@ -30,7 +30,7 @@ $(function(){
 		<li><a href="exit.action"  target="_top">退出登入</a></li>
 		<li><a href="#" ref="xtgl">系统管理</a></li>
 		<ul show="true">
-			<li><a href="queryuser.action?pageSize=1&&pageNow=1" target="right">用户管理</a></li>
+			<li><a href="queryuser.action?pageSize=4&&pageNow=1" target="right">用户管理</a></li>
 			<li><a href="#" ref="rzck">添加用户</a></li>
 		</ul>
 		<li><a href="#" ref="ckgl">商品管理</a></li>
