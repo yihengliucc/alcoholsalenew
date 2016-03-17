@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/customer/page/pageGroup.css"/>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/customer/pageGroup.js"></script>
-${test}
+
 <div class="lay_1 clearfix contentFirst">
 	<div style="width:120px;height:600px;float:left;"></div>
 	<div class="indexTabBox">

@@ -25,7 +25,7 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 	private String username;
 	private String password;
 	private UserService userservice;
-	private HttpServletRequest ServletRequest;
+	private HttpServletRequest servletRequest;
 	private HttpSession session;
 	private int pageSize;
 	private int pageNow;
@@ -80,20 +80,22 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 	}
 	@Override
 	public void setServletRequest(HttpServletRequest ServletRequest) {
-		ServletRequest =this.ServletRequest;
+		ServletRequest =this.servletRequest;
 	}
 	
 	public String login() throws Exception {
 		TUser tuser = userservice.checkUser(username, password);
-		ServletRequest=ServletActionContext.getRequest();
-		session = ServletRequest.getSession();
+		servletRequest=ServletActionContext.getRequest();
+		session = servletRequest.getSession();
 		if (tuser!=null) {
 			//Map session= ActionContext.getContext().getSession();
 			//session.put("user", tuser);
 			session.setAttribute("user", tuser);
 			if(tuser.getGrade()==1){
+				session.removeAttribute("logininfo");
 				return "adminsuccess";
 			}else{
+			session.removeAttribute("logininfo");
 			return "success";
 			}
 		} else {
@@ -142,11 +144,29 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 	}
 	
 	public String exit() throws Exception {
-		session.invalidate();
-		return "success";
+		// 用这个方法比比较好，用invalidate方法不但会清除所有session里面的东西，如果已经清除了的话会报空指针的错误
+		//session.removeAttribute("user");
+		/*if (session.getAttribute("user") != null) {
+			session.invalidate();
+		}
+		return "success";*/
+		// 判断session是否已经失效
+		servletRequest=ServletActionContext.getRequest();
+		// 传递参数true，但session过期时，新的session就会被创建；后面就可以用sessin.isNew方法来判断session是否是同一个session
+		session = servletRequest.getSession(true);
+		 if (!session.isNew()) {
+			 session.invalidate(); 
+		 }
+		 return "success";
 	}
 	
 	public String goRegUI() throws Exception {
+		// 判断session是否已经失效
+		servletRequest=ServletActionContext.getRequest();
+		session = servletRequest.getSession(true);
+		 if (!session.isNew()) {
+			 session.invalidate(); 
+		 }
 		return "success";
 	}
 	public String reg() throws Exception {
@@ -160,6 +180,9 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 		return "success";
 	}
 	public String right() throws Exception {
+		return "success";
+	}
+	public String goCart() throws Exception {
 		return "success";
 	}
 }

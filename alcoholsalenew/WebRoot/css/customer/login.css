@@ -93,13 +93,14 @@ body {
 	clear: both;
 }
 
-.logo {
+/* .logo {
 	float: left;
     height: 85px;
     margin-top: 40px;
     margin-left: 100px;
     width: 184px;
-}
+} */
+
 .erroinfo {
 	float:left;
 	margin-top: 5px;
@@ -109,4 +110,32 @@ body {
 	margin-top: 5px;
 	margin-right: 20px;
 	float:right;
+}
+
+.mid-header {
+	float: left;
+	width: 100%;
+    height: 100px;
+    margin-top: 0px;
+    /* border-bottom: 1px solid #e5e5e5; */
+    background-color: #E7981F;
+}
+
+.top-head {
+	width: 1000px;
+    height: 99px;
+    margin: 0 auto;
+}
+
+.logo {
+	float: left;
+    height: 85px;
+    margin-top: 8px;
+    width: 184px;
+}
+
+.logo p a {
+	display: block;
+    height: 85px;
+    width: 180px;
 }

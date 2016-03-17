@@ -7,7 +7,7 @@
 
 .top-head {
 	width: 1000px;
-    height: 27px;
+   height: 27px;
     margin: 0 auto;
 }
 
@@ -42,7 +42,7 @@
 	float:left;
 }
 
-.header-left p, a {
+.header-left p, .header-left a {
 	float:left;
 	margin-right: 13px;
 }

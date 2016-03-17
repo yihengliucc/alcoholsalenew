@@ -24,5 +24,8 @@
 	    <action name="updateproduct" class="ProductAction" method="updateProduct">
 	    	<result type="chain">queryallproduct</result>
 	    </action>
+	    <action name="customershowdetail" class="ProductAction" method="customershowdetail">
+	    	<result name="success">/WEB-INF\customer\productdetail.jsp</result>
+	    </action>
 	</package> 
 	</struts>

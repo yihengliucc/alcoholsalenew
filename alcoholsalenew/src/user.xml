@@ -11,9 +11,6 @@
 	    	<result name="adminsuccess" >/WEB-INF/admin/admin.jsp</result>
 	    	<result name="failer">/WEB-INF\customer\login.jsp</result>
 	    </action>
-	    <action name="autoload" class="LoginAction" method="goLoginUI">
-	    	<result name="success">/WEB-INF\customer\index.jsp</result>
-	    </action>
 	    <action name="goLoginUI" class="LoginAction" method="goLoginUI">
 	    	<result name="success">/WEB-INF\customer\login.jsp</result>
 	    </action>
@@ -43,6 +40,9 @@
 	    </action>
 	    <action name="updateuser" class="LoginAction" method="updateUser">
 	    	 <result name="success" type="chain">queryuser</result>  
+	    </action>
+	    	    <action name="goCart" class="LoginAction" method="goCart">
+	    	<result name="success">/WEB-INF\customer\mycart.jsp</result>
 	    </action>
 	</package> 
 	</struts>

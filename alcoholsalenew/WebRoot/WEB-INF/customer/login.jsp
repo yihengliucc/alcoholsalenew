@@ -8,16 +8,27 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/customer/login.css"
 	type="text/css" />
-<link rel="stylesheet"
+<%-- <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/comm.css"
-	type="text/css" />
+	type="text/css" /> --%>
 </head>
 <body>
+	<div class="mid-header">
+      <div class="top-head">
+    		<div class="logo">
+    			<p style="background:url(${pageContext.request.contextPath }/images/others/winelogo.png) no-repeat;" class="index">
+    				<a target="_blank" href="${pageContext.request.contextPath }/index.jsp"></a>
+    			</p>
+    		</div>
+    	</div>
+    </div>
+
+
 	<!--login start-->
-	<div class="logo">
+	<%-- <div class="logo">
 		<p style="background:url(${pageContext.request.contextPath }/images/others/winelogo.png) no-repeat;" class="logo">
 		</p>
-	</div>
+	</div> --%>
 	<div class="login">
 		<div class="l_title">
 			<span>欢迎登录</span>

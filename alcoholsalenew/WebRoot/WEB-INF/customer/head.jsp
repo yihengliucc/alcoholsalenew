@@ -41,10 +41,10 @@
     </div>
     
     <div class="mid-header">
-    <div class="top-head">
+      <div class="top-head">
     		<div class="logo">
     			<p style="background:url(${pageContext.request.contextPath }/images/others/winelogo.png) no-repeat;" class="index">
-    				<a target="_blank" href="http://www.yihengliu.com"></a>
+    				<a target="_blank" href="${pageContext.request.contextPath }/index.jsp"></a>
     			</p>
     		</div>
     		<!-- <div class="header-search">

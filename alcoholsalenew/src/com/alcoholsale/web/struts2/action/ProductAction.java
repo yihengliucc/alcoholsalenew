@@ -150,4 +150,9 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
 	public void setServletRequest(HttpServletRequest ServletRequest) {
 		ServletRequest=this.ServletRequest;
 	}
+	
+	// 跳转到商品详情展示页面
+	public String customershowdetail() throws Exception{
+		return "success";
+	}
 }
