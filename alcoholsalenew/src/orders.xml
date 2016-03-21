@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory"></constant>
+	<package name="orders"  extends="struts-default">
+	    <action name="addOrder" class="OrderAction" method="addOrder">
+	    	<result name="success">/WEB-INF\customer\mycart.jsp</result>
+	    </action> 
+	    <action name="queryNoSendOrder" class="OrderAction" method="queryNoSendOrder">
+	    	<result name="success">/WEB-INF\admin\nosendorder.jsp</result>
+	    </action> 
+	    <action name="querySendOrder" class="OrderAction" method="querySendOrder">
+	    	<result name="success">/WEB-INF\admin\sendorder.jsp</result>
+	    </action> 
+	    <action name="sendaction" class="OrderAction" method="sendaction">
+	    	<result name="success" type="chain">queryNoSendOrder</result>
+	    </action>
+	    <action name="queryComment" class="OrderAction" method="queryComment">
+	    	<result name="success" >WEB-INF\admin\comment.jsp</result>
+	    </action>
+	</package> 
+	</struts>
