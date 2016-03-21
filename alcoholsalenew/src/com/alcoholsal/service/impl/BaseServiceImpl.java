@@ -25,7 +25,9 @@ public class BaseServiceImpl implements BaseService{
 	@Override
 	public Object findById(Class clazz, Serializable id) {
 		Session session =sessionFactory.getCurrentSession();
-		Object obj = session.load(clazz, id);
+		System.out.println("=============session============"+session);
+		Object obj = session.get(clazz, id);
+		System.out.println("============================"+obj);
 		return obj;
 	}
 

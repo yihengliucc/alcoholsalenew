@@ -41,8 +41,5 @@
 	    <action name="updateuser" class="LoginAction" method="updateUser">
 	    	 <result name="success" type="chain">queryuser</result>  
 	    </action>
-	    	    <action name="goCart" class="LoginAction" method="goCart">
-	    	<result name="success">/WEB-INF\customer\mycart.jsp</result>
-	    </action>
 	</package> 
 	</struts>

@@ -12,7 +12,7 @@
 	<property name="commentmsg" type="java.lang.String">
 	<column name="commentmsg" length="64"></column>
 	</property>
-	<many-to-one name="productid" column="product_id" lazy="false"/>
+	<many-to-one name="productid" column="product_id" />
 	<set name="tusercomment">
 	<key column="tusercomment"></key>
 	<one-to-many class="com.alcoholsale.domain.TUserComment"/>

@@ -1,24 +1,21 @@
 package com.alcoholsale.web.struts2.action;
 
 
-import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
+import org.springframework.context.annotation.Scope;
 
 import com.alcoholsale.domain.TAddress;
-import com.alcoholsale.domain.TProduct;
 import com.alcoholsale.domain.TUser;
 import com.alcoholsale.service.UserService;
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginAction extends ActionSupport implements ServletRequestAware{
@@ -30,7 +27,7 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 	private int pageSize;
 	private int pageNow;
 	private int userid;
-	private List<TAddress> address;
+	private List<TAddress> newaddress;
 	private TUser user;
 	public TUser getUser() {
 		return user;
@@ -72,11 +69,21 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 	}
 
 	
-	public List<TAddress> getAddress() {
-		return address;
+	public List<TAddress> getNewaddress() {
+		//spring默认单列模式，获取之前要先清理之前的值
+		if(newaddress!=null)
+		newaddress.removeAll(newaddress);
+		return newaddress;
 	}
-	public void setAddress(List<TAddress> address) {
-		this.address = address;
+	public void setNewaddress(List<TAddress> newaddress) {
+		System.out.println("=========================setAddress方法===========");
+		this.newaddress = newaddress;
+	}
+	public int getUserid() {
+		return userid;
+	}
+	public void setUserid(int userid) {
+		this.userid = userid;
 	}
 	@Override
 	public void setServletRequest(HttpServletRequest ServletRequest) {
@@ -122,20 +129,32 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 	}
 	
 	public String goUpdate(){
+		TUser tuser = (TUser) userservice.findById(TUser.class, userid);
+		servletRequest=ServletActionContext.getRequest();
+		session = servletRequest.getSession();
+		session.setAttribute("updateuser", tuser);
 		return SUCCESS;
 	}
 	
 	public String updateUser(){
-		servletRequest=ServletActionContext.getRequest();
-		session = servletRequest.getSession();
-		TUser tuser = (TUser) session.getAttribute("user");
-	    Set<TAddress> tSet = new HashSet<TAddress>(address);  
+		TUser tuser = (TUser) userservice.findById(TUser.class, user.getUserid());
+		//防止最后一条为空增加判断
+		if(newaddress.get(newaddress.size()-1).getAddressname().trim().equals("")){
+			newaddress.remove(newaddress.size()-1);
+		}
+		//删错原有的address避免重复
+		Iterator<TAddress> sets = tuser.getAddress().iterator();
+		while(sets.hasNext()){
+			userservice.deleteObject(sets.next());
+		}
+	    Set<TAddress> tSet = new HashSet<TAddress>(newaddress);
 		tuser.setAddress(tSet);
 	    tuser.setEmail(user.getEmail());
 	    tuser.setPassword(user.getPassword());
 	    tuser.setPhone(user.getPhone());
 	    tuser.setUsername(user.getUsername());
 	    userservice.updateUser(tuser);
+	    newaddress.removeAll(newaddress);
 		return SUCCESS;
 	}
 	
@@ -180,9 +199,6 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 		return "success";
 	}
 	public String right() throws Exception {
-		return "success";
-	}
-	public String goCart() throws Exception {
 		return "success";
 	}
 }

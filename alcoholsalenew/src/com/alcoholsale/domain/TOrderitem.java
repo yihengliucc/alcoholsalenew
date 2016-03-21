@@ -11,7 +11,6 @@ public class TOrderitem implements java.io.Serializable {
 	// Fields
 
 	private  Integer itemid;
-	private TOrder TOrder;
 	private TProduct TProduct;
 	private Double unitprice;
 	private  Integer pcount;
@@ -22,14 +21,6 @@ public class TOrderitem implements java.io.Serializable {
 	public TOrderitem() {
 	}
 
-	/** full constructor */
-	public TOrderitem(TOrder TOrder, TProduct TProduct, Double unitprice,
-			Integer pcount) {
-		this.TOrder = TOrder;
-		this.TProduct = TProduct;
-		this.unitprice = unitprice;
-		this.pcount = pcount;
-	}
 
 	// Property accessors
 
@@ -39,14 +30,6 @@ public class TOrderitem implements java.io.Serializable {
 
 	public void setItemid(Integer itemid) {
 		this.itemid = itemid;
-	}
-
-	public TOrder getTOrder() {
-		return this.TOrder;
-	}
-
-	public void setTOrder(TOrder TOrder) {
-		this.TOrder = TOrder;
 	}
 
 	public TProduct getTProduct() {

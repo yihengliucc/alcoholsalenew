@@ -22,7 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		//当前控件的类型为file
 		file.type = "text";
 		file.style="width:500px";
-		file.name = "address.addressname"; 
+		file.name = "newaddress.addressname"; 
 		remove.type="button";
 		remove.value="动态删除";
 		//为删除按钮添加事件 移除元素
@@ -41,14 +41,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <h1 style="text-align:left">用户信息修改</h1>
   <form action="updateuser!updateUser" method="post" enctype="multipart/form-data" >
    <table class="table_border">
-   <tr><td>用户姓名</td><td ><input type="text" name="user.username" style="width:500px" value="${user.username}"/></td></tr>
-   <tr><td>用户密码</td><td><input type="text" name="user.password" style="width:500px" value="${user.password }"/></td></tr>
-   <tr><td>用户邮箱</td><td><input type="text" name="user.email" style="width:500px" value="${user.email}" /></td></tr>
-   <tr><td>联系电话</td><td><input type="text" name="user.phone" style="width:500px" value="${user.phone }"/></td></tr>
-   <c:forEach items="${user.address}" var="taddress">
-    <tr><td>收货地址</td><td><textarea name="address.addressname" style="width:500px" >${taddress.addressname}</textarea></td></tr>
+   <tr><td><input type="hidden" name="user.userid" value="${updateuser.userid}"/></td></tr>
+   <tr><td>用户姓名</td><td ><input type="text" name="user.username" style="width:500px" value="${updateuser.username}"/></td></tr>
+   <tr><td>用户密码</td><td><input type="text" name="user.password" style="width:500px" value="${updateuser.password }"/></td></tr>
+   <tr><td>用户邮箱</td><td><input type="text" name="user.email" style="width:500px" value="${updateuser.email}" /></td></tr>
+   <tr><td>联系电话</td><td><input type="text" name="user.phone" style="width:500px" value="${updateuser.phone }"/></td></tr>
+   <c:forEach items="${updateuser.address}" var="taddress">
+    <tr><td>收货地址</td><td><textarea name="newaddress.addressname" style="width:500px" >${taddress.addressname}</textarea></td></tr>
    </c:forEach>
-   <tr><td>新增收货地址</td><td id="main"><textarea name="address.addressname" style="width:500px" ></textarea><input type="button" style="align:left" value="增加更多" onclick="add()"/></td></tr>
+   <tr><td>新增收货地址</td><td id="main"><textarea name="newaddress.addressname" style="width:500px" ></textarea><input type="button" style="align:left" value="增加更多" onclick="add()"/></td></tr>
    <tr><td><input type="submit" value="提交"/><input type="reset" value="重置"/></td></tr>
    </table>
    </form>

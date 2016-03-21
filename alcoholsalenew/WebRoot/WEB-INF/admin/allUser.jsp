@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <tr><td>编号</td><td>姓名</td><td>邮箱</td><td>手机号码</td><td>注册时间</td><td>详细信息</td><td>删除</td></tr>
    	<c:forEach items="${alluser}" var = "usermessage">
    	<tr><td>${usermessage.userid}</td><td>${usermessage.username}</td><td>${usermessage.email}</td><td>${usermessage.phone}</td>
-   	<td>${usermessage.regdate}</td><td><a href="${pageContext.request.contextPath }/goupdate.action">修改</a></td><td><a href="${pageContext.request.contextPath }/deleteUser.action?userid=${usermessage.userid }">删除</a></td></tr>
+   	<td>${usermessage.regdate}</td><td><a href="${pageContext.request.contextPath }/goupdate.action?userid=${usermessage.userid }">修改</a></td><td><a href="${pageContext.request.contextPath }/deleteUser.action?userid=${usermessage.userid }">删除</a></td></tr>
    	</c:forEach>
    </table>
    <c:if test="${pageNow!=1 }">

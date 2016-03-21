@@ -39,14 +39,14 @@ $(function(){
 			<!--  <li><a href="#" ref="shgl">收货管理</a></li>-->
 			<li><a href="#" ref="fhgl">订单管理</a></li>
 			<ul>
-				<li><a href="#" ref="yhgl">未发货物管理</a></li>
-				<li><a href="#" ref="yhgl">已发货管理</a></li>
+				<li><a href="queryNoSendOrder.action?pageSize=1&&pageNow=1" target="right">未发货物管理</a></li>
+				<li><a href="querySendOrder.action?pageSize=1&&pageNow=1" target="right">已发货管理</a></li>
 			<!--  	<li><a href="#" ref="rzck">日志查看</a></li>-->
 			</ul>
 		</ul>
 			<li><a href="#" ref="fhgl">评价管理</a></li>
 			<ul>
-				<li><a href="#" ref="yhgl">货物评价</a></li>
+				<li><a href="queryComment.action" target="right">货物评价</a></li>
 			</ul>
 	</ul>
 </div>

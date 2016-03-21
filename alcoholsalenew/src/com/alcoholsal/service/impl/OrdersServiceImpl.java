@@ -7,6 +7,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -21,9 +22,10 @@ import com.alcoholsale.service.OrdersService;
 public class OrdersServiceImpl extends BaseServiceImpl implements OrdersService {
 	
 	@Override
-	public void addOrder(Integer productid, TUser user, Integer addr,
-			TOrder order, TOrderitem torderitem) {
+	public void addOrder(Integer productid, TUser user, 
+			 TOrderitem torderitem) {
 		try {
+			TOrder order = new TOrder();
 			//保存订单详细信息对象
 			//1.查询相应的产品信息对象
 			TProduct product = (TProduct) this.findById(TProduct.class, productid);
@@ -34,10 +36,6 @@ public class OrdersServiceImpl extends BaseServiceImpl implements OrdersService 
 			//保存订单对象
 			//1.将用户保存到订单信息对象
 			order.setTUser(user);
-			//2.查询出收货地对象
-			TAddress address = (TAddress) this.findById(TAddress.class,addr);
-			//3.将收货地添加到信息订单
-			order.setAddr(address);
 			//订单生成时间
 			Date date = new Date();
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
@@ -57,16 +55,17 @@ public class OrdersServiceImpl extends BaseServiceImpl implements OrdersService 
 	}
 
 	@Override
-	public boolean payOrder(Integer orderid) {
+	public boolean payOrder(Integer orderid,Integer addid) {
 		boolean success=false;
 		try {
 			Session session =this.getSessionFactory().getCurrentSession();
 			Connection connection = session.connection();
 			CallableStatement cs = connection.prepareCall("call p_pay_order");
 			cs.setInt(1, orderid);
-			cs.registerOutParameter(2, java.sql.Types.INTEGER);
+			cs.setInt(2, addid);
+			cs.registerOutParameter(3, java.sql.Types.INTEGER);
 			cs.execute();
-			int ret = cs.getInt(2);
+			int ret = cs.getInt(3);
 			System.out.println("=============存储返回值==========="+ret);
 			if(ret==0)
 		    success=true;
@@ -74,6 +73,28 @@ public class OrdersServiceImpl extends BaseServiceImpl implements OrdersService 
 			e.printStackTrace();
 		} 
 		return success;
+	}
+
+	@Override
+	public List<TOrder> queryNoSend(int pageNow, int pageSize) {
+		String hql = "from TOrder where status<>1";
+		List<TOrder> lst = this.getResultByPage(hql, null, pageSize, pageNow);
+		return lst;
+	}
+
+	@Override
+	public List<TOrder> querySend(int pageNow, int pageSize) {
+		String hql = "from TOrder where status=1";
+		List<TOrder> lst = this.getResultByPage(hql, null, pageSize, pageNow);
+		return lst;
+	}
+
+	@Override
+	public boolean sendOrder(Integer orderid) {
+		TOrder torder=(TOrder) this.findById(TOrder.class, orderid);
+		torder.setStatus(1);
+		this.updateObject(torder);
+		return false;
 	}
 	
 

@@ -116,6 +116,7 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
 	    	FileUtils.copyFile(myfile[i], file2);
 	    	productservice.saveObject(new TImage(myfileFileName[i],product));
 	    }
+	    
 		this.setPageNow(1);
 		return SUCCESS;
 	}
@@ -153,6 +154,12 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
 	
 	// 跳转到商品详情展示页面
 	public String customershowdetail() throws Exception{
+		TProduct productdetial = (TProduct) productservice.findById(TProduct.class, proid);
+		System.out.println("=================proid==============="+proid);
+		ServletRequest=ServletActionContext.getRequest();
+		session = ServletRequest.getSession();
+		System.out.println("====================="+productdetial);
+		session.setAttribute("productdetial", productdetial);
 		return "success";
 	}
 }

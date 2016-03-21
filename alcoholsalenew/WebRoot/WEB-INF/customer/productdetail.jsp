@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -106,7 +107,7 @@
 			<div class="detail-guide">
 				<strong> <a
 					href="${pageContext.request.contextPath }/index.jsp" target="_self">首页</a>
-				</strong> &gt; <span class="det-cur">53°茅台五星500ml</span>
+				</strong> &gt; <span class="det-cur">${productdetial.proname}</span>
 			</div>
 
 			<!-- 商品详情  -->
@@ -116,8 +117,8 @@
 						<div id="preview">
 							<div class="jqzoom" id="spec-n1" onclick="">
 								<img height="384"
-									src="${pageContext.request.contextPath }/images/product/detail/pic1_1.jpg"
-									jqimg="${pageContext.request.contextPath }/images/product/detail/pic1_1.jpg"
+									src="${pageContext.request.contextPath }/myfile/${productdetial.image}"
+									jqimg="${pageContext.request.contextPath }/myfile/${productdetial.image}"
 									width="452" alt="">
 							</div>
 							<div id="spec-n5">
@@ -126,12 +127,16 @@
 										style="position:relative;overflow:hidden;z-index:1;width:452px;height:120px;">
 										<ul class="list-h"
 											style="width: 459px; overflow: hidden; position: absolute; left: 0px; top: 0px; margin-top: 0px; margin-left: 459px;">
-											<li><img
+											<!-- <li><img
 												src="${pageContext.request.contextPath }/images/product/detail/pic1_1.jpg"></li>
 											<li><img
 												src="${pageContext.request.contextPath }/images/product/detail/pic1_2.jpg"></li>
 											<li><img
-												src="${pageContext.request.contextPath }/images/product/detail/pic1_3.jpg"></li>
+												src="${pageContext.request.contextPath }/images/product/detail/pic1_3.jpg"></li>-->
+										<c:forEach items="${productdetial.imageid}" var="productimage">
+											<li><img
+												src="${pageContext.request.contextPath }/myfile/${productimage.imagename}"></li>
+										</c:forEach>
 										</ul>
 									</div>
 								</div>
@@ -141,47 +146,38 @@
 
 					<!-- 左侧确定购买部分 -->
 					<div class="pro_dar">
-						<h1>53°茅台五星500ml</h1>
-						<!--   <table cellpadding="0" cellspacing="0">
-		                  <tbody><tr>
-		                    <td>货号：HC0008131</td>
-		                    <td>18K金重：2.36g</td>
-		                    <td>PT金重：3.36g</td>
-		                  </tr>
-		                  <tr>
-		                    <td>主石：0.195ct</td>
-		                    <td>副石：无副石</td>
-		                    <td>&nbsp;</td>
-		                  </tr>
-		                </tbody></table>
-		                -->
+						<h1>${productdetial.proname}</h1>
+	
 
 						<div style="margin-top:20px">
 							<p class="pri">
-								价&nbsp;&nbsp;&nbsp;&nbsp;格：<s style="padding-left:5px;">￥899.00</s>
+								价&nbsp;&nbsp;&nbsp;&nbsp;格：<s style="padding-left:5px;">￥${productdetial.normalprice }</s>
 							</p>
 						</div>
 
 						<div class="price">
 							促销价：<em style="padding-left:5px;"><font
 								style="font-size:15px;font-style:normal;font-family:'微软雅黑';">￥</font>
-								868.00</em>
+								${productdetial.memberprice }</em>
 						</div>
-						
+						<form name="form" action="addOrder!addOrder" method="post">
 						<!-- 数量 -->
 						<div class="count">
 							<span style="padding-right:5px;">数&nbsp;&nbsp;&nbsp;&nbsp;量：</span>
 							<div class="gw_num" >
 								
 								<em class="jian">-</em>
-								<input type="text" value="1" class="num"/>
+								<input type="hidden" name="productid" value="${productdetial.proid}"/>
+								<input type="text" value="1" name="torderitem.pcount" class="num"/>
+								
 								<em class="add">+</em>
 							</div>
 						</div>
 						
 						<div class="scar">
-							<a href="goCart.action">加入购物车</a>
+							<a href="javascript:document.form.submit();">加入购物车</a>
 						</div>
+						</form>
 					</div>
 				</div>
 				<div class="space_hx">&nbsp;</div>

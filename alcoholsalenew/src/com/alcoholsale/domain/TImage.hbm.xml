@@ -12,6 +12,6 @@
 	<property name="imagename" type="java.lang.String">
 	<column name="imagename" length="64"></column>
 	</property>
-	<many-to-one name="product" column="product_id" lazy="false"  />
+	<many-to-one name="product" column="product_id" />
     </class>
 </hibernate-mapping>
