@@ -182,7 +182,12 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 	public String right() throws Exception {
 		return "success";
 	}
+	// 跳转到购物车
 	public String goCart() throws Exception {
+		return "success";
+	}
+	// 跳转到我的订单
+	public String goMyOrderUI() throws Exception {
 		return "success";
 	}
 }

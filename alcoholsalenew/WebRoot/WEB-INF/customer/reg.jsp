@@ -49,10 +49,15 @@ function test1(obj)
 
 <body>
 	<!-- logo -->
-	<div class="logo">
-		<p style="background:url(${pageContext.request.contextPath }/images/others/winelogo.png) no-repeat;" class="logo">
-		</p>
-	</div>
+	<div class="mid-header">
+      <div class="top-head">
+    		<div class="logo">
+    			<p style="background:url(${pageContext.request.contextPath }/images/others/winelogo.png) no-repeat;" class="index">
+    				<a target="_blank" href="${pageContext.request.contextPath }/index.jsp"></a>
+    			</p>
+    		</div>
+    	</div>
+    </div>
 
 <!--注册开始-->
     <div class="reg">
