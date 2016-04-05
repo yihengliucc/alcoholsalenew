@@ -7,6 +7,7 @@
 .main2 {
 	width: 80%;
     margin: 0px auto;
+    background: #fff;
 }
 
 .navWrap {
@@ -62,7 +63,7 @@ a {
 	padding-left: 5px
 }
 
-.pro_d{ width:1180px; margin:0px auto; padding:30px 0; min-height:550px;}
+.pro_d{ width:1180px; margin:0px auto 0px 31px; padding:30px 0; min-height:550px;}
 .pro_d .pro_da{ width:100%;}
 .pro_da .pro_dal{ width:452px; float:left;}
 #preview{ float:none; margin:0px auto; text-align:center; width:452px;}
@@ -82,8 +83,8 @@ a {
 .jqZoomPup{z-index:10;visibility:hidden;position:absolute;top:0px;left:0px;width:118px;height:86px;border:1px solid #aaa;background:#F0F0F0 50% top no-repeat;opacity:0.5;-moz-opacity:0.5;-khtml-opacity:0.5;filter:alpha(Opacity=50);cursor:move;}
 #spec-list{ position:relative; width:452px;}
 #spec-list div{ margin-top:0; *margin-left:0;}
-.pro_da .pro_dar{ width:625px; float:right;}
-.pro_da .pro_dar h1{ width:100%; line-height:180%; font-size:24px; color:#000; padding: 46px 18px 6px; border-bottom: 1px solid #aaa;}
+.pro_da .pro_dar{ width:669px; float:right;}
+.pro_da .pro_dar h1{ width:70%; line-height:180%; font-size:24px; color:#000; padding: 46px 18px 6px; border-bottom: 1px solid #aaa;}
 .pro_da .pro_dar table{ width:100%; border:0px; font-size:14px; color:#222; text-align:left;}
 .pro_da .pro_dar table td{ padding:5px 5px 5px 0;}
 .lei{ width:100%; margin:15px 0; text-align:left;}
@@ -104,7 +105,7 @@ a {
 .scar{ width:100%; margin:45px 0;}
 .scar a{ display:block; width:170px; height:40px; line-height:40px; background:#950000; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; text-align:center; color:#FFF; font-size:20px;font-family: "Microsoft Yahei";}
 .pro_dm{ width:100%;}
-.pro_dm .pro_head{ width:100%; height:45px; background:#E2E2E2;}
+.pro_dm .pro_head{ width:88%; height:45px; background:#E2E2E2;}
 .pro_dm .pro_head span{ display:block; width:145px; height:45px; text-align:center; line-height:45px; color:#FFF; font-size:16px; background:#960000;font-family: "Microsoft Yahei";}
 .pro_dm .pm_ctn{ width:1100px; padding:20px 40px; text-align:center; overflow:hidden;}
 
@@ -168,3 +169,185 @@ a {
 	border-right: 0;
 	border-left: 1px solid #dbdbdb;
 }
+
+.dIcon {
+    background: url(../../images/others/d-icon.png) no-repeat 0 0;
+    _background: url(../../images/others/d-icon-8.png) no-repeat 0 0
+}
+
+/* 加入购物车 */
+.u-buy-lay {
+    width: 460px;
+    height: 312px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: -156px 0 0 -230px;
+    background: #fff;
+    border: 6px solid #ccc;
+    display: none;
+    z-index: 1002;
+}
+
+.u-buy-con {
+    height: 262px;
+    padding: 30px 30px 20px;
+    box-shadow: 0 0 2px 0 #888;
+    overflow: hidden
+}
+
+.u-buy-con .u-buy-gon {
+    height: 34px;
+    padding: 11px 0 19px;
+    border-bottom: 1px solid #f0f0f0;
+    text-align: center;
+    font-size: 0;
+    vertical-align: middle
+}
+
+.u-buy-gon a {
+    display: inline-block;
+    width: 94px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    font-family: "微软雅黑";
+    font-size: 14px;
+    vertical-align: middle
+}
+
+.u-buy-gon .u-buy-go {
+    background: #c33;
+    color: #fff;
+    border: 1px solid #c33
+}
+
+.u-buy-gon .u-buy-g {
+    background: #fbfbfb;
+    color: #666;
+    border: 1px solid #ddd;
+    margin-right: 12px
+}
+
+.u-buy-gon .u-buy-go:hover {
+    color: #fff
+}
+
+.u-buy-gon .u-buy-g:hover {
+    color: #666
+}
+
+.u-buy-gon a:hover {
+    text-decoration: none
+}
+
+.u-buy-ok,.u-buy-no {
+    height: 28px;
+    line-height: 28px;
+    font-size: 0;
+    vertical-align: middle;
+    text-align: center
+}
+
+.u-buy-ok i,.u-buy-no i {
+    background-position: 0 -40px;
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+    vertical-align: middle
+}
+
+.u-buy-ok i {
+    background-position: -201px -55px
+}
+
+.u-buy-no i {
+    background-position: -169px -55px
+}
+
+.u-buy-ok span,.u-buy-no span {
+    height: 28px;
+    font-family: "微软雅黑";
+    font-size: 18px;
+    color: #000;
+    padding-left: 10px;
+    vertical-align: middle
+}
+
+.u-buy-close {
+    background-position: -230px -19px;
+    width: 15px;
+    height: 15px;
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 10px
+}
+
+.u-buy-tit {
+    color: #999;
+    height: 36px;
+    line-height: 36px;
+    font-family: "微软雅黑"
+}
+
+.u-collect-list {
+    width: 100%;
+    overflow: hidden;
+    position: relative
+}
+
+.u-collect-list ul {
+    width: 450px
+}
+
+.u-collect-list li {
+    float: left;
+    width: 82px;
+    display: inline;
+    margin: 0 24px 0 0
+}
+
+.u-collect-list li .u-notice-pic {
+    width: 80px;
+    height: 80px;
+    border: 1px solid #f0f0f0
+}
+
+.u-collect-list li .u-notice-name {
+    width: 80px;
+    line-height: 16px;
+    height: 32px;
+    overflow: hidden;
+    padding-top: 3px
+}
+
+.u-collect-list li .u-notice-name a {
+    color: #999
+}
+
+.u-collect-list li .u-notice-price {
+    height: 18px;
+    line-height: 18px;
+    font-family: "微软雅黑";
+    color: #c33;
+    padding-top: 3px;
+    text-align: center
+}
+
+/*遮罩层*/
+.popMask {
+	display: none;
+	background: #000;
+	width: 100%;
+	height: 100%;
+	z-index: 1001;
+	position: fixed;
+	left: 0;
+	top: 0;
+	opacity: .5;
+	filter: alpha(opacity = 50);
+	_position: absolute;
+	_top: expression(eval(document.documentElement.scrollTop))
+}
+

@@ -1,0 +1,345 @@
+@charset "utf-8";
+/*购物车头部*/
+.bayProcess .proPic{ background-position:0 -30px;}
+.bayProcess .proTex .on2{  color:#666;}
+/*购物车头部结束*/
+.oIcon{background:url(../../images/others/cartIcon-gw-24.png) no-repeat; _background:url(../../images/others/cartIcon-gw-8.png) no-repeat;}
+.cartWrap{ width:100%; padding-bottom:10px;}
+.orderInfo{ width:1000px; margin:0 auto; background:#fff;}
+.orderItemsBox{ margin-top:18px;}
+.orderItemsBox .itemsTitle{ height:38px; line-height:38px; padding-left:1px;}
+.itemsTitle b{ font-size:16px; color:#333; font-family:'Microsoft YaHei'; margin-right:15px;}
+.itemsTitle a{ position:relative; top:-1px;}
+.itemsTitle a,.itemsTitle a:hover{ color:#0066cc; text-decoration:none;}
+.itemsWrap .listTitle{ font-weight: bold;}
+.itemsWrap .listPro{ padding-left:35px; margin-right:15px;}
+.itemsWrap .listPro2{ color:#ff9933; padding-left:35px;}
+.itemsWrap .contentTitle{ height:20px; line-height:20px; padding:20px 0 15px 21px;}
+.itemsWrap .contentTitle *,.paymentList li *{ display:inline-block; float:left;}
+.contentTitle input,.paymentList li input{ height:12px; width:12px; margin:3px 8px 0 0;}
+.contentTitle .listLink{ color:#0066cc; padding-left:10px; }
+.contentTitle .listLink:hover{ color:#0066cc;}
+.itemsWrap .contentBox{ background:#fbfcff; padding:10px 0 20px 21px; display:none;}
+.itemsWrap .conPro01{ display:inline-block; line-height:28px; color:#cc0000; font-style:normal; display:none; margin-right:10px;}
+.itemsWrap .conPro02{ display:inline-block; line-height:28px; color:#999; font-style:normal;}
+.itemsWrap .conPro03{ float:left; display:inline-block; line-height:20px; color:#cc0000; font-style:normal;}
+.modifyPayment{display:none;}
+/*收货地址*/
+.orderAddress{ margin-top:10px;}
+.orderAddress .addressList{ /* height:139px;  */overflow:hidden; padding:30px 0 0 21px; position:relative;}
+.addressList li{ float:left; width:196px; height:120px; border:2px solid #f6f6f6; padding:5px 12px 0; position:relative; margin:0px 20px 10px 0; cursor:pointer;}
+.addressList li.on{ border:2px solid #b2d1ff;}
+.addressList li.on .defaultBtn{ display:block;}
+.addressList li.on .defOn{ display:block;}
+.addressList li .address-tit{ height:30px; line-height:30px; border-bottom:1px dotted #ccc;}
+.addressList li .address-tit b{ padding-right:3px;}
+.addressList li .address-con{ height:44px; line-height:22px; padding-top:5px; overflow:hidden;}
+.addressList li .address-ope{ line-height:18px; padding-top:10px;}
+.address-ope a{ margin-right:12px;}
+.address-ope .addAlter,.address-ope .addAlter:hover{ color:#ff9933; text-decoration:none;}
+.address-ope .addDelete,.address-ope .addDelete:hover{ color:#aaa; text-decoration:none;}
+.addressList li .defaultBtn{ display:none; width:80px; height:20px; line-height:20px; text-align:center; color:#fff; background:#b2d1ff; position:absolute; right:0; top:0; cursor:pointer;}
+.addressList li .addDefault{ display:none; width:22px; height:22px; background-position:-41px -12px; position:absolute; right:0; bottom:-1px;}
+.addressList li .address-add{ height:30px; padding:38px 0 0 40px;}
+.addressList li .address-add i{ float:left; display:inline-block; width:35px; height:35px; margin-left:4px;}
+.addressList li .address-add span{ float:left; display:inline-block; width:75px; font-size:14px; color:#bbb; padding:8px 0 0 12px;}
+.orderAddress .addOpenBox{ height:23px; text-align:center; margin-top:20px;}
+.addOpenBox .addressOpen{ display:inline-block; color:#bbb; width:56px; height:22px; line-height:22px; border:1px solid #e4e4e4; border-bottom:none; border-radius:1px 1px 0 0; cursor:pointer;}
+.addressOpen b{ float:left; font-weight:normal; margin-left:9px;}
+.addressOpen i{ float:left; display:inline-block; width:10px; height:8px; background-position:-42px 0; margin:7px 0 0 4px; overflow:hidden;}
+.addressOpen.on i{ background-position:-60px 0;}
+/*收货地址end*/
+/*套装显示新增样式*/
+.productListW{ margin-bottom:15px;}
+.productList{ border-top:1px solid #ddd; position:relative;}
+.productList .bg{ background:#;}
+.productList .productTable{ width:998px; height:auto; position:relative;}
+.productTable table{ width:998px; border-top:1px solid #ddd; border-top:0px;}
+.productTable table td{ height:70px; border-bottom:1px dotted #ddd; border-right:1px dotted #ddd; background:#fff; text-align:left; overflow:hidden;}
+.productTable table td.bb{ border-right:0px;}
+.productTable table .bb td{ border-bottom:0px;}
+.productTable table .bg td{ background:#FBFBFB;}
+.productTable td .productImg,.productTable td .productName,.productTable td .productPriM,.productTable td .productNum,.productTable td .productPri{ height:54px; line-height:54px; float:left; margin:0 10px; vertical-align:top; display:inline;}
+.productTable td .productImg{ width:52px; height:52px; border:1px solid #ddd; margin:0 12px 0 33px; text-align:center; float:left;}
+.productTable td .productName{width:411px; margin:0 25px 0 5px;}
+.productTable td .productPriM{ width:145px; font-family:"微软雅黑"; text-align:center;}
+.productTable td .productNum{ width:110px; text-align:center;}
+.productTable td .productNum span{ display:inline-block; width:80px; text-align:center;}
+.productTable td .productPri{ width:130px; font-family:"微软雅黑"; color:#cc0000; font-weight:bold; font-size:14px; text-align:center;}
+.productTable td .productName .oneName{ width:411px; overflow:hidden; height:54px;}
+.productTable td .productName .twoName{ width:411px; height:27px; line-height:27px; overflow:hidden;}
+.productTable td .productName .twoName span{ color:#cc0000;}
+.tabBotLine{ width:998px; height:3px; background:url(../../images/tabBotLine.jpg) repeat-x bottom; position:absolute; left:0; bottom:0; z-index:10;}
+/*套装显示新增样式结束*/
+.orderItemsBox .itemsWrap{border:1px solid #e4e4e4;}
+.settlementList{ margin:10px 0 0px;}
+.settlementList .accountInfo{padding-left:20px;}
+.settlementList li:after {content:'...';display:block;clear:both;height:0;visibility:hidden;}
+.settlementList li{ line-height:20px; vertical-align:top;}
+.settlementList .bb{ border-bottom:none;}
+.settlementList li .settlementWrap{ height:20px; padding:10px 0 10px 3px;}
+.settlementList li .settlementWrap .settlementTitle{ float:left; height:20px; cursor:pointer; padding-left:3px;}
+.settlementList li .settlementWrap .settlementTitle span{ float:left; display:inline-block; font-style:normal; color:#0066cc;}
+.settlementList li .settlementWrap .settlementTitle .invoiceIntro{float:left; margin-left:20px; }
+.settlementList li .settlementWrap .settlementTitle .on{  background-position: -56px -43px; width:16px; height:16px; float:left; display:inline-block; margin:2px 3px 0 0;}
+.settlementList li .settlementWrap .settlementTitle .off{ background-position: -56px -64px;width:16px; height:16px; float:left; display:inline-block; margin:2px 3px 0 0;}
+.settlementCon li .settlementMinus{ float:right; font-family:"微软雅黑"; margin-right:20px; }
+.settlementCon{ margin-bottom:10px;}
+.settlementCon li .settlementMinus{ color:#999;}
+.settlementCon .gray{ background:#fbfbfb;}
+.giftCardWrap{ padding-left:20px;}
+.settlementCon li{ height:30px; line-height:30px; border-bottom:none; padding:0; padding-left:20px;}
+.settlementCon li .settlementRule{ float:left;}
+.giftCardWrap .giftCardTitleWrap{ width:100%; height:27px;}
+.giftCardWrap .giftCardTitle{ cursor:pointer; display:inline-block; background:#fbfbfb; width:120px; text-align:center; height:26px; line-height:26px; margin-bottom:-1px; border:1px solid #ddd; margin-right:8px; float:left; position:relative;}
+.giftCardWrap .giftCardTitle.gctitOn{ color:#ff9933; border-bottom:1px solid #FBFBFB;}
+.giftCardWrap .giftCardTitle b{ color:#ff9933;}
+.giftCardWrap .giftCardCon{ width:910px;}
+.giftCardWrap .giftCardBox{ background-color:#fbfbfb; border:1px solid #ddd; padding:10px 25px; width:860px;}
+.giftCardWrap .giftCardBox p{ height:26px; line-height:26px; color:#666;}
+.giftCardWrap .giftCardBox .giftCardTit{ color:#666;}
+.giftCardWrap .giftCardBox .giftCardRule span{ color:#cc0000;}
+.giftCardWrap .giftCardBox .giftCardRule a,.giftCardBox .giftCardRule a:hover,.giftCardBox .giftCardW a,.giftCardBox .giftCardW a:hover,.giftCardBox .giftCardStqTit a,.giftCardBox .giftCardStqTit a:hover{ color:#0066cc; padding-left:10px;}
+.giftCardWrap .giftCardBox .giftCardW{ color:#666; border-bottom:1px dotted #ccc; padding-bottom:5px;}
+.giftCardWrap .giftCardBox .giftCard{border: 1px solid #DDDDDD; background:#fff; width:850px; height:auto; padding:3px 0 3px 10px; height:130px;  overflow:hidden; position:relative;}  
+.giftCardWrap .giftCardBox .giftCard .open{position:absolute; right:10px; top:3px; display:inline-block; height:30px; line-height:30px; width:40px}
+.giftCardWrap .giftCardBox .giftCard span{ display:block;}
+.giftCardWrap .giftCardBox .giftCard span input{ vertical-align:middle;}
+.giftCardWrap .giftCardBox .giftCard span b{ vertical-align:middle; padding-top:1px;}
+.giftCardWrap .giftCardBox .giftCard span font{ color: #CC0000; font-size:12px; padding:0 2px 0 10px;}
+.giftCardWrap .giftCardBox .giftCard span em{ font-style:normal; padding-left:50px; vertical-align:middle;}
+.giftCardWrap .giftCardBox .giftCard span .ggname{ display:inline-block; width:300px; height:26px; overflow:hidden;}
+.giftCardWrap .giftCardBox .giftCardStqTit{ padding:3px 0;}
+.giftCardWrap .giftCardBox .giftCardStq{ padding:0 0 5px;}
+.giftCardWrap .giftCardBox .giftCardStq em{ font-style:normal;}
+.giftCardWrap .giftCardBox .giftCardStq .num input{background:#FFFFFF; border: 1px solid #DDDDDD; width:180px; height: 24px; line-height: 24px; padding:0 5px;}
+.giftCardWrap .giftCardBox .giftCardStq .useBtn { display:inline-block; height:24px; line-height:24px; border:1px solid #ccc; background:#f2f2f2; padding:0 10px; margin:0 10px;}
+.giftCardWrap .giftCardBox .giftCardStq .useBtn{ color:#666; text-decoration:none;}
+.giftCardWrap .giftCardBox .giftCardPwIn{ padding-top:5px; border-top:1px dotted #ccc;}
+.giftCardWrap .giftCardBox .giftCardPwIn b{ font-weight:normal; color:#cc0000; padding:0 3px;}
+.InputBorder1{background:#FFFFFF; border: 1px solid #DDDDDD; width:65px; height: 24px; line-height: 24px; padding:0 5px;}
+.orderSubPro,.successstyle{ font-style:normal; color:#cc0000; padding-left:10px; line-height:26px;}
+.comTotalBox{ float:right; text-align:right; padding-top:10px;}
+.comTotalBox p{ height:26px; line-height:26px; margin-right:35px;}
+.comTotalBox p span{ display:inline-block; padding-left:15px;}
+.comTotalBox p .comTotalSum{ width:100px; font-family:"微软雅黑";}
+.comTotalBox p span b{ color:#cc0000; padding-right:3px;}
+
+.orderTotal{ height: 62px; background:#fafafa; width:998px; border-top: 1px solid #fff;}
+.orderTotalFixed{ height: 62px; background:#fafafa; width:100%; position:fixed; bottom:0; left:0; z-index:100; box-shadow:0 0 5px -1px #ccc; border-top: 1px solid #e4e4e4;}
+.orderTotalCon{ width:948px; height: 62px; line-height: 62px; margin:0 auto; padding: 0 25px;}
+.settleGold{ float:left; color:#666;}
+.settleGold span{ color:#cc0000;}
+.subBtnBox{ width:105px; height:40px; float:right; margin:10px 8px 0 0; display:inline;  z-index:100; position:relative; }
+.subBtnBox .subBtn{ background:#cf000d; border-radius:3px; width:105px; height:40px; font-family:"微软雅黑"; display:inline-block;}
+.subBtnBox .subBtn i{ background-position:2px -240px; display:inline-block; width:86px; height:24px; margin:9px 0 0 9px; cursor:pointer;}
+.subBtnBox .submit-pro{ width:800px; height: 30px; position:absolute; top:-37px; right:0; z-index:111; text-align:right; zoom:1; display:none;}
+.subBtnBox .submit-pro span{background:#fff9ee; border: 1px solid #ffe2b4; color: #ff6633; display: inline-block; height: 28px; line-height: 28px; padding: 0 15px;}
+.subBtnBox .submit-pro span a{ color:#0066cc;}
+.subBtnBox .submit-pro span a:hover{color:#0066cc;}
+
+#btn-submit-order{
+	margin-top: 10px;
+    background: #cf000d;
+    padding: 10px 35px;
+    border: 0;
+    color: #fff;
+    font-family: "微软雅黑";
+    border-radius: 3px;
+    float: right;
+    font-size: 20px;
+}
+button {
+    margin: 0;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.toPay{ float:right; padding-right:25px;}
+.toPay strong{ font-size: 12px; color:#333; position:relative; top:-3px;}
+.toPay b{ color:#cf010e; font-family: "Microsoft YaHei"; font-size: 18px;}
+.packageCon{ height:20px; margin-top:5px;}
+.packageWrap{ float:left; height:20px;}
+.packageWrap span{ background:#cc0000; float:left; display:inline-block; color:#fff; height:20px; line-height:20px; margin-left:3px; padding:0 5px;}
+.balanceWrap{ background:#fbfbfb; padding:10px 20px; }
+.invoiceWrap{ background:#fbfbfb; padding:10px 20px;}
+.invCon01{ padding:0 0 10px;}
+.invCon02{ padding:10px 0;}
+.invCon03{ padding:10px 0;}
+.invoiceCon .giftItem { height: 24px; line-height: 24px; padding: 4px 0 4px;}
+.invoiceCon .giftItem a{margin-left:20px; color:#0066cc}
+.invoiceCon .invoiceTit input{ margin:0 5px 0 15px;}
+.invoiceCon .giftItem01 { height: 24px; line-height: 24px;}
+.invoiceCon .giftItem span{ margin-right: 5px; text-align: right;}
+.invoiceCon span, .invoiceCon .giftItem .field,.invoiceCon select{ float: left; display:inline-block;}
+.invoiceCon .giftItem .field label{ margin-left:10px; width:auto; float:left;}
+.invoiceCon .giftItem .field select{ margin:0px; width:80px; border: 1px solid #ddd; padding:2px; background:#fff;}
+.invoiceCon .giftItem .field .invoice{ text-align:left; width:auto;}
+.invoiceCon .giftItem .field .invoice-form{ width:260px; height:22px; border:1px solid #ddd; line-height:22px; background:#fff; }
+.invoiceCon .giftItem.border{padding-bottom:10px; border-bottom:1px dotted #ccc; }
+.invoiceCon .paymentList1 { width: 20px;}
+.invoiceCon .paymentList1 input { margin-top: 5px; *+margin-top: 2px; _margin-top: 1px;}
+.invoiceCon .paymentWrapLam{ height:28px;}
+.invoiceCon .paymentWrapLam .psValBg{ position:relative; left:0; top:0; height:28px; width:662px; background:#fff; z-index:1; float:left;}
+.invoiceCon .paymentWrapLam .psValBg .on{ border:1px solid #cc0000;}
+.invoiceCon .paymentWrapLam .conPro01{ display:inline-block; line-height:28px; color:#cc0000; font-style:normal; display:none;}
+.invoiceCon .paymentWrapLam .form-8{ position:absolute; background:none; border: 1px solid #ddd; color: #888; font-size: 12px; height: 27px; line-height: 20px; padding:3px 5px; resize: none; width: 650px; z-index: 3;}
+.invoiceCon .paymentWrapLam span { line-height:24px; *line-height:26px; _line-height:26px; color: #888; left: 5px; position: absolute; top: 2px; z-index: 2;}
+.invoiceCon .paymentWrapLam em{ display:inline-block; line-height:28px; color:#888; font-style:normal; padding-left:10px;float:left;}
+.balanceBox{ height:26px; padding:5px 0;}
+.giftTabBox{ height:auto;}
+.balanceBox div{ float:left;}
+.balanceBox p{ color:#ff9933; line-height:26px;}
+.balanceBox span{ line-height:26px;}
+.balanceBox .g span{ padding:0 2px;}
+.balanceBox .giftTab{ border-color: #CDCDCD; border-style: solid; border-width: 1px 0 0 1px;}
+.balanceBox .giftTab th,.balanceBox .giftTab td{ height: 32px; border-color: #CDCDCD; border-style: solid; border-width: 0 1px 1px 0; text-align: center;}
+.balanceBox .giftTab th{ background: #F5F5F5; font-weight: 100;}
+.balanceBox .giftTab td{ background:#fff;}
+.tc1 { width: 170px;}
+.tc2 { width: 90px;}
+.balanceBox .m{ width:84px; text-align:right; line-height:26px;}
+.giftCard .balanceBox .m{width:96px; }
+.balanceBox .form-9,.balanceBox .form-10,.balanceBox .form-11,.balanceBox .form-12{ width:85px; height:24px; border:1px solid #ddd; background:#fff; line-height:24px;}
+.balanceBox .form-10{ width:160px;}
+.balanceBox .form-11{ width:400px;}
+.balanceBox .form-12{ width:60px;}
+.balanceBox .h{ line-height:26px; padding-left:5px; color:#999;}
+.balanceBox .forget,.balanceBox .forget:hover{ float:left; line-height:26px; color:#999; padding-left:10px;}
+.balanceBox .useBtn{ float:left; display:inline-block; height:24px; line-height:24px; border:1px solid #ccc; background:#f2f2f2; padding:0 10px; margin:0 10px;}
+.balanceBox .useBtn:hover{ text-decoration:none; color:#666;}
+.code{ border-bottom:1px dotted #ddd; padding-bottom:15px;}
+.codeYzm{ float: left; cursor:pointer; display:inline; margin-left:10px; border:1px solid #ddd;}
+.balanceBox .s{ color:#cc0000; padding-left:12px;}
+/*提交验证*/
+.popMask{ width:100%; height:100%; position:fixed; left:0; top:0; z-index:1000; background:url(../../images/maskBg.png) repeat left top; _position:absolute; _top:expression(eval(document.documentElement.scrollTop));}
+.popBox{ width:410px; height:280px; border:1px solid #ccc; box-shadow:1px 1px 4px 0px #666; background:#fff; position:fixed; left:50%; top:50%; z-index:1001; margin:-140px 0 0 -205px; _position:absolute; _top:expression(eval(document.documentElement.scrollTop)+300);}
+.popCon{ text-align:left; padding:30px 0 0 60px;}
+.popTop{ line-height:30px; border-bottom:1px solid #ccc; margin:10px 20px 0;}
+.popTop h3{ font-size:14px; font-weight:bold; color:#333; padding-left:5px;}
+.popItem{ font-size:14px; padding:20px 0 0 0;}
+.popItem .popItem-form{ border:1px solid #e4e4e4; width:80px; height:35px; line-height:35px; font-size:16px; font-family:"微软雅黑"; color:#888; font-weight:600; padding:0 5px;}
+.popItem em{ font-style:normal; font-size:12px; padding-left:10px;}
+.popItem a{ color:#0066cc; font-size:12px; padding-left:5px;}
+.popItem a:hover{ color:#0066cc; text-decoration:underline;}
+.popItem img{ border:1px solid #e4e4e4; vertical-align:middle; margin-left:10px;}
+.popCode-pro{ color:#cc0000; font-size:12px; padding-top:10px;}
+.popItem .popCodeBut{ border:1px solid #e4e4e4; height:34px; line-height:32px; background:#f6f6f6; padding:0 22px; color:#333; font-size:16px;}
+.popBox .pop-close{ background-position:-162px 0; width:22px; height:22px; font-size:20px; font-family:"微软雅黑"; cursor:pointer; position:absolute; right:10px; top:10px; z-index:102;}
+/*自定义alert弹窗start*/
+.popIcon{ background:url(/img/usercenter/popIcon.png) no-repeat 0 0;}
+.pop-modal{ display:none; background:#000; width:100%; height:100%; z-index:10000;position:fixed; left:0; top:0; opacity:0.5; filter:alpha(opacity=50); _position:absolute; _top:expression(eval(document.documentElement.scrollTop)); }
+/*弹层样式1*/
+.pop-wrap1{display:none;  width:400px; height:220px; position:fixed; left:50%; top:50%; margin:-105px 0 0 -205px; _position:absolute; _top:expression(eval(document.documentElement.scrollTop)+400); background: url("../../images/popBg.png"); border-radius:5px; box-shadow:0 0 6px 1px #828282; z-index:10001; padding:5px;}
+.pop-wrap1 .pop-layer{ width:400px; height:220px; background:#fff; border-radius:3px;}
+.pop-wrap1 .pop-title{ height:40px; line-height:40px; background:#c40001; border-top-left-radius:3px; border-top-right-radius:3px; padding-left:16px;}
+.pop-wrap1 .pop-title p{ float:left; color:#fff; font-size:14px;}
+.pop-wrap1 .pop-title i{ background-position:0 -45px; display:inline-block; float:right; width:14px; height:14px; cursor:pointer; margin:13px 13px 0 0;}
+.pop-wrap1 .pop-main{ height:99px; background:#fff; padding:41px 25px 0 25px;}
+.pop-wrap1 .pop-main i{ width:40px; height:40px; display: inline-block; float:left;}
+.pop-wrap1 .pop-main .success{ background-position:0 0;}
+.pop-wrap1 .pop-main .alarm{background-position:-41px 0;}
+.pop-wrap1 .pop-main .fail{ background-position:-81px 0;}
+.pop-wrap1 .pop-main .confirm{background-position:-121px 0;}
+.pop-wrap1 .pop-main p{ font-size:14px;  font-family:"微软雅黑"; color:#000; float:right; width:300px;}
+.pop-wrap1 .pop-main p span{ display:inline-block; width:100%; vertical-align:middle; height:auto;}
+.pop-wrap1 .pop-main p b{font-weight:normal; padding:0 3px;}
+.pop-wrap1 .pop-bottom{ height:40px; background:#f1f1f1; border-bottom-left-radius:3px; border-bottom-right-radius:3px; text-align:right; padding-right:25px;}
+.pop-wrap1 .pop-bottom span{ display:inline-block; width:58px; height:22px; font-size:0; border-radius:2px; text-align:center; line-height:22px; cursor:pointer; margin:8px 0 0 5px;}
+.pop-wrap1 .pop-bottom .confirm{ border:1px solid #c40001; color:#c40001; background:#ffe6e6;}
+.pop-wrap1 .pop-bottom span b{ font-size:12px; font-weight:normal; display:inline-block;}
+.pop-wrap1 .pop-bottom .cancel{ border:1px solid #ccc; color:#666666; background:#fff;}
+/*自定义alert弹窗end*/
+/*修改地址弹层*/
+.popMask{ display: none; width: 100%; height: 100%; left: 0; background:#333; opacity:0.3; filter:alpha(opacity=30); position: fixed; top: 0; z-index: 999; _width:0; _height:0;}
+.addresPopBox{ display: none; width: 700px; height:320px; border-radius: 5px; box-shadow: 0 0 6px 1px #828282; margin: -165px 0 0 -355px; padding:5px; position: fixed; top: 50%; left: 50%; z-index: 10001; _position:absolute; background: url("../../images/popBg.png") repeat scroll 0 0;}
+.addresPop{ width: 700px; height:320px; background: #fff; border-radius: 3px;}
+.addresPop .addPopTit{ height:30px; line-height:30px; padding-top:10px; position:relative;}
+.addresPop .addPopTit b{ float:left; display:inline-block; width:4px; height:13px; background:#cc0000; margin:9px 6px 0 20px;}
+.addresPop .popClose{ display:inline-block; width:19px; height:19px; background-position:-181px -70px; position:absolute; top:8px; right:8px; cursor:pointer;}
+.addresPop .addPopCon{ padding-top:25px;}
+.addPopCon li{ height:28px; margin-top:10px;}
+.addPopCon li.btnBox{ margin-top:20px;}
+.addPopCon li .addTit{ display:inline-block; width:128px; text-align:right;}
+.addPopCon li .addTit3{ padding-right:10px;}
+.addPopCon li .addTit .xing{ display:inline-block; line-height:20px; line-height:20px; font-style:normal; color:#cc0000; font-size:16px; padding-right:5px; position:relative; top:5px;}
+.addPopCon li .addFrom{ height:26px; line-height:26px; color:#333; font-size:14px; font-family: "Microsoft YaHei"; border:1px solid #ccc; padding:0 5px; margin-right:10px;}
+.addPopCon li .addFrom.on{border:1px solid #cc0000;}
+.addPopCon li .addFrom.f1{ width:105px;}
+.addPopCon li .addFrom.f2{ width:300px;}
+.addPopCon li .addPro{ font-style:normal; color:#cc0000; display:none;}
+.addPopCon li select{ height:28px; border:1px solid #ccc; color:#333; padding:0px 2px; margin-right:8px; *width:110px;}
+.addPopCon li .addSubmit{ display:inline-block; height:24px; line-height:24px; border:1px solid #ccc; background:#fff; padding:0 10px; margin-left:128px;}
+.addPopCon li .addSubmit:hover{ color:#666; text-decoration:none;}
+/*修改地址弹层end*/
+/*支付方式*/
+.orderPayment .paymentList{ padding:20px 0 0 21px;}
+.orderPayment .paymentList .conPro03{ display:none;}
+.paymentList li { height:20px; line-height: 20px; padding-bottom: 20px; vertical-align:top;}
+.orderPayment .paymentSel{ padding:12px 0 0 21px; display:none;}
+.paymentSel li{ padding-bottom: 12px;}
+/*支付方式end*/
+/*发票信息*/
+.contentBox li{margin-top:8px;}
+.contentBox .invTitLi{ position:relative;}
+.contentBox li *{ vertical-align:top;}
+.contentBox li span{ display:inline-block; width:134px; line-height:28px; text-align:right; padding-right:8px;}
+.contentBox li label{ display:inline-block; height:28px; line-height:28px; margin-right:15px;}
+.contentBox li label input{ width:12px; height:12px; margin:7px 5px 0 0; float:left;}
+.contentBox li .conFrom01{ width:238px; height:26px; line-height:26px; border:1px solid #ccc; background:#fff; padding:0 25px 0 5px; margin-right:15px; overflow:hidden; position:relative; *+top:-1px;}
+.contentBox li .conSubmit{ display:inline-block; height:24px; line-height:24px; border:1px solid #ccc; background:#fff; padding:0 10px; margin:5px 0 0 142px;}
+.contentBox li .conSubmit:hover{ color:#666; text-decoration:none;}
+.contentBox li textarea{ width:560px; height:52px; line-height:26xp; border:1px solid #ccc; background:#fff; padding:5px; margin-right:15px;}
+.itemsWrap .contentInfo{ line-height:16px; margin:0 0 20px 41px; color:#999; display:none;}
+.itemsWrap .contentInfo span{ display:inline-block; margin-right:20px; color:#666;}
+.contentBox li .invoiceTitWrap{ width:270px; height:28px; position:absolute; left:142px; top:0;}
+.contentBox li .tholder{ display:block; width:240px; height:26px; line-height:26px; color:#999; font-weight:normal; position:absolute; left:6px; top:1px; z-index:2;}
+.contentBox li .titOpen{ display:block; width:10px; height:10px; background-position:-56px -213px; position:absolute; left:251px; top:9px;}
+.contentBox li .thresholder .titOpen{ display:none;}
+.contentBox li .xing{ display:inline-block; line-height:28px; line-height:28px; font-style:normal; color:#cc0000; font-size:16px; padding-right:3px; position:relative; top:3px;}
+.invTitleBox{ display:none; width:268px; position:absolute; left:0; top:28px; background:#fff; border-left:1px solid #ddd; border-right:1px solid #ddd; border-bottom:1px solid #ddd; z-index:10;}
+.invTitleBox ul{ width:268px; overflow-x:hidden; overflow-y:auto; position:relative;}
+.invTitleBox li{ width:258px; height:26px; line-height:26px; color:#666; padding:0 5px; overflow:hidden;white-space:nowrap;text-overflow:ellipsis; border-bottom:1px solid #ddd; margin:0;}
+/*发票信息end*/
+/*商品信息*/
+.orderCommodity .itemsWrap{ border-right:none;}
+.itemsWrap .comTable{ width:100%; border-collapse:collapse;}
+.comTable th{font-size: 12px;line-height:32px; font-weight:normal; text-align:center; background:#fafafa; border-right:1px solid #e4e4e4;}
+.comTable td{ height:70px; border-top:1px solid #e4e4e4; border-right:1px solid #e4e4e4;}
+.comTable td .com{ display: inline; float: left; height: 54px; line-height: 54px; margin: 0 10px; vertical-align: top;}
+.comTable td .productImg { display:inline; float: left; width: 52px; height: 52px; text-align: center; border: 1px solid #ddd; margin: 0 17px 0 33px; vertical-align: top;}
+.comTable td .productName { display: inline; float: left; width: 295px; height: 54px; vertical-align: top;}
+.comTable td .productName .oneName { width: 295px; height: 54px; line-height: 54px; overflow: hidden; white-space:nowrap; text-overflow:ellipsis;}
+.comTable td .productName .twoName { width: 295px; height: 27px; line-height: 27px; overflow: hidden; white-space:nowrap; text-overflow:ellipsis;}
+.comTable td .productName .twoName span { color: #cc0000;}
+.comTable td .productPriM { width: 164px; font-family: "Microsoft YaHei"; text-align: center;}
+.comTable td .productNum { width: 130px; text-align: center;}
+.comTable td .productNum span { display: inline-block; width: 80px; text-align: center;}
+.comTable td .productPri { width: 149px; color: #cc0000; font-family: "Microsoft YaHei"; font-size: 14px; text-align: center;}
+.comTable td .productStock{ width: 120px; text-align:center;}
+.comTable td .productStock.not{ color:#cc0000;}
+/*商品信息end*/
+/*弹层样式1*/
+.pop-wrap1{display:none;  width:400px; height:200px; position:fixed; left:50%; top:50%; margin:-105px 0 0 -205px; _position:absolute; _top:expression(eval(document.documentElement.scrollTop)+400); background: url('../../images/popBg.png'); border-radius:5px; box-shadow:0 0 6px 1px #828282; z-index:10001; padding:5px;}
+.pop-wrap1 .pop-layer{ width:400px; height:200px; background:#fff; border-radius:3px;}
+.pop-wrap1 .pop-title{ height:40px; line-height:40px; background:#c40001; border-top-left-radius:3px; border-top-right-radius:3px; padding-left:16px;}
+.pop-wrap1 .pop-title p{ float:left; color:#fff; font-size:14px;}
+.pop-wrap1 .pop-title i{ background-position:0 -45px; display:inline-block; float:right; width:14px; height:14px; cursor:pointer; margin:13px 13px 0 0;}
+.pop-wrap1 .pop-main{ height:79px; background:#fff; padding:41px 50px 0 50px;}
+.pop-wrap1 .pop-main i{ width:40px; height:40px; display: inline-block; float:left; display:none;}
+.pop-wrap1 .pop-main .success{ background-position:0 0;}
+.pop-wrap1 .pop-main .alarm{background-position:-41px 0;}
+.pop-wrap1 .pop-main .fail{ background-position:-81px 0;}
+.pop-wrap1 .pop-main .confirm{background-position:-121px 0;}
+.pop-wrap1 .pop-main p{ font-size:16px;  font-family:"微软雅黑"; color:#000; float:right; width:250px; height:38px;}
+.pop-wrap1 .pop-main p span{ display:inline-block; width:100%; vertical-align:middle; height:auto;}
+.pop-wrap1 .pop-main p em{ display:inline-block; vertical-align:middle; height:100%; width:0; overflow:hidden;}
+.pop-wrap1 .pop-bottom{ height:40px; background:#f1f1f1; border-bottom-left-radius:3px; border-bottom-right-radius:3px; text-align:right; padding-right:25px;}
+.pop-wrap1 .pop-bottom span{ display:inline-block; width:58px; height:22px; font-size:0; border-radius:2px; text-align:center; line-height:22px; cursor:pointer; margin:8px 0 0 5px;}
+.pop-wrap1 .pop-bottom .confirm{ border:1px solid #c40001; color:#c40001; background:#ffe6e6;}
+.pop-wrap1 .pop-bottom span b{ font-size:12px; font-weight:normal; display:inline-block;}
+.pop-wrap1 .pop-bottom .cancel{ border:1px solid #ccc; color:#666666; background:#fff;}
+/*自定义alert弹窗end*/
+/*遮罩层*/
+.popMask{background:#333; width:100%; height:100%; z-index:999 ;position:fixed; left:0; top:0; opacity:0.3; filter:alpha(opacity=30); _width:0; _height:0; display:none; }
+

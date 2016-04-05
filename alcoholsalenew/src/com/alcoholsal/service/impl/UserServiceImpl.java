@@ -32,7 +32,7 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
 			int pageNow) {
 		String hql = " from TUser";
 		if(pageSize==0 && pageNow==0){
-			List<TUser> lst=this.getResult(hql, null);
+			List<TUser> lst= this.getResult(hql, null);
 			return lst;
 		}else{
 			List<TUser> lst = this.getResultByPage(hql, null, pageSize, pageNow);

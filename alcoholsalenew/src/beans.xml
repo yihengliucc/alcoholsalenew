@@ -11,7 +11,7 @@
 <!-- 配置数据源 -->
 <bean id='dataSource' class="org.apache.commons.dbcp.BasicDataSource">
 <property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
-<property name="url" value="jdbc:oracle:thin:@192.168.1.102:1521:cc"/>
+<property name="url" value="jdbc:oracle:thin:@192.168.37.129:1521:cc"/>
 <property name="username" value="alcoholsale"/>
 <property name="password" value="abc123"/>
 <!-- 连接池启动的初始值 -->
@@ -39,6 +39,9 @@
 <value>com/alcoholsale/domain/TAddress.hbm.xml</value>
 <value>com/alcoholsale/domain/TComment.hbm.xml</value>
 <value>com/alcoholsale/domain/TUserComment.hbm.xml</value>
+<value>com/alcoholsale/domain/address/Province.hbm.xml</value>
+<value>com/alcoholsale/domain/address/City.hbm.xml</value>
+<value>com/alcoholsale/domain/address/Town.hbm.xml</value>
 </list>
 </property>
 <!-- 配置hibernate属性 -->
@@ -69,17 +72,24 @@ hibernate.show_sql=true
 <bean id="commentservice" class="com.alcoholsal.service.impl.CommentServiceImpl">
 <property name="sessionFactory" ref="sessionFactory"></property>
 </bean>
+<!-- 地址管理 -->
+<bean id="addressService" class="com.alcoholsal.service.impl.AddressImpl">
+<property name="sessionFactory" ref="sessionFactory"></property>
+</bean>
 
 <bean id="CommentAction" class="com.alcoholsale.web.struts2.action.CommentAction">
 <property name="commentService" ref="commentservice"></property>
 </bean>
 <bean id="OrderAction" class="com.alcoholsale.web.struts2.action.OrdersAction">
 <property name="orderservice" ref="orderservice"></property>
+<property name="addressService" ref="addressService"></property>
 </bean>
 <bean id="ProductAction" class="com.alcoholsale.web.struts2.action.ProductAction">
 <property name="productservice" ref="productservice"></property>
 </bean>
 <bean id="LoginAction" class="com.alcoholsale.web.struts2.action.LoginAction">
 <property name="userservice" ref="userservice"></property>
+<property name="addressService" ref="addressService"></property>
 </bean>
+
 </beans>

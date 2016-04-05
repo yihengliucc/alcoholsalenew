@@ -69,7 +69,7 @@ public class BaseServiceImpl implements BaseService{
 		sessionFactory.getCurrentSession().update(obj);
 		
 	}
-
+	// 分页
 	@Override
 	public List getResultByPage(String hql, Object[] parameters, int pageSize,
 			int pageNow) {
@@ -87,6 +87,25 @@ public class BaseServiceImpl implements BaseService{
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	@Override
+	public Object getCount(String hql, Object[] parameters) {
+		try {
+			Session session = sessionFactory.getCurrentSession();
+			Query query = session.createQuery(hql);
+			// 注入？
+			if (parameters != null && parameters.length > 0) {
+				for (int i = 0; i < parameters.length; i++) {
+					query.setParameter(i, parameters[i]);
+				}
+			}
+			return query.uniqueResult();
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
 	}
 
 }

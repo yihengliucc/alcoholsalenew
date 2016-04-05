@@ -1,7 +1,3 @@
-body {
-    font-size: 12px;
-    line-height: 1.5;
-}
 
 .navWrap {
 	width: 100%;
@@ -138,7 +134,7 @@ table {
 }
 
 .cart-item a:hover {
-	color: #c1a25f
+	color: #cc0001;
 }
 
 .seller_order_gift, .seller_order_promotion {
@@ -158,14 +154,16 @@ table {
 }
 
 #btn-submit-cart {
-	background: #c1a25f;
+	background: #cf000d;
 	padding: 10px 35px;
 	border: 0;
-	color: #fff
+	color: #fff;
+	font-family: "微软雅黑";
+	border-radius: 3px;
 }
 
 #btn-submit-cart:hover {
-	background: #b4985c
+	background: #cf000d
 }
 
 #btn-submit-cart span {
@@ -626,7 +624,7 @@ table {
 }
 .cart-main .p-title a:hover, .cart-main .p-gift a:hover, .cart-main .btn-goon:hover {
 	text-decoration: underline;
-	color: #c1a25f;
+	color: #cc0001;
 }
 .cart-main .p-spec {
 	float: left;
@@ -767,13 +765,199 @@ button {
 	border: 0;
 }
 
+.gw_num .text_box {
+	display: block;
+	float: left;
+	text-align: center;
+	width: 52px;
+	font-style: normal;
+	font-size: 14px;
+	line-height: 24px;
+	border: 0;
+}
+
 .gw_num em.add {
 	float: right;
 	border-right: 0;
 	border-left: 1px solid #dbdbdb;
 }
 
+a.anavi:link,a.anavi:visited,a.anavi:hover,a.anavi:active {
+	color: #8C8A94;
+	text-decoration: none;
+}
 
+/* 通用的link */
+a, a.link, a:visited, a:active {
+	color: #8C8A94;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #cc0001;
+	text-decoration: underline;
+}
+
+#cartEmptyBox {
+	margin:30 auto;
+	width: 90%;
+	height: 50%;
+	background-color: #ECECEC;
+}
+
+.cartEmptyCon {
+    padding: 55px 0 0 296px;
+}
+
+.cartEmptyCon .empTit {
+    height: 30px;
+    line-height: 30px;
+    font-size: 20px;
+    color: #ff9933;
+    font-family: "Microsoft YaHei";
+    position: relative;
+}
+
+.cartEmptyCon .empTit i {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background-position: -140px -238px;
+    position: absolute;
+    left: -78px;
+    top: -13px;
+}
+.cartIcon {
+    background: url(../../images/others/cartIcon-gw-24.png) no-repeat;
+}
+
+
+/*登录弹窗start*/
+.popMask{background:#333; width:100%; height:100%; z-index:999 ;position:fixed; left:0; top:0; opacity:0.3; filter:alpha(opacity=30); _width:0; _height:0; display:none; }
+.loginBox{width:380px; height:350px; background:#999999; position:fixed; left:50%; top:50%; margin:-257px 0 0 -195px; _position:absolute; _top:expression(eval(document.documentElement.scrollTop)+400); border-radius:5px; box-shadow:0 0 6px 1px #828282; z-index:10001; padding:5px; display:none;}
+.loginBox .loginCon{ background:#fff;  font-family:"宋体"; width:380px; height:349px;box-shadow:0 0 0 1px #e7e7e7 inset;}
+.loginBox .loginTitle{ height:38px; line-height:38px; background:#f4f4f4; position:relative;}
+.loginTitle li{ float:left; width:80px; height:38px; line-height:38px; font-size:14px; color:#999999; font-weight:bold; text-align:center; cursor:pointer;}
+.loginTitle .cur{ color:#e10303; background:#fff;}
+.loginBox .loginTitle i { background-position: -173px -109px; cursor: pointer; display: inline-block; height: 23px; position: absolute; right: 10px; top: 8px; width: 24px; }
+.loginBox .loginMain{ background:#fff; height:272px;}
+.tab-1,.regWrap{ width:266px; margin:0 auto; padding-top:27px;}
+.addTab{width:266px; margin:40px auto; padding-top:27px; }
+.regWrap{ padding-top:0px; height:400px;}
+.loginMain .loginTab{ height:30px; line-height:30px; border-bottom:1px solid #f1f1f1; padding-top:10px;}
+.loginMain .loginTab a{display:inline-block; height:30px; line-height:30px; width:35px; text-align:center; font-size:12px; margin-right:40px; font-weight:bold; color:#999;}
+.loginMain .loginTab a.on{color:#cc0000; border-bottom:2px solid #cc0000; border-left:none; border-top:none; border-right:none;}
+.loginMain .loginTab a:hover{text-decoration:none;}
+.loginType{}
+.loginItem{width:266px; height:36px; position:relative; margin-bottom:15px;}
+.loginItem .filter{width:30px; height:36px; position:absolute; top:0; left:0; z-index:4;}
+.loginItem .filter p{ display:inline-block; *display:inline; *zoom:1; margin-top:11px; color:#ccc; position:absolute; left:0; top:0; width:60px; padding-left:33px; z-index:5;}
+.loginItem .form01 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 211px;
+	padding: 0 20px 0 33px;
+	font-weight: 700;
+	height: 34px;
+	color: #999;
+	border: 1px solid #dcdcdc;
+	font-size: 12px;
+	background: none;
+	z-index: 3;
+}
+
+.loginItem .form01.on {border:1px solid #ff6666}
+.loginItem .form01.focus{border:1px solid #6eb9e0}
+.loginItem .filter .mark{float:left; display:inline-block; width:30px; height:35px; *display:inline; *zoom:1;}
+.loginItem .filter .markdel { background-position: -35px -209px; cursor: pointer; display: none; float: left; height: 16px;left: 240px; position: absolute; top: 10px; width: 16px; z-index: 5;}
+.userNameItem .filter .mark{ background-position:10px -98px;}
+.passWordItem .filter .mark{ background-position:-17px -99px;}
+.yzmItem .filter .mark{ background-position:-83px -100px;}
+.loginItem .filter .userIconBox{display:inline-block; width:43px; height:40px; background:#fff; position:absolute; top:1px; left:1px; z-index:3;}
+.loginItem .filter .userIcon{width:20px; height:20px; background-position:-51px 0;margin:12px 10px auto 13px;}
+.loginItem .filter .status{display:inline-block; width:15px; height:15px; *display:inline; *zoom:1; position:absolute; left:240px; top:11px; display:none;}
+.loginItem .filter .pwdIcon{width:16px; height:22px; background-position:-83px 0; margin:10px 11px auto 16px;}
+.loginItem .filter .status.wrong{ background-position:-147px -116px;}
+.loginItem .filter .status.right{ background-position:-127px -115px;}
+.loginItem .mistakeTip,.loginItem .mistakeTip02{ padding:0 10px; height:20px; color:#fff; line-height:20px; position:absolute; bottom:-15px; right:0; display:none; z-index:5;}
+.loginItem .mistakeTip{ background:#ed787f;}
+.loginItem .mistakeTip02{background:#ccc;}
+.yzmItem .yzm{position:absolute; left:156px; top:4px; height:28px;}
+.yzmItem .form01{ width:114px; padding:0 110px 0 40px; }
+.yzmItem .refresh{display:inline-block;}
+.yzmItem .refresh i{width:20px; height:20px; z-index:5; position:absolute;top:9px; right:10px; background-position:-58px -108px;}
+.loginBtn{ margin:25px 0 20px;}
+.loginBtn input{ width:266px; height:34px; line-height:34px; color:#fff; border:1px solid #e10303; font-size:16px; background:#e10303; font-weight:bold; cursor:pointer; border:none;}
+.moreChoice{margin-bottom:16px;}
+.moreChoice .auto,.moreChoice .forgetPwd{ display:inline-block; *display:inline; *zoom:1;}
+.moreChoice .freeReg{color:#0066cc; display:inline-block; *display:inline; *zoom:1; float:right;}
+.moreChoice .forgetLine{float:right; padding:0 3px; position:relative; top:-2px; color:#999;}
+.moreChoice .auto{float:left;color:#999;}
+.moreChoice .forgetPwd{float:right;color:#0066cc;}
+.moreChoice .auto input{height:auto;border:0; display:inline-block; vertical-align:middle; width:12px; height:12px; overflow:hidden;}
+.moreChoice .auto label{ display:inline-block; vertical-align:middle; padding-left:8px;}
+.cooperate p{margin:0 0 11px 0;color:#999;}
+.cooperateWay{width:266px;height:42px;margin:0 auto;}
+.cooperateWay a{display:inline-block; float:left; margin-right:18px;}
+.cooperateWay a i{float:left;display:inline-block;*display:inline;*zoom:1;width:27px;height:27px;}
+.cooperateWay .qq i{background-position:0 -141px;}
+.cooperateWay .sina i{background-position:-44px -141px;}
+.cooperateWay .aliPay i{background-position:-89px -141px;}
+.cooperateWay .baidu i{background-position:-133px -141px;}
+.cooperateWay .qq:hover i{background-position:0 -176px;}
+.cooperateWay .sina:hover i{background-position:-44px -176px;}
+.cooperateWay .aliPay:hover i{background-position:-89px -176px;}
+.cooperateWay .baidu:hover i{background-position:-133px -176px;}
+.formWrap{ width:100%;}
+.regAccInfor{ margin-top:15px;}
+.regAccInfor .regInput{ width:259px; padding-left:5px; background:none; height:34px; line-height:34px; position:relative; border:1px solid #dcdcdc; z-index:3; font-weight:700; color:#999; font-size:14px; float:left;}
+.regAccInfor .regInput.on{ border:1px solid #ff6666;}
+.regAccInfor .userAccountNameByEmail{ width:259px; padding-left:5px;}
+.regLabel{ width:230px; height:42px; line-height:42px; text-align:right; font-size:16px; padding-right:30px; float:left;}
+.regInputBox{ height:36px; width:266px; float:left; position:relative;}
+.regInputBox p{ position:absolute; left:6px; top:0; height:36px; line-height:36px; color:#999;}
+.regInputBox .regPointIcon{ display:inline-block; width:15px; height:15px; position:absolute; top:11px; *+top:12px; _top:14px; right:10px; z-index:4;}
+.regInputBox .regPointIcon.regFalse{ background-position:-147px -116px;}
+.regInputBox .regPointIcon.regTrue{background-position:-127px -115px;}
+.regInputBox .regPoint{ display:inline-block; height:20px; line-height:20px; color:#fff; padding:0 10px; position:absolute; top:31px; right:0px; z-index:5;}
+.regInputBox .regPoint.poiFalse{ background:#ed787f;}
+.regInputBox .regPoint.poiTrue{ background:#ccc;}
+.regInputBox-code .regPoint{ right:113px;}
+.regInputBox-code .regPointIcon{ right:120px;}
+.regInputBox .regCap{ display:inline-block; width:74px; height:34px; position:absolute; float:left; text-align:right;}
+.regInputBox .regCapIcon{ display:inline-block; height: 20px; width: 20px;background-position: -58px -108px; cursor:pointer; position:absolute; right:10px; top:9px;}
+.regAgreeBox{ line-height:22px; position:relative; margin-top:13px;}
+.regAgreeBox .regAgrInput{ height:12px; width:12px; overflow:hidden; display:inline-block; vertical-align:middle;  border:none;}
+.regAgreeBox .regAgree{ display:inline-block; color:#999;  vertical-align:middle; margin-left:2px; margin-top:2px;}
+.regAgreeBox .regAgree a{ color:#0066cc;}
+.regAgreeBox .regAgree a:hover{ color:#0066cc;}
+.regAccBut{ position:relative; height:48px;}
+.regAccBut .regAgreePoint{ color:#cc0000; position:absolute; left:0; top:25px;}
+.regInputBox .regSub{ width:266px; height:34px; font-size:16px; font-weight:bold; line-height:33px; color:#fff; border:none; background:#e10303; cursor:pointer; margin-top:-8px;}
+.regAccInfor .regInputChe{ width:146px; height:34px; border:1px solid #dcdcdc; background:none; position:relative; z-index:3; font-weight:700; padding-left:5px;}
+.qjwSubmit1{ color:#666; text-align:center; width:112px; height:34px; line-height:34px; display:block; font-size:12px; border-right:1px solid #cccccc; border-top:1px solid #cccccc; border-bottom:1px solid #cccccc; background:#f4f4f4; cursor:pointer; overflow:hidden; float:right;}
+.qjwSubmit3{ color:#666; text-align:center; width:112px; height:34px; line-height:34px; display:block; font-size:12px; border-right:1px solid #cccccc; border-top:1px solid #cccccc; border-bottom:1px solid #cccccc; background:#f4f4f4; cursor:pointer; overflow:hidden; float:right;}
+.regCheck{ float:left; height:36px; width:153px;}
+.qjwSubmit2{ color:#666; width:112px; height:34px; line-height:34px; display:inline-block; vertical-align:middle; text-align:center; border-right:1px solid #cccccc; border-top:1px solid #cccccc; border-bottom:1px solid #cccccc; background:#f4f4f4; cursor:pointer; font-size:12px; overflow:hidden; float:right;}
+.qjwSubmit2 em{ float:none; color:#cc0000; margin-right:3px; font-style:normal;}
+.qjwSubmit4{ color:#666; width:112px; height:34px; line-height:34px; display:inline-block; vertical-align:middle; text-align:center; border-right:1px solid #cccccc; border-top:1px solid #cccccc; border-bottom:1px solid #cccccc; background:#f4f4f4; cursor:pointer; font-size:12px; overflow:hidden; float:right;}
+.qjwSubmit4 em{ float:none; color:#cc0000; margin-right:3px; font-style:normal;}
+.regInputBox-yzCode{ height:34px; width:264px; border:1px solid #dcdcdc;}
+.regInputBox-yzCode.on{ border:1px solid #ff6666;}
+.regInputBox-yzCode .regPoint{ right:-1px;}
+.regInputBox-yzCode .yzm{position:absolute; left:0px; top:3px; height:28px;}
+.regAccInfor .yzCode{ width:149px; float:left; border:none;}
+.loginMain .bdOn{ border:1px solid #6eb9e0;}
+.regSuccessCon{ padding-top:66px; text-align:center;}
+.regSuccessCon i{ display:inline-block; width:48px; height:48px; background-position:-84px -278px;}
+.regSuccessCon .tit{ color:#333; font-weight:bold; font-size:14px; padding-top:10px;}
+.regSuccessCon .pro{ font-size:14px; padding:12px 0 14px;}
+.regSuccessCon a{ display:inline-block; width:78px; height:34px; line-height:34px; font-size:14px; color:#fff; font-weight:bold; background:#e10303;}
+.regSuccessCon a:hover{ text-decoration:none; color:#fff;}
+.regSuccessCon .bot{ color:#999; padding-top:90px;}
+
+/*登录弹窗end*/
 
 
 

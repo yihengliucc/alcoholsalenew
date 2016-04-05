@@ -12,7 +12,7 @@ public class TStock implements java.io.Serializable {
 
 	private Integer stockid;
 	private TProduct product;
-	private BigDecimal quantity;
+	private Integer quantity;
 
 	// Constructors
 
@@ -21,7 +21,7 @@ public class TStock implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public TStock(TProduct product, BigDecimal quantity) {
+	public TStock(TProduct product, Integer quantity) {
 		this.product = product;
 		this.quantity = quantity;
 	}
@@ -45,11 +45,11 @@ public class TStock implements java.io.Serializable {
 		this.product = product;
 	}
 
-	public BigDecimal getQuantity() {
+	public Integer getQuantity() {
 		return this.quantity;
 	}
 
-	public void setQuantity(BigDecimal quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 

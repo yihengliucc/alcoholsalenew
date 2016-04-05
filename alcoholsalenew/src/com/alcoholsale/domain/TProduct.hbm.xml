@@ -33,9 +33,9 @@
         <property name="sales" type="java.math.BigDecimal">
             <column name="SALES" precision="22" scale="0" />
         </property>
-        <set name="TOrderitems" inverse="true">
+        <set name="TOrderitems" inverse="true" cascade="all">
             <key>
-                <column name="PROID" precision="22" scale="0" />
+                <column name="proid" precision="22" scale="0" />
             </key>
             <one-to-many class="com.alcoholsale.domain.TOrderitem" />
         </set>

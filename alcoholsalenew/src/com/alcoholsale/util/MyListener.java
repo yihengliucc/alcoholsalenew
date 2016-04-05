@@ -28,9 +28,11 @@ public class MyListener implements ServletContextListener{
 		application = arg0.getServletContext();
 		ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
 		UserService userservice=(UserService) ac.getBean("userservice");
-		List<TProduct>  products=userservice.getResult("from TProduct", null);
+		Integer paras[] = {32};
+		List<TProduct>  products=userservice.getResult("from TProduct where proid < ?", paras);
 		System.out.println("======================"+products.size());
 		application.setAttribute("products", products);
 	}
 
 }
+	

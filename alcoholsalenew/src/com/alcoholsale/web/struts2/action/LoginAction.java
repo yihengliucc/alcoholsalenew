@@ -17,6 +17,7 @@ import org.apache.struts2.interceptor.ServletRequestAware;
 import com.alcoholsale.domain.TAddress;
 import com.alcoholsale.domain.TProduct;
 import com.alcoholsale.domain.TUser;
+import com.alcoholsale.service.AddressService;
 import com.alcoholsale.service.UserService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -32,6 +33,14 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 	private int userid;
 	private List<TAddress> address;
 	private TUser user;
+	private AddressService addressService;
+	
+	public AddressService getAddressService() {
+		return addressService;
+	}
+	public void setAddressService(AddressService addressService) {
+		this.addressService = addressService;
+	}
 	public TUser getUser() {
 		return user;
 	}
@@ -186,6 +195,21 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 	public String goCart() throws Exception {
 		return "success";
 	}
+	
+	// 跳转到确定订单页面
+	public String confirmOrder() throws Exception {
+		// 获取用户信息
+		servletRequest = ServletActionContext.getRequest();
+		TUser user = (TUser) servletRequest.getSession().getAttribute("user");
+System.out.println(user.getUsername());
+		// 获取订单确定页面需要的信息并写入到session供其调用
+		List<TAddress> addresses = addressService.getAllAddress(user);
+		servletRequest.setAttribute("addresses", addresses);
+		
+		
+		return "success";
+	}
+	
 	// 跳转到我的订单
 	public String goMyOrderUI() throws Exception {
 		return "success";

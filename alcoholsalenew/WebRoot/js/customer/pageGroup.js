@@ -2,20 +2,26 @@
 $(function(){
 	//根据总页数判断，如果小于5页，则显示所有页数，如果大于5页，则显示5页。根据当前点击的页数生成
 	
-	var pageCount = 11;//模拟后台总页数
-	//生成分页按钮
+	var pageCount = $("#pageCount").val();//模拟后台总页数
+	var pageNow = parseInt($("#pageNow").val());
+	
+/*	//生成分页按钮
 	if(pageCount>5){
-		page_icon(1,5,0);
+		page_icon(1,5,pageNow - 1);
 	}else{
-		page_icon(1,pageCount,0);
-	}
+		page_icon(1,pageCount,pageNow - 1);
+	}*/
+
+	pageGroup(pageNow,pageCount);
 	
 	//点击分页按钮触发
 	$("#pageGro li").live("click",function(){
 		if(pageCount > 5){
 			var pageNum = parseInt($(this).html());//获取当前页数
+			window.location.href = "goIndex.action?pageNow=" + pageNum;
 			pageGroup(pageNum,pageCount);
 		}else{
+			window.location.href = "goIndex.action?pageNow=" + pageNum;
 			$(this).addClass("on");
 			$(this).siblings("li").removeClass("on");
 		}
@@ -25,9 +31,13 @@ $(function(){
 	$("#pageGro .pageUp").click(function(){
 		if(pageCount > 5){
 			var pageNum = parseInt($("#pageGro li.on").html());//获取当前页
+			if ((pageNum - 1) > 0){
+				window.location.href = "goIndex.action?pageNow=" + (pageNum - 1);
+			}
 			pageUp(pageNum,pageCount);
 		}else{
 			var index = $("#pageGro ul li.on").index();//获取当前页
+			window.location.href = "goIndex.action?pageNow=" + (pageNum - 1);
 			if(index > 0){
 				$("#pageGro li").removeClass("on");//清除所有选中
 				$("#pageGro ul li").eq(index-1).addClass("on");//选中上一页
@@ -39,9 +49,13 @@ $(function(){
 	$("#pageGro .pageDown").click(function(){
 		if(pageCount > 5){
 			var pageNum = parseInt($("#pageGro li.on").html());//获取当前页
+			if ((pageNum + 1) < pageCount) {
+				window.location.href = "goIndex.action?pageNow=" + (pageNum + 1);
+			}
 			pageDown(pageNum,pageCount);
 		}else{
 			var index = $("#pageGro ul li.on").index();//获取当前页
+			window.location.href = "goIndex.action?pageNow=" + (pageNum + 1);
 			if(index+1 < pageCount){
 				$("#pageGro li").removeClass("on");//清除所有选中
 				$("#pageGro ul li").eq(index+1).addClass("on");//选中上一页

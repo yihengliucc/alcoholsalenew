@@ -23,9 +23,9 @@
 				<c:forEach items="${products}" var="product">				
 					<li><div class="indexTabPic">
 							<a
-								href="customershowdetail.action"
+								href="customershowdetail.action?proid=${product.proid }"
 								target="_blank" title="${product.proname }"><img
-								src="${pageContext.request.contextPath }/myfile/${product.image}"
+								src="${pageContext.request.contextPath }/images/product/little_images/${product.image}"
 								width="160" height="160" alt="${product.proname}"></a>
 						</div>
 						<div class="indexTabTit">
@@ -44,6 +44,9 @@
 					<div class="pageUp">上一页</div>
 				    <div class="pageList">
 				        <ul>
+				        	<!-- 获取页数的session，写入html元素供js获取 -->
+				        	<input id="pageCount" type="hidden" value="${pageCount }" />
+				        	<input id="pageNow" type="hidden" value="${pageNow }" />
 				            <li>1</li>
 				            <li>2</li>
 				            <li>3</li>
@@ -52,6 +55,7 @@
 				        </ul>
 				    </div>
 				    <div class="pageDown">下一页</div>
+				    <div>&nbsp;&nbsp;&nbsp;共 ${pageCount }页</div>
 				</div>
 				<!-------------------------------------------END 分页----------------------------------------------------------------->
 

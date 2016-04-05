@@ -12,10 +12,9 @@
             	<param name="sequence">seq_orderitem</param>
             </generator>
         </id>
-        <one-to-one name="TOrder" property-ref="orderitem"></one-to-one>
-        <many-to-one name="TProduct" class="com.alcoholsale.domain.TProduct" fetch="select">
-            <column name="PROID" precision="22" scale="0" />
-        </many-to-one>
+        <!-- <one-to-one name="TOrder" property-ref="orderitem"></one-to-one> -->
+        <many-to-one name="order" column="orderid" />
+        <many-to-one name="product" column="proid" />
         <property name="unitprice" type="java.lang.Double">
             <column name="UNITPRICE" precision="8" />
         </property>

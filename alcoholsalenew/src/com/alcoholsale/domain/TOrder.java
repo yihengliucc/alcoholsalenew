@@ -13,86 +13,66 @@ public class TOrder implements java.io.Serializable {
 
 	// Fields
 
-	private  Integer orderid;
+	private Integer orderid;
 	private TUser TUser;
-	private TAddress addr;
 	private Date oderdate;
-	private  Integer status;
+	private Integer status;
 	private Date paydate;
-	private TOrderitem orderitem;
-
-	// Constructors
-
-	/** default constructor */
-	public TOrder() {
+	private String address;
+	private String remark;	// 订单备注
+	private Set<TOrderitem> orderitems;
+	
+	
+	// setters and getters
+	
+	public String getRemark() {
+		return remark;
 	}
-
-	/** full constructor */
-	public TOrder(TUser TUser, TAddress addr, Date oderdate, Integer status,
-			Date paydate, TOrderitem orderitem) {
-		this.TUser = TUser;
-		this.addr = addr;
-		this.oderdate = oderdate;
-		this.status = status;
-		this.paydate = paydate;
-		this.orderitem = orderitem;
+	public void setRemark(String remark) {
+		this.remark = remark;
 	}
-
-	// Property accessors
-
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
 	public Integer getOrderid() {
-		return this.orderid;
+		return orderid;
 	}
-
 	public void setOrderid(Integer orderid) {
 		this.orderid = orderid;
 	}
-
 	public TUser getTUser() {
-		return this.TUser;
+		return TUser;
 	}
-
-	public void setTUser(TUser TUser) {
-		this.TUser = TUser;
+	public void setTUser(TUser tUser) {
+		TUser = tUser;
 	}
-
-	public TAddress getAddr() {
-		return addr;
-	}
-
-	public void setAddr(TAddress addr) {
-		this.addr = addr;
-	}
-
 	public Date getOderdate() {
-		return this.oderdate;
+		return oderdate;
 	}
-
 	public void setOderdate(Date oderdate) {
 		this.oderdate = oderdate;
 	}
-
 	public Integer getStatus() {
-		return this.status;
+		return status;
 	}
-
 	public void setStatus(Integer status) {
 		this.status = status;
 	}
-
 	public Date getPaydate() {
-		return this.paydate;
+		return paydate;
 	}
-
 	public void setPaydate(Date paydate) {
 		this.paydate = paydate;
 	}
-
-	public TOrderitem getOrderitem() {
-		return orderitem;
+	public Set<TOrderitem> getOrderitems() {
+		return orderitems;
 	}
-
-	public void setOrderitem(TOrderitem orderitem) {
-		this.orderitem = orderitem;
+	public void setOrderitems(Set<TOrderitem> orderitems) {
+		this.orderitems = orderitems;
 	}
+	
 }

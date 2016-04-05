@@ -8,7 +8,7 @@
 	<package name="default" extends="struts-default">
 		<action name="login" class="LoginAction" method="login">
 			<result name="input">/WEB-INF\customer\login.jsp</result>
-			<result name="success">/WEB-INF\customer\index.jsp</result>
+			<result name="success">/index.jsp</result>
 			<result name="adminsuccess">/WEB-INF/admin/admin.jsp</result>
 			<result name="failer">/WEB-INF\customer\login.jsp</result>
 		</action>
@@ -16,7 +16,7 @@
 			<result name="success">/WEB-INF\customer\login.jsp</result>
 		</action>
 		<action name="exit" class="LoginAction" method="exit">
-			<result name="success">/WEB-INF\customer\index.jsp</result>
+			<result name="success">/index.jsp</result>
 		</action>
 		<action name="left" class="LoginAction" method="left">
 			<result name="success">/WEB-INF\admin\left.jsp</result>
@@ -45,8 +45,12 @@
 		<action name="goCart" class="LoginAction" method="goCart">
 			<result name="success">/WEB-INF\customer\mycart.jsp</result>
 		</action>
+		<action name="confirmOrder" class="LoginAction" method="confirmOrder">
+			<result name="success">/WEB-INF\customer\confirmorder.jsp</result>
+		</action>
 		<action name="goMyOrderUI" class="LoginAction" method="goMyOrderUI">
 			<result name="success">/WEB-INF\customer\myorder.jsp</result>
 		</action>
+		
 	</package>
 </struts>

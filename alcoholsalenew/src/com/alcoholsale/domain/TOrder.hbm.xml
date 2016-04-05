@@ -24,7 +24,15 @@
         <property name="paydate" type="java.util.Date">
             <column name="PAYDATE" length="7" />
         </property>
-        <many-to-one name="addr" column="addrid" unique="true"></many-to-one>
-        <many-to-one name="orderitem" cascade="all"></many-to-one>
+        <property name="address" type="java.lang.String">
+        	<column name="ADDRESS" length="255"></column>
+        </property>
+         <property name="remark" type="java.lang.String">
+        	<column name="REMARK" length="255"></column>
+        </property>
+       	<set name="orderitems" cascade="all">
+       		<key column="orderid"/>
+       		<one-to-many class="com.alcoholsale.domain.TOrderitem" />
+       	</set>
     </class>
 </hibernate-mapping>

@@ -3,7 +3,11 @@
 <html>
   <head>
   </head>
-  <body>
-    <jsp:forward page="/WEB-INF/customer/index.jsp"></jsp:forward>
+  <body onload="document.pform.submit();">
+<%--     <jsp:forward page="/WEB-INF/customer/index.jsp"></jsp:forward> --%>
+	<!-- 自动跳转到action -->
+	<form name="pform" action="goIndex.action" method="post">
+		<input type="hidden" name="pageNow" value="1" >
+	</form>
   </body>
 </html>

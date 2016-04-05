@@ -25,7 +25,7 @@
 }
 
 .top-header-com {
-	width: 815px;
+	width: 915px;
     height: 27px;
     margin: 0 auto;
     float:left;  
@@ -122,12 +122,42 @@ input {
     float: right;	
 }
 
+.publicIcon {
+    background: url(../../images/others/public-24.png) no-repeat;
+}
+
+.header-right li i {
+    width: 12px;
+    height: 12px;
+    margin: 7px 5px 0 0;
+    overflow: hidden;
+    display: block;
+    float: left;
+}
 
 
+.header-right .hd-n2 i {
+    background-position: -18px 1px;
+}
 
+.header-right .hd-n4 i {
+    background-position: -90px -265px;
+}
 
-
-
+.ci-count {
+   /*  position: absolute; */
+    top: -6px;
+    left: -4px;
+    display: inline-block;
+    padding: 1px 2px;
+    font-size: 12px;
+    line-height: 12px;
+    color: #fff;
+    background-color: #c81623;
+    border-radius: 7px 7px 7px 0;
+    min-width: 12px;
+    text-align: center;
+}
 
 
 

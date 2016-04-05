@@ -23,16 +23,39 @@
     			<div class="header-right">
     				<ul>
     					<li class="hd-n1">
-    					<a href="#" target="_blank" >我的订单</a>
+    					<a href="goMyOrderUI.action" target="_blank" >我的订单</a>
     					</li>
     					<li class="hd-n2">
-						<a href="#" target="_blank" >我的购物车</a>
+    					<i class="publicIcon"></i>
+						<a href="goCart.action" target="_blank" >我的购物车</a>
     					</li>
+					
+						<c:if test="${not empty cartQuantity}">
+							<c:if test="${cartQuantity =='0'}">
+		    					<li class="hd-n5" style="display:none;">
+		    						<p class="ci-count" id="shopping-amount">${cartQuantity }</p>
+		    					</li>
+	   						</c:if>
+	   						<c:if test="${cartQuantity !='0'}">
+		    					<li class="hd-n5" style="display:block;">
+		    						<p class="ci-count" id="shopping-amount">${cartQuantity }</p>
+		    					</li>
+	   						</c:if>
+   						</c:if>   						
+ 
+   						<c:if test="${empty cartQuantity}">
+	    					<li class="hd-n5" style="display:none;">
+	    						<p class="ci-count" id="shopping-amount">${cartQuantity }</p>
+	    					</li>
+   						</c:if>
+   						
+    				
     					<li class="hd-n3">
     					<a href="#" target="_blank" >帮助中心</a>
     					</li>
     					<li class="hd-n4">
-    					<p style="color:#8C8A94">客服电话：<font style="color:#cc0001;font-weight: bold;FONT-FAMILY: Arial,Helvetica,sans-serif,'宋体';">400-000-0000</font></p>
+    					<i class="publicIcon"></i>
+    					<p style="color:#8C8A94; width: 175px;" >客服电话：<font style="color:#cc0001;font-weight: bold;FONT-FAMILY: Arial,Helvetica,sans-serif,'宋体';">400-000-0000</font></p>
     					</li>
     				</ul>
     			</div>

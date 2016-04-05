@@ -28,7 +28,7 @@ public class OrdersServiceImpl extends BaseServiceImpl implements OrdersService 
 			//1.查询相应的产品信息对象
 			TProduct product = (TProduct) this.findById(TProduct.class, productid);
 			//2.将商品对象添加到详细信息对象
-			torderitem.setTProduct(product);
+//			torderitem.setTProduct(product);
 			//3.将详细信息对象保存
 			this.saveObject(torderitem);
 			//保存订单对象
@@ -37,7 +37,7 @@ public class OrdersServiceImpl extends BaseServiceImpl implements OrdersService 
 			//2.查询出收货地对象
 			TAddress address = (TAddress) this.findById(TAddress.class,addr);
 			//3.将收货地添加到信息订单
-			order.setAddr(address);
+//			order.setAddress(address);
 			//订单生成时间
 			Date date = new Date();
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
@@ -46,7 +46,7 @@ public class OrdersServiceImpl extends BaseServiceImpl implements OrdersService 
 			//订单状态为3表示未发货
 			order.setStatus(3);
 			//添加订单详细信息对象
-			order.setOrderitem(torderitem);
+//			order.setOrderitem(torderitem);
 			//保存订单
 			this.saveObject(order);
 			

@@ -12,7 +12,7 @@
 	    <action name="addproductUi" class="ProductAction" method="addproductUi">
 	    	<result name="success">/WEB-INF\admin\addProduct.jsp</result>
 	    </action>
-	     <action name="addproduct" class="ProductAction" method="addproduct">
+	    <action name="addproduct" class="ProductAction" method="addproduct">
 	    	<result type="chain">queryallproduct</result>
 	    </action>
 	    <action name="deleteproduct" class="ProductAction" method="deleteproduct">
@@ -27,5 +27,12 @@
 	    <action name="customershowdetail" class="ProductAction" method="customershowdetail">
 	    	<result name="success">/WEB-INF\customer\productdetail.jsp</result>
 	    </action>
+	    <action name="goIndex" class="ProductAction" method="goIndex">
+			<result name="success">/WEB-INF\customer\index.jsp</result>
+		</action>
+		<action name="addCart" class="ProductAction" method="addCart">
+		</action>
+		<action name="modCart" class="ProductAction" method="modCart">
+		</action>
 	</package> 
 	</struts>

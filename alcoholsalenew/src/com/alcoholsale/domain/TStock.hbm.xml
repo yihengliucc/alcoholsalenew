@@ -12,7 +12,7 @@
             	<param name="sequence">seq_stock</param>
             </generator>
         </id>
-        <property name="quantity" type="java.math.BigDecimal">
+        <property name="quantity" type="java.lang.Integer">
             <column name="QUANTITY" precision="22" scale="0" />
         </property>
   <one-to-one name="product" property-ref="stockid" ></one-to-one>

@@ -11,66 +11,44 @@ public class TOrderitem implements java.io.Serializable {
 	// Fields
 
 	private  Integer itemid;
-	private TOrder TOrder;
-	private TProduct TProduct;
+	private TOrder order;
+	private TProduct product;
 	private Double unitprice;
 	private  Integer pcount;
-
-	// Constructors
-
-	/** default constructor */
-	public TOrderitem() {
-	}
-
-	/** full constructor */
-	public TOrderitem(TOrder TOrder, TProduct TProduct, Double unitprice,
-			Integer pcount) {
-		this.TOrder = TOrder;
-		this.TProduct = TProduct;
-		this.unitprice = unitprice;
-		this.pcount = pcount;
-	}
-
-	// Property accessors
-
+	
+	// Getters and setters
+	
 	public Integer getItemid() {
-		return this.itemid;
+		return itemid;
 	}
-
 	public void setItemid(Integer itemid) {
 		this.itemid = itemid;
 	}
-
-	public TOrder getTOrder() {
-		return this.TOrder;
+	public TOrder getOrder() {
+		return order;
 	}
-
-	public void setTOrder(TOrder TOrder) {
-		this.TOrder = TOrder;
+	public void setOrder(TOrder order) {
+		this.order = order;
 	}
-
-	public TProduct getTProduct() {
-		return this.TProduct;
+	public TProduct getProduct() {
+		return product;
 	}
-
-	public void setTProduct(TProduct TProduct) {
-		this.TProduct = TProduct;
+	public void setProduct(TProduct product) {
+		this.product = product;
 	}
-
 	public Double getUnitprice() {
-		return this.unitprice;
+		return unitprice;
 	}
-
 	public void setUnitprice(Double unitprice) {
 		this.unitprice = unitprice;
 	}
-
 	public Integer getPcount() {
-		return this.pcount;
+		return pcount;
 	}
-
 	public void setPcount(Integer pcount) {
 		this.pcount = pcount;
 	}
+
+	
 
 }

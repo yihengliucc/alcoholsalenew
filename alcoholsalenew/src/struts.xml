@@ -15,4 +15,5 @@
 	</package> -->
 	<include file="user.xml"></include>
 	<include file="product.xml"></include>
+	<include file="orders.xml"></include>
 </struts>    
