@@ -7,7 +7,14 @@ public class TCartProduct implements java.io.Serializable {
 	private TProduct product;
 	private Integer quantity;
 	private Double totalPrice;
+	private Integer isChecked;  // 增加一个字段表明用户购物车中是否选中此商品 
 	
+	public Integer getIsChecked() {
+		return isChecked;
+	}
+	public void setIsChecked(Integer isChecked) {
+		this.isChecked = isChecked;
+	}
 	public Double getTotalPrice() {
 		return totalPrice;
 	}

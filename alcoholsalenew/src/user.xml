@@ -47,10 +47,7 @@
 		</action>
 		<action name="confirmOrder" class="LoginAction" method="confirmOrder">
 			<result name="success">/WEB-INF\customer\confirmorder.jsp</result>
+			<result name="login">/WEB-INF\customer\login.jsp</result>
 		</action>
-		<action name="goMyOrderUI" class="LoginAction" method="goMyOrderUI">
-			<result name="success">/WEB-INF\customer\myorder.jsp</result>
-		</action>
-		
 	</package>
 </struts>

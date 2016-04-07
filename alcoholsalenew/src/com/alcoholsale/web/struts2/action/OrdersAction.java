@@ -2,7 +2,10 @@ package com.alcoholsale.web.struts2.action;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import javax.mail.search.SentDateTerm;
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +16,7 @@ import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
 
 import com.alcoholsale.domain.TAddress;
+import com.alcoholsale.domain.TCartProduct;
 import com.alcoholsale.domain.TOrder;
 import com.alcoholsale.domain.TOrderitem;
 import com.alcoholsale.domain.TUser;
@@ -31,6 +35,24 @@ public class OrdersAction extends ActionSupport implements ServletRequestAware {
 	private Integer productid;
 	private Integer taddr;
 	private AddressService addressService;
+	private String order_PS_VAL; 			// 获取订单备注
+	private String checkAddressId;			// 获取地址id号
+
+	public String getCheckAddressId() {
+		return checkAddressId;
+	}
+
+	public void setCheckAddressId(String checkAddressId) {
+		this.checkAddressId = checkAddressId;
+	}
+
+	public String getOrder_PS_VAL() {
+		return order_PS_VAL;
+	}
+
+	public void setOrder_PS_VAL(String order_PS_VAL) {
+		this.order_PS_VAL = order_PS_VAL;
+	}
 
 	public HttpServletRequest getRequest() {
 		return request;
@@ -90,13 +112,61 @@ public class OrdersAction extends ActionSupport implements ServletRequestAware {
 
 	// 增加订单方法
 	/**
-	 * @return
+	 * 添加订单到数据库的方法
 	 */
-	public String addOrder() {
+	public String orderAdd() {
 		request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
-		TUser tuser = (TUser) session.getAttribute("user");
-		orderservice.addOrder(productid, tuser, taddr, torder, torderitem);
+		TUser user = (TUser) session.getAttribute("user");
+		HashMap<Integer, TCartProduct> cartProducts = (HashMap<Integer, TCartProduct>) session.getAttribute("cartProducts");
+		int cartQuantity = (Integer) session.getAttribute("cartQuantity");
+		// 获取地址和备注信息
+System.out.println("地址编号" + checkAddressId);
+System.out.println("订单备注：" + order_PS_VAL);
+		// 生成一张订单
+		if (checkAddressId != null) {
+			TOrder order = orderservice.genOrder(user, checkAddressId, order_PS_VAL);
+			
+			// 获取并组装orderitems,并保存到数据库
+			
+			if (cartProducts != null) {
+				// 遍历商品进行设置
+				Iterator iter = cartProducts.entrySet().iterator();
+				while (iter.hasNext()) {
+					Map.Entry entry = (Map.Entry) iter.next();
+					Object key = entry.getKey();
+					TCartProduct val = (TCartProduct) entry.getValue();
+		System.out.println("所有商品：" + val.getProduct().getProname());			
+					if (val.getIsChecked() == 1) {
+						TOrderitem orderitem = new TOrderitem();
+						orderitem.setOrder(order);
+						orderitem.setProduct(val.getProduct());
+						orderitem.setPcount(val.getQuantity());
+						orderitem.setUnitprice(val.getProduct().getMemberprice());
+						orderservice.saveObject(orderitem);
+						
+						/*// 删除session中该商品
+						cartProducts.remove(key); // 这样删除会报Java ConcurrentModificationException错误*/
+						iter.remove();
+						cartQuantity = cartQuantity - val.getQuantity();
+						// 检查货物是否充足且总量需要减去购买数量
+	System.out.println("库存：" + val.getProduct().getStockid().getQuantity());
+						if (val.getProduct().getStockid().getQuantity() >= val.getQuantity()) {
+							val.getProduct().getStockid().setQuantity(val.getProduct().getStockid().getQuantity() - val.getQuantity());
+							// 更新数据库
+							orderservice.updateObject(val.getProduct().getStockid());
+						} else {
+	System.out.println("库存不足！");
+							return "stockout";   // 页面待完善
+						};
+					}
+				}
+			}
+			
+			// 重新设置商品数量值
+			session.setAttribute("cartQuantity", cartQuantity);
+		}
+		
 		return SUCCESS;
 	}
 
@@ -105,7 +175,7 @@ public class OrdersAction extends ActionSupport implements ServletRequestAware {
 		this.request = request;
 	}
 
-	// 获取地址用于选择
+	// 添加地址时获取地址用于选择
 	public String getAddress() throws Exception{
 		request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
@@ -224,4 +294,27 @@ System.out.println(addressid);
 		}
 		 return null;
 	 }
+	 
+	// 跳转到我的订单
+	public String goMyOrderUI() throws Exception {
+		// 没有下面这句的时候在跳转到新页面是会出现 空指针错误
+		request = ServletActionContext.getRequest();
+		TUser user = (TUser) request.getSession().getAttribute("user");
+		try {		
+			System.out.println(user.getUsername());
+		} catch (Exception e) {
+			e.printStackTrace();
+System.out.println("跳转到登录页面");
+			return "login";
+		}
+		
+		// 从数据库获取订单信息并写入session
+		List<TOrder> orders = orderservice.getMyOrder(user);
+		request.getSession().setAttribute("orders", orders);
+		for (int i = 0; i < orders.size(); i++) {
+			System.out.println("订单NO:" + orders.get(i).getOrderNo());
+		}
+		
+		return "success";
+	}
 }

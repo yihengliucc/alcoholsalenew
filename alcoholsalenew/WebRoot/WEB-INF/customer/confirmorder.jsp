@@ -38,11 +38,12 @@
 				</div>
 				<div class="itemsWrap">
 					<ul class="addressList clearfix">
-						<c:forEach var="address" items="${addresses }">
-							<c:choose>
-								<c:when test="${address.isdefault == '1' }">
-									<li class="item on" einv="false" onclick="checked(this);"><input id="addressid" type="hidden"
-									value="${address.addressid }" addressname="${address.address }" regionid="1967">
+						<c:forEach var="address" items="${addresses }" varStatus="stat">
+							<c:if test="${stat.first }">
+								<input id="checkAddressId" type="hidden" name="checkAddressId" value="${address.addressid }"/>
+								<li class="item on" einv="false" onclick="checked(this);"><input
+									id="addressid" type="hidden" value="${address.addressid }"
+									addressname="${address.address }" regionid="1967">
 									<div class="address-tit">
 										<b>${address.name }</b><span>${address.phone }</span>
 									</div>
@@ -51,12 +52,20 @@
 										<a class="addAlter" href="javascript:;" _di="107793439">修改</a><a
 											class="addDelete" href="javascript:;" _di="107793439">删除</a>
 									</div>
-									<div class="defaultBtn" _di="107793439" onclick="setDefault(this)">设为默认地址</div>
+									<c:if test="${address.isdefault == '1' }">
+										<div class="defaultBtn" _di="107793439">默认地址</div>
+									</c:if>
+									<c:if test="${address.isdefault != '1' }">
+										<div class="defaultBtn" _di="107793439"
+										onclick="setDefault(this)">设为默认地址</div>
+									</c:if>
+										
 									<div class="addDefault oIcon"></div></li>
-								</c:when>
-								<c:otherwise>
-									<li class="item" einv="false" onclick="checked(this);"><input id="addressid" type="hidden"
-									value="${address.addressid }" addressname="${address.address }" regionid="1967">
+							</c:if>
+							<c:if test="${!stat.first }">
+								<li class="item" einv="false" onclick="checked(this);"><input
+									id="addressid" type="hidden" value="${address.addressid }"
+									addressname="${address.address }" regionid="1967">
 									<div class="address-tit">
 										<b>${address.name }</b><span>${address.phone }</span>
 									</div>
@@ -65,11 +74,10 @@
 										<a class="addAlter" href="javascript:;" _di="107793439">修改</a><a
 											class="addDelete" href="javascript:;" _di="107793439">删除</a>
 									</div>
-									<div class="defaultBtn" _di="107793439" onclick="setDefault(this)" >设为默认地址</div>
+									<div class="defaultBtn" _di="107793439"
+										onclick="setDefault(this)">设为默认地址</div>
 									<div class="addDefault oIcon"></div></li>
-								</c:otherwise>
-							</c:choose>
-							
+							</c:if>
 							
 						</c:forEach>
 						<li class="add"><div class="address-add">
@@ -126,6 +134,7 @@
 						</thead>
 						<tbody>
 						<c:forEach items = "${cartProducts }" var="cartProduct">
+						<c:if test="${cartProduct.value.isChecked == '1' }" >
 							<tr>
 								<td width="542">
 									<div class="productImg">
@@ -157,6 +166,7 @@
 									<div class="productPri">￥${cartProduct.value.totalPrice}</div>
 								</td>
 							</tr>
+						</c:if>
 						</c:forEach>
 						
 						</tbody>
@@ -197,7 +207,7 @@
 							<li class="bb">
 								<div class="comTotalBox">
 									<p>
-										<span><b id="productcount">${cartQuantity }</b>件商品，商品金额：</span><span
+										<span><b id="productcount">${cartCatalog }</b>件商品，商品金额：</span><span
 											class="comTotalSum" id="zje_i">￥${cartTotalPrice }</span>
 									</p>
 									<p id="yf_div" style="">

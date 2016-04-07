@@ -2,7 +2,9 @@ package com.alcoholsale.web.struts2.action;
 
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -15,6 +17,7 @@ import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
 
 import com.alcoholsale.domain.TAddress;
+import com.alcoholsale.domain.TCartProduct;
 import com.alcoholsale.domain.TProduct;
 import com.alcoholsale.domain.TUser;
 import com.alcoholsale.service.AddressService;
@@ -193,6 +196,24 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 	}
 	// 跳转到购物车
 	public String goCart() throws Exception {
+		// 设置session中所有商品isCheck字段为0，即未选中
+		servletRequest = ServletActionContext.getRequest();
+		HashMap<Integer, TCartProduct> cartProducts = (HashMap<Integer, TCartProduct>) servletRequest
+				.getSession().getAttribute("cartProducts");
+		
+		if (cartProducts != null) {
+			// 遍历商品进行设置
+			Iterator iter = cartProducts.entrySet().iterator();
+			while (iter.hasNext()) {
+				Map.Entry entry = (Map.Entry) iter.next();
+				Object key = entry.getKey();
+				TCartProduct val = (TCartProduct) entry.getValue();
+	System.out.println("设置商品isChecked：" + val.getProduct().getProname());			
+				val.setIsChecked(0);
+			}
+			
+		}
+		
 		return "success";
 	}
 	
@@ -200,18 +221,24 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 	public String confirmOrder() throws Exception {
 		// 获取用户信息
 		servletRequest = ServletActionContext.getRequest();
+/*		try {
 		TUser user = (TUser) servletRequest.getSession().getAttribute("user");
-System.out.println(user.getUsername());
+		System.out.println(user.getUsername());
+		} catch (Exception e) {
+			return "login";
+		}*/
+
+		TUser user = (TUser) servletRequest.getSession().getAttribute("user");
+		try {
+			System.out.println(user.getUsername());
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "login";
+		}
 		// 获取订单确定页面需要的信息并写入到session供其调用
 		List<TAddress> addresses = addressService.getAllAddress(user);
 		servletRequest.setAttribute("addresses", addresses);
 		
-		
-		return "success";
-	}
-	
-	// 跳转到我的订单
-	public String goMyOrderUI() throws Exception {
 		return "success";
 	}
 }

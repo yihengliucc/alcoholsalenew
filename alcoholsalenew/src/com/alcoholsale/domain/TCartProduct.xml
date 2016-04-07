@@ -18,6 +18,9 @@
         <property name="totalPrice" type="java.lang.Double">
             <column name="TOTALPRICE" precision="22" scale="0" />
         </property>
+        <property name="isChecked" type="java.lang.Integer">
+            <column name="ISCHECKED" precision="22" scale="0" />
+        </property>
   <many-to-one name="product" property-ref="cartproid" ></many-to-one>
     </class>
 </hibernate-mapping>

@@ -348,6 +348,10 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
 		} else if ("delete".equals(modMethod)) { // 删除
 			System.out.println("修改方式：" + modMethod + "proid:" + proid);
 			cartProducts.remove(proid);
+		} else if ("checked".equals(modMethod)) { // 选中商品
+System.out.println("选中商品：" + proid);
+			TCartProduct cartProuduct = cartProducts.get(proid);
+			cartProuduct.setIsChecked(1);
 		}
 		// 存入session
 		servletRequest.getSession().setAttribute("cartProducts", cartProducts);
@@ -363,8 +367,10 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
 			Object key = entry.getKey();
 			TCartProduct val = (TCartProduct) entry.getValue();
 			cartQuantity = cartQuantity + val.getQuantity();
-			cartCatalog += 1;
-			cartTotalPrice = cartTotalPrice + val.getTotalPrice();
+			if (1 == val.getIsChecked()) {
+				cartCatalog += 1;
+				cartTotalPrice = cartTotalPrice + val.getTotalPrice();
+			}
 			System.out.println("-------名称：" + val.getProduct().getProname()
 					+ "数量：" + val.getQuantity());
 		}

@@ -15,8 +15,8 @@
         <many-to-one name="TUser" class="com.alcoholsale.domain.TUser" fetch="select">
             <column name="USERID" precision="22" scale="0" />
         </many-to-one>
-        <property name="oderdate" type="java.util.Date">
-            <column name="ODERDATE" length="7" />
+        <property name="orderdate" type="java.util.Date">
+            <column name="ORDERDATE" length="7" />
         </property>
         <property name="status" type="java.lang.Integer">
             <column name="STATUS" precision="22" scale="0" />
@@ -24,13 +24,22 @@
         <property name="paydate" type="java.util.Date">
             <column name="PAYDATE" length="7" />
         </property>
-        <property name="address" type="java.lang.String">
+        <property name="shippingAddress" type="java.lang.String">
+        	<column name="SHIPPINGADDRESS" length="255"></column>
+        </property>
+        <property name="consignee" type="java.lang.String">
         	<column name="ADDRESS" length="255"></column>
         </property>
-         <property name="remark" type="java.lang.String">
+        <property name="phone" type="java.lang.String">
+			<column name="phone" length="20"></column>
+		</property>
+        <property name="remark" type="java.lang.String">
         	<column name="REMARK" length="255"></column>
         </property>
-       	<set name="orderitems" cascade="all">
+        <property name="orderNo" type="java.lang.String">
+        	<column name="ORDERNO" length="255"></column>
+        </property>
+       	<set name="orderitems" cascade="all" lazy="false">
        		<key column="orderid"/>
        		<one-to-many class="com.alcoholsale.domain.TOrderitem" />
        	</set>

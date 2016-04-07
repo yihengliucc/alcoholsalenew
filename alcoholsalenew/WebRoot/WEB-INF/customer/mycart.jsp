@@ -19,6 +19,8 @@
 
 <script type="text/javascript"
 	src="${pageContext.request.contextPath }/js/customer/mycart/mycart.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath }/js/jquerysession.js"></script>	
 
 <script type="text/javascript">   
 	$(document).ready(function () {
@@ -116,13 +118,32 @@
 function GetCount() {
 	var conts = 0;
 	var aa = 0;
+	
+	
 	$(".gwc_tb2 input[name=newslist]").each(function () {
 		if ($(this).attr("checked")) {
 			for (var i = 0; i < $(this).length; i++) {
 				conts += parseInt($(this).val());
 				aa += 1;
+				// 设置session中选择商品的isChecked字段值为1
+				//alert($(this).parent().find("#pro_id:first").val());
+				$.ajax({
+					type: 'POST',
+					url: "modCart.action",
+					dataType: "json",
+					data: {
+						modMethod:"checked",
+						proid: $(this).parent().find("#pro_id:first").val(),
+					},
+					success:function(msg){
+					},
+					error: function(msg){
+					}
+				});
+				
 			}
 		}
+		
 	});
 	$("#shuliang").text(aa);
 	$("#zong1").html((conts).toFixed(2));
@@ -312,8 +333,12 @@ function setTotal(obj) {
 												value="1" class="can_checkout is_checkout_item"
 												name="newslist"  data-sellerid="2"
 												value="goods_12958_13112"> <input type="hidden"
-												name="seller_id" value="2"></td>
-											<td><input type="hidden" id="pro_id" value="${cartProduct.key }">
+												name="seller_id" value="2">
+												<input type="hidden" id="pro_id" value="${cartProduct.key }">
+												</td>
+											<td>
+												<!-- 商品id -->
+												<input type="hidden" id="pro_id" value="${cartProduct.key }">
 												<input type="hidden" name="obj_type" value="goods">
 												<input type="hidden" name="goods_ident"
 												value="goods_12958_13112"> <input type="hidden"

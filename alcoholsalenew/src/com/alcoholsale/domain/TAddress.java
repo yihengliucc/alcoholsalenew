@@ -1,6 +1,7 @@
 package com.alcoholsale.domain;
 
 import java.io.Serializable;
+import java.util.Set;
 
 public class TAddress implements Serializable {
 	private Integer addressid;

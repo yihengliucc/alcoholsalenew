@@ -6,8 +6,12 @@
 	<constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory"></constant>
 	<package name="order"  extends="struts-default">
 	    <action name="orderAdd" class="OrderAction" method="orderAdd">
-	    	<result name="success">/WEB-INF\customer\myorder.jsp</result>
+	    	 <result  type= "redirectAction"> goMyOrderUI</result> 
 	    </action>
+	    <action name="goMyOrderUI" class="OrderAction" method="goMyOrderUI">
+			<result name="success">/WEB-INF\customer\myorder.jsp</result>
+			<result name="login">/WEB-INF\customer\login.jsp</result>
+		</action>
 	    <action name="getAddress" class="OrderAction" method="getAddress">
 	    </action>
 	    <action name="addAddress" class="OrderAction" method="addAddress">

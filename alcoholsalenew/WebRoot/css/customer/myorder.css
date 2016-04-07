@@ -734,6 +734,7 @@ table {
     display: inline-block;
     margin: 3px 0 3px 12px;
     float: left;
+    text-decoration: none;
 }
 .ord-detailTab td p {
     line-height: 22px;
@@ -879,7 +880,7 @@ table {
 .delivery .headline2 {
     font-weight: bold;
     color: #333;
-    border-bottom: 1px solid #e4e4e4;
+  /*   border-bottom: 1px solid #e4e4e4; */
     height: 25px;
     line-height: 25px;
     margin-bottom: 5px;

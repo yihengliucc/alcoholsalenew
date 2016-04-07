@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	// 显示添加地址界面，并获取所有默认省市县信息
-	$(".address-add").click(function() {
+	$(".address-add,.addNewAdd").click(function() {
 		$(".addresPopBox").show();
 		$(".popMask").show();
 
@@ -154,6 +154,7 @@ function addAddress() {
 				$(".addressList").prepend(newItem);
 				$(".item").removeClass("on");
 				$(".new").addClass("on");
+				$("#checkAddressId").val(data.addressid);
 				
 			} else if ("nologin" == data.addinfo){
 				alert("用户未登录！");
@@ -171,6 +172,7 @@ function checked(obj) {
 //		alert("点击！======" + $(obj).html());
 		$(".item").removeClass("on");
 		$(obj).addClass("on");
+		$("#checkAddressId").val($(obj).find("#addressid:first").val());
 }
 
 function setDefault(obj) {

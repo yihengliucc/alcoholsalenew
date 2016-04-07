@@ -1,15 +1,20 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<!-- 引入jstl标签库 -->
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>我的订单</title>
-<%-- <link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/customer/productshow.css"
-	type="text/css" /> --%>
+
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/customer/myorder.css"
 	type="text/css" />
+
+<script type="text/javascript"
+	src="${pageContext.request.contextPath }/js/customer/mycart/jquery.1.4.2-min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath }/js/customer/myorder.js"></script>
 
 </head>
 
@@ -67,12 +72,12 @@
 						<p class="title">
 							<i></i><span>交易管理</span>
 						</p>
-						<a class="item on" href="/trademanage/my_order-9.htm" title=""><span>我的订单</span><i></i></a>
-						<a class="item" href="/trademanage/my_task.htm" title=""><span>我的作品</span><i></i></a>
+						<a class="item on" href="javascript:;" title=""><span>我的订单</span><i></i></a>
+<!-- 						<a class="item" href="/trademanage/my_task.htm" title=""><span>我的作品</span><i></i></a>
 						<a class="item" href="/trademanage/deal_return.htm" title=""><span>退货记录</span><i></i></a>
 						<a class="item" href="/trademanage/my_collect.htm?rome=all"
 							title=""><span>我的收藏</span><i></i></a> <a class="item"
-							href="/trademanage/deal_arrNotice.htm" title=""><span>到货通知</span><i></i></a>
+							href="/trademanage/deal_arrNotice.htm" title=""><span>到货通知</span><i></i></a> -->
 					</div>
 				</div>
 				<!-- 左侧导航end -->
@@ -134,6 +139,87 @@
 							<li class="moh5">操作</li>
 							<div class="clear"></div>
 						</ul>
+						
+						<c:forEach var="order" items="${orders }">
+							
+							<div class="moCon-ord">
+							<div class="ord-num">
+								<span>订单编号：<a
+									href="#" target="_blank">${order.orderNo }</a></span><i>|</i><span
+									class="ord-tim">下单时间：<em>${order.orderdate }</em></span>
+							</div>
+							<table class="ord-detailTab" cellpadding="0" cellspacing="0"
+								border="0">
+								<tbody>
+									<tr>
+										<td class="tdmoh1">
+											<div class="ordPicBox ">
+												<a class="proId" value="3" href="#" target="_blank" title=""> 
+													<!-- 计算商品总价 -->
+													<c:set value="0" var="totalPrice" />
+													<c:forEach var="orderitem" items="${order.orderitems}">
+														<img
+														src="${pageContext.request.contextPath }/images/product/little_images/${orderitem.product.image}"
+														width="50" height="50" alt="${orderitem.product.proname}"
+														title="${orderitem.product.proname}" />
+														<c:set value="${totalPrice + orderitem.unitprice * orderitem.pcount }" var="totalPrice"/>
+													</c:forEach>	
+													</a>
+											</div>
+										</td>
+										<td class="tdmoh2">${order.consignee }</td>
+										<td class="tdmoh3">
+											<p class="ord-price">¥${totalPrice }</p>
+											<p>在线支付</p>
+										</td>
+										<td class="tdmoh4">
+											<div class="opePending">
+												<span>等待付款</span>
+											</div>
+											<div class="opeTracking">
+												<input type="hidden" class="_orderId" value="105752917">
+												<div class="TraBtn" id="tracking">
+													<span class="subtrack" style="display: block;">跟踪</span><i></i>
+												</div>
+												<div class="delivery" style="display: none;">
+													<span class="arrow"></span>
+													<div class="headline2 clearfix">
+														<span class="timeD">处理时间</span><span>处理信息</span><a
+															href="javascript:;" class="close"></a>
+													</div>
+													<ul class="infoD">
+														<li class="clearfix"><p class="timeD">
+																<span>${order.orderdate }</span>
+															</p>
+															<p>
+																<span>您的订单已提交，等待系统审核</span>
+															</p></li>
+													</ul>
+												</div>
+											</div>
+										</td>
+										<td class="tdmoh5">
+											<p>
+												<a class="ope01" target="_blank"
+													href="/trademanage/order_detail-105752917.htm">查看</a>
+											</p>
+											<p>
+												<a class="ope04" href="javascript:;"
+													onclick="location.href='https://pay.jiuxian.com/gopay.htm?orderId=105752917'">付款</a>
+											</p>
+											<p>
+												<a class="ope01 ordPointCancle" href="javascript:;"
+													onclick="is_cancel_order(105752917)">取消订单</a>
+											</p>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+							
+							
+						</c:forEach>
+						
 						
 						<!-- 等待付款订单 -->
 						<div class="moCon-ord">
