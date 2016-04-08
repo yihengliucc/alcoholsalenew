@@ -241,4 +241,12 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 		
 		return "success";
 	}
+	public String goHelp() throws Exception {
+		return "success";
+	}
+	
+	// 跳转到我的信息界面
+	public String goMyInfo() throws Exception {
+		return "success";
+	}
 }

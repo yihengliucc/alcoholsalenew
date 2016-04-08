@@ -75,7 +75,7 @@ a:hover {
 /*左侧导航begin*/
 .user .sideNav {
     width: 198px;
-    height: 998px;
+    height: 800px;
     border: 1px solid #e4e4e4;
     float: left;
     display: inline-block;
@@ -918,4 +918,8 @@ table {
 .clear{clear:both; font-size:0; line-height:0; height:0;}
 .clearfix:after{clear:both;display:block;content:"...";visibility:hidden;height:0;font-size:0;}
 
+.subtrack {
+	width: 35px;
+	margin: auto;
+}
 

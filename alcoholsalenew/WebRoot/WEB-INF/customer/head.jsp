@@ -15,13 +15,16 @@
     					<a  href="goRegUI.action">免费注册</a>
     				</c:when>
     				<c:otherwise>
-    				<p class="font3">欢迎 <font color="#9AB310">${user.username}</font> 登录品牌酒网！</p>
+    				<p class="font3">欢迎</p><a href="goMyInfo.action" target="_blank" ><font color="#9AB310">${user.username}</font></a><p>登录品牌酒网！</p>
     				<a href="exit.action" >退出</a>
     				</c:otherwise>
     			</c:choose>
     			</div>
     			<div class="header-right">
     				<ul>
+    					<li class="hd-n1">
+    					<a href="goMyInfo.action" target="_blank" >我的品牌酒</a>
+    					</li>
     					<li class="hd-n1">
     					<a href="goMyOrderUI.action" target="_blank" >我的订单</a>
     					</li>
@@ -51,7 +54,7 @@
    						
     				
     					<li class="hd-n3">
-    					<a href="#" target="_blank" >帮助中心</a>
+    					<a href="goHelp.action" target="_blank" >帮助中心</a>
     					</li>
     					<li class="hd-n4">
     					<i class="publicIcon"></i>

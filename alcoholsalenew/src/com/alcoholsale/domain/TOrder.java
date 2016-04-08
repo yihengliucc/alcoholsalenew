@@ -16,7 +16,7 @@ public class TOrder implements java.io.Serializable {
 	private Integer orderid;
 	private TUser TUser;
 	private Date orderdate;
-	private Integer status;				// 0 未付款   1已付款
+	private Integer status;				// 0 未付款   1已付款 2已取消
 	private Date paydate;				// 付款日期
 	private String shippingAddress;		// 收货人地址不做成对象引用，因为如果删除会导致订单地址信息被删除
 	private String consignee;			// 收件人姓名

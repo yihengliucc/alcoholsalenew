@@ -150,7 +150,7 @@ function addAddress() {
 				consignee = $("#new_username").val();
 				shippingAddress = $("#new_province").find("option:selected").text() + "-" + $("#new_city").find("option:selected").text() + "-" + $("#new_county").find("option:selected").text() + "-" + $("#new_detail").val();
 				phone = $("#new_phone").val();
-				var newItem = "<li class='item new' einv='false' onclick='checked(this)'><input type='hidden' value='" + data.addressid + "' addressname='江西省-南昌市-新建县' regionid='1967'><div class='address-tit'><b>" + consignee + "</b><span>" + phone + "</span></div><div class='address-con'>" + shippingAddress + "</div><div class='address-ope'><a class='addAlter' href='javascript:;' _di='107793439'>修改</a><a class='addDelete' href='javascript:;' _di='107793439'>删除</a></div><div class='defaultBtn' _di='107793439' onclick='setDefault(this)'>设为默认地址</div><div class='addDefault oIcon'></div></li>";
+				var newItem = "<li class='item new' einv='false' onclick='checked(this)'><input id='checkAddressId' type='hidden' name='checkAddressId' value='" + data.addressid + "'><input type='hidden' value='" + data.addressid + "' addressname='江西省-南昌市-新建县' regionid='1967'><div class='address-tit'><b>" + consignee + "</b><span>" + phone + "</span></div><div class='address-con'>" + shippingAddress + "</div><div class='address-ope'><a class='addAlter' href='javascript:;' _di='107793439'>修改</a><a class='addDelete' href='javascript:;' _di='107793439'>删除</a></div><div class='defaultBtn' _di='107793439' onclick='setDefault(this)'>设为默认地址</div><div class='addDefault oIcon'></div></li>";
 				$(".addressList").prepend(newItem);
 				$(".item").removeClass("on");
 				$(".new").addClass("on");

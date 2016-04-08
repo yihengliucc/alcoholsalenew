@@ -2,6 +2,7 @@ package com.alcoholsale.web.struts2.action;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -314,6 +315,56 @@ System.out.println("跳转到登录页面");
 		for (int i = 0; i < orders.size(); i++) {
 			System.out.println("订单NO:" + orders.get(i).getOrderNo());
 		}
+		
+		return "success";
+	}
+	
+	// 取消订单
+	public String cancelOrder() {
+		try {
+			request = ServletActionContext.getRequest();
+			int orderid = Integer.parseInt(request.getParameter("orderid"));
+System.out.println("要取消的订单编号：" + orderid);
+			TOrder order = (TOrder) orderservice.findById(TOrder.class, orderid);
+System.out.println("订单状态" + order.getStatus());
+			order.setStatus(2);
+			orderservice.updateObject(order);
+			
+			// 释放已取消商品的库存（未实现）
+			
+			
+			sendMsg("{\"deleteinfo\":\"canclesuccess\"}");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	// 跳转到付款界面
+	public String goPay() {
+		request = ServletActionContext.getRequest();
+		int orderid = Integer.parseInt(request.getParameter("orderid"));
+		// 获取指定订单
+		TOrder order = (TOrder) orderservice.findById(TOrder.class, orderid);
+System.out.println("支付页面订单编号：" + order.getOrderNo());
+		request.getSession().setAttribute("order", order);
+		return "success";
+	}
+	
+	// 跳转到支付完成界面
+	public String completePay() {
+		// 获取订单
+		request = ServletActionContext.getRequest();
+		TOrder order = (TOrder) request.getSession().getAttribute("order");
+		
+		// 和支付接口完成支付验证
+		// .....
+		
+		// 支付完成的话都数据库修改订单状态
+		order.setStatus(1);  	// 1 为已支付
+		order.setPaydate(new java.util.Date());
+		orderservice.updateObject(order);
 		
 		return "success";
 	}

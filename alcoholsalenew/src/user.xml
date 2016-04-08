@@ -49,5 +49,11 @@
 			<result name="success">/WEB-INF\customer\confirmorder.jsp</result>
 			<result name="login">/WEB-INF\customer\login.jsp</result>
 		</action>
+		<action name="goHelp" class="LoginAction" method="goHelp">
+			<result name="success">/WEB-INF\customer\help.jsp</result>
+		</action>
+		<action name="goMyInfo" class="LoginAction" method="goMyInfo">
+			<result name="success">/WEB-INF\customer\myinfo.jsp</result>
+		</action>
 	</package>
 </struts>

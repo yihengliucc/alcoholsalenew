@@ -105,7 +105,7 @@
 			<div class="indexTuanList">
 				<ul class="bigUl" style="margin-left: 0px;">
 					<li><a
-						href="#"
+						href="customershowdetail.action?proid=30"
 						target="_blank" rel="nofollow"><img
 							src="${pageContext.request.contextPath }/images/product/recommend1.png"
 							_src="" width="268" height="157"></a></li>
@@ -117,7 +117,7 @@
 			<div class="indexTuanList">
 				<ul class="bigUl" style="margin-left: 0px;">
 					<li><a
-						href="#"
+						href="customershowdetail.action?proid=31"
 						target="_blank" rel="nofollow"><img
 							src="${pageContext.request.contextPath }/images/product/recommend2.png"
 							_src="" width="268" height="157"></a></li>

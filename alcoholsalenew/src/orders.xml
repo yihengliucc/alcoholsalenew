@@ -5,18 +5,26 @@
 	<struts>
 	<constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory"></constant>
 	<package name="order"  extends="struts-default">
-	    <action name="orderAdd" class="OrderAction" method="orderAdd">
+	    <action name="orderAdd" class="com.alcoholsale.web.struts2.action.OrdersAction" method="orderAdd">
 	    	 <result  type= "redirectAction"> goMyOrderUI</result> 
 	    </action>
-	    <action name="goMyOrderUI" class="OrderAction" method="goMyOrderUI">
+	    <action name="goMyOrderUI" class="com.alcoholsale.web.struts2.action.OrdersAction" method="goMyOrderUI">
 			<result name="success">/WEB-INF\customer\myorder.jsp</result>
 			<result name="login">/WEB-INF\customer\login.jsp</result>
 		</action>
-	    <action name="getAddress" class="OrderAction" method="getAddress">
+	    <action name="getAddress" class="com.alcoholsale.web.struts2.action.OrdersAction" method="getAddress">
 	    </action>
-	    <action name="addAddress" class="OrderAction" method="addAddress">
+	    <action name="addAddress" class="com.alcoholsale.web.struts2.action.OrdersAction" method="addAddress">
 	    </action>
-		<action name="delAddress" class="OrderAction" method="delAddress">
+		<action name="delAddress" class="com.alcoholsale.web.struts2.action.OrdersAction" method="delAddress">
+	    </action>
+	    <action name="cancelOrder" class="com.alcoholsale.web.struts2.action.OrdersAction" method="cancelOrder">
+	    </action>
+	    <action name="goPay" class="com.alcoholsale.web.struts2.action.OrdersAction" method="goPay">
+	    	<result name="success">/WEB-INF\customer\gopay.jsp</result>
+	    </action>
+	    <action name="completePay" class="com.alcoholsale.web.struts2.action.OrdersAction" method="completePay">
+	    	<result name="success">/WEB-INF\customer\completepay.jsp</result>
 	    </action>
 	</package> 
 	</struts>
