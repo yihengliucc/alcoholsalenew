@@ -1,6 +1,7 @@
 package com.alcoholsale.web.struts2.action;
 
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -28,6 +29,11 @@ import com.opensymphony.xwork2.ActionSupport;
 public class LoginAction extends ActionSupport implements ServletRequestAware{
 	private String username;
 	private String password;
+	private String nickname;
+	private String reallyname;
+	private String sex;
+	private String birthday;
+	private String useraddress;
 	private UserService userservice;
 	private HttpServletRequest servletRequest;
 	private HttpSession session;
@@ -38,6 +44,43 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 	private TUser user;
 	private AddressService addressService;
 	
+	
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	public String getReallyname() {
+		return reallyname;
+	}
+	public void setReallyname(String reallyname) {
+		this.reallyname = reallyname;
+	}
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+	public String getBirthday() {
+		return birthday;
+	}
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
+	}
+	public String getUseraddress() {
+		return useraddress;
+	}
+	public void setUseraddress(String useraddress) {
+		this.useraddress = useraddress;
+	}
+	public int getUserid() {
+		return userid;
+	}
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
 	public AddressService getAddressService() {
 		return addressService;
 	}
@@ -102,11 +145,12 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 		if (tuser!=null) {
 			//Map session= ActionContext.getContext().getSession();
 			//session.put("user", tuser);
-			session.setAttribute("user", tuser);
-			if(tuser.getGrade()==1){
+			if(tuser.getGrade()==1){					//判断为管理员用户
+				session.setAttribute("adminuser", tuser);
 				session.removeAttribute("logininfo");
 				return "adminsuccess";
-			}else{
+			}else{										//判断为普通用户
+			session.setAttribute("user", tuser);
 			session.removeAttribute("logininfo");
 			return "success";
 			}
@@ -170,6 +214,23 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 			 session.invalidate(); 
 		 }
 		 return "success";
+	}
+	
+	public String adminExit() throws Exception {
+		// 判断session是否已经失效
+		servletRequest=ServletActionContext.getRequest();
+		// 传递参数true，但session过期时，新的session就会被创建；后面就可以用sessin.isNew方法来判断session是否是同一个session
+		session = servletRequest.getSession(true);
+		 if (!session.isNew()) {
+			 try {
+				session.invalidate(); 
+				sendMsg("{\"result\":\"1\"}");
+			} catch (Exception e) {
+				sendMsg("{\"message\":\"注销失败！\"}");
+				e.printStackTrace();
+			}
+		 }
+		 return null;
 	}
 	
 	public String goRegUI() throws Exception {
@@ -247,6 +308,50 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 	
 	// 跳转到我的信息界面
 	public String goMyInfo() throws Exception {
+		//获取用户信息
+		servletRequest = ServletActionContext.getRequest();
+		TUser user = (TUser) servletRequest.getSession().getAttribute("user");
+		try {
+			System.out.println(user.getUsername());
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "login";
+		}
 		return "success";
+	}
+	
+	// 提交修改个人信息
+	public String modifyUserInfo() throws Exception {
+System.out.println(nickname + "|reallyname|" + reallyname + "|sex|" + sex + "|birthday|" + birthday + "|useraddress|" + useraddress);
+		//获取用户信息
+		servletRequest = ServletActionContext.getRequest();
+		TUser user = (TUser) servletRequest.getSession().getAttribute("user");
+		try {
+			System.out.println(user.getUsername());
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "login";
+		}
+		
+		user.setNickname(nickname);
+		user.setReallyname(reallyname);
+		if ("1".equals(sex)) {
+			user.setSex("男");
+		} else {
+			user.setSex("女");
+		}
+		user.setBirthday(birthday);
+		user.setUseraddress(useraddress);
+		userservice.updateUser(user);
+		
+		return "success";
+	}
+	
+	// 用户返回值到页面，ajax返回值
+	public void sendMsg(String content) throws IOException {
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setContentType("text/html;charset=utf-8");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().write(content);
 	}
 }

@@ -30,6 +30,21 @@
         <property name="grade" type="java.lang.Integer">
             <column name="grade" length="7" not-null="true" />
         </property>
+        <property name="nickname" type="java.lang.String">
+            <column name="NICKNAME" length="250" />
+        </property>
+        <property name="reallyname" type="java.lang.String">
+            <column name="REALLYNAME" length="250" />
+        </property>
+        <property name="sex" type="java.lang.String">
+            <column name="SEX" length="3" />
+        </property>
+        <property name="birthday" type="java.lang.String">
+            <column name="BIRTHDAY" length="20" />
+        </property>
+        <property name="useraddress" type="java.lang.String">
+            <column name="useraddress" length="255" />
+        </property>
         <set name="TOrders" inverse="true">
             <key>
                 <column name="USERID" precision="22" scale="0" />

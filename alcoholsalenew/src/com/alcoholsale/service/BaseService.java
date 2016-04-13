@@ -30,5 +30,10 @@ public interface BaseService {
 	 * @return 
 	 */
 	public Object getCount(String hql, Object[] parameters);
+	/**
+	 * 删除所有数据
+	 * @param obj
+	 */
+	public void deleteAllObject(Object obj);
 
 }

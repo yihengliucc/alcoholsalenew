@@ -42,6 +42,7 @@
 <value>com/alcoholsale/domain/address/Province.hbm.xml</value>
 <value>com/alcoholsale/domain/address/City.hbm.xml</value>
 <value>com/alcoholsale/domain/address/Town.hbm.xml</value>
+<value>com/alcoholsale/admin/resource/domain/IndexItem.hbm.xml</value>
 </list>
 </property>
 <!-- 配置hibernate属性 -->
@@ -76,6 +77,13 @@ hibernate.show_sql=true
 <bean id="addressService" class="com.alcoholsal.service.impl.AddressImpl">
 <property name="sessionFactory" ref="sessionFactory"></property>
 </bean>
+<!-- 后台管理 -->
+<bean id="adminService" class="com.alcoholsale.admin.serviceimpl.AdminServiceImpl">
+<property name="sessionFactory" ref="sessionFactory"></property>
+</bean>
+<bean id="indexItemManager" class="com.alcoholsale.admin.reourse.IndexItemManager">
+<property name="sessionFactory" ref="sessionFactory"></property>
+</bean>
 
 <bean id="CommentAction" class="com.alcoholsale.web.struts2.action.CommentAction">
 <property name="commentService" ref="commentservice"></property>
@@ -91,5 +99,9 @@ hibernate.show_sql=true
 <property name="userservice" ref="userservice"></property>
 <property name="addressService" ref="addressService"></property>
 </bean>
-
+<!-- 后台管理 -->
+<bean id="AdminAction" class="com.alcoholsale.admin.action.AdminAction">
+	<property name="adminService" ref="adminService"></property>
+	<property name="indexItemManager" ref="indexItemManager"></property>
+</bean>
 </beans>

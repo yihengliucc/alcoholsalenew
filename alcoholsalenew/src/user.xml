@@ -9,7 +9,7 @@
 		<action name="login" class="LoginAction" method="login">
 			<result name="input">/WEB-INF\customer\login.jsp</result>
 			<result name="success">/index.jsp</result>
-			<result name="adminsuccess">/WEB-INF/admin/admin.jsp</result>
+			<result name="adminsuccess">/WEB-INF/admin1/main.jsp</result>
 			<result name="failer">/WEB-INF\customer\login.jsp</result>
 		</action>
 		<action name="goLoginUI" class="LoginAction" method="goLoginUI">
@@ -54,6 +54,14 @@
 		</action>
 		<action name="goMyInfo" class="LoginAction" method="goMyInfo">
 			<result name="success">/WEB-INF\customer\myinfo.jsp</result>
+			<result name="login">/WEB-INF\customer\login.jsp</result>
 		</action>
+		<action name="modifyUserInfo" class="LoginAction" method="modifyUserInfo">
+			<result name="success">/WEB-INF\customer\myinfo.jsp</result>
+			<result name="login">/WEB-INF\customer\login.jsp</result>
+			<!-- <result  type= "redirectAction"> goMyInfo</result> 让页面停留在原action -->
+		</action>
+		
+
 	</package>
 </struts>

@@ -20,6 +20,11 @@ public class TUser implements java.io.Serializable {
 	private String phone;
 	private Date regdate;
 	private Integer grade;
+	private String nickname;
+	private String reallyname;
+	private String sex;
+	private String birthday;
+	private String useraddress;
 	private Set TOrders = new HashSet(0);
 	private Set<TAddress> address = new HashSet<TAddress>();
 	private Set<TUserComment> tusercomment = new HashSet<TUserComment>();
@@ -32,9 +37,46 @@ public class TUser implements java.io.Serializable {
 	public TUser(String username) {
 		this.username = username;
 	}
-
-
 	
+	public String getUseraddress() {
+		return useraddress;
+	}
+
+	public void setUseraddress(String useraddress) {
+		this.useraddress = useraddress;
+	}
+
+	public String getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
+	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public String getReallyname() {
+		return reallyname;
+	}
+
+	public void setReallyname(String reallyname) {
+		this.reallyname = reallyname;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
 
 	public String getUsername() {
 		return this.username;

@@ -40,27 +40,7 @@ $(document).ready(function() {
 		$(".popMask").hide();
 	});
 	
-	// 删除地址
-	$(".addDelete").click(function(){
-		$(this).parent().parent().remove();
-		// 提交action到数据库删除
-		$.ajax({
-			type : 'POST',
-			url : "delAddress.action",
-			dataType : "json",
-			data : {
-				addressid : $(this).parent().parent().find("#addressid:first").val()
-			},
-			success : function(data) {
-				if ("delsuccess" == data.deleteinfo) {
-					alert("删除成功！");
-				}
-			},
-			error : function(data) {
-				alert("无返回值或返回值错误！")
-			}
-		});
-	});
+
 	
 //	// 点击地址变成选中状态
 //	$(".item").click(function(){
@@ -78,6 +58,31 @@ $(document).ready(function() {
 	});
 
 });
+
+
+// 删除地址
+//$(".addDelete").click(function(){
+function deleteAddress(obj){
+	// 提交action到数据库删除
+	$.ajax({
+		type : 'POST',
+		url : "delAddress.action",
+		dataType : "json",
+		data : {
+			addressid : $(obj).parent().parent().find("#addressid:first").val()
+		},
+		success : function(data) {
+			if ("delsuccess" == data.deleteinfo) {
+				alert("删除成功！");
+				$(obj).parent().parent().remove();
+			}
+		},
+		error : function(data) {
+			alert("无返回值或返回值错误！")
+		}
+	});
+}
+
 
 // 获取市,传入省id
 function getCity(value) {
@@ -150,10 +155,9 @@ function addAddress() {
 				consignee = $("#new_username").val();
 				shippingAddress = $("#new_province").find("option:selected").text() + "-" + $("#new_city").find("option:selected").text() + "-" + $("#new_county").find("option:selected").text() + "-" + $("#new_detail").val();
 				phone = $("#new_phone").val();
-				var newItem = "<li class='item new' einv='false' onclick='checked(this)'><input id='checkAddressId' type='hidden' name='checkAddressId' value='" + data.addressid + "'><input type='hidden' value='" + data.addressid + "' addressname='江西省-南昌市-新建县' regionid='1967'><div class='address-tit'><b>" + consignee + "</b><span>" + phone + "</span></div><div class='address-con'>" + shippingAddress + "</div><div class='address-ope'><a class='addAlter' href='javascript:;' _di='107793439'>修改</a><a class='addDelete' href='javascript:;' _di='107793439'>删除</a></div><div class='defaultBtn' _di='107793439' onclick='setDefault(this)'>设为默认地址</div><div class='addDefault oIcon'></div></li>";
-				$(".addressList").prepend(newItem);
+				var newItem = "<li class='item on' einv='false' onclick='checked(this);'><input id='addressid' type='hidden' value='" + data.addressid + "' addressname='江西省-南昌市-新建县' regionid='1967'><div class='address-tit'><b>" + consignee + "</b><span>" + phone + "</span></div><div class='address-con'>" + shippingAddress + "</div><div class='address-ope'><a class='addAlter' href='javascript:;' _di='107793439'>修改</a><a class='addDelete' href='javascript:;' onclick='deleteAddress(this);'>删除</a></div><div class='defaultBtn' _di='107793439' onclick='setDefault(this)'>设为默认地址</div><div class='addDefault oIcon'></div></li>";
 				$(".item").removeClass("on");
-				$(".new").addClass("on");
+				$(".addressList").prepend(newItem);	
 				$("#checkAddressId").val(data.addressid);
 				
 			} else if ("nologin" == data.addinfo){

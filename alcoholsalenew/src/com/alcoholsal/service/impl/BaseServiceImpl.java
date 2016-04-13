@@ -7,6 +7,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.sql.Update;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.alcoholsale.service.BaseService;
@@ -106,6 +107,14 @@ public class BaseServiceImpl implements BaseService{
 			return null;
 		}
 		
+	}
+
+	@Override
+	public void deleteAllObject(Object obj) {
+		String hql = "delete from " + obj + "where 1=1";
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery(hql);
+		query.executeUpdate();
 	}
 
 }

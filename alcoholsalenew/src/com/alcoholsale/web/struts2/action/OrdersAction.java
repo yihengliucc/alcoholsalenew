@@ -26,6 +26,7 @@ import com.alcoholsale.domain.address.Province;
 import com.alcoholsale.domain.address.Town;
 import com.alcoholsale.service.AddressService;
 import com.alcoholsale.service.OrdersService;
+import com.alcoholsale.util.SendMailToSomeone;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class OrdersAction extends ActionSupport implements ServletRequestAware {
@@ -365,6 +366,18 @@ System.out.println("支付页面订单编号：" + order.getOrderNo());
 		order.setStatus(1);  	// 1 为已支付
 		order.setPaydate(new java.util.Date());
 		orderservice.updateObject(order);
+		
+		/** 发送邮件部分 begin **/
+		SendMailToSomeone mysendMail = new SendMailToSomeone();
+		String title = "您的订单" + order.getOrderNo() +"完成付款，我们将会尽快给您安排付款";
+		String orderInfo = "订单编号：" + order.getOrderNo() + "<br/>收货人：" + order.getConsignee() + "<br/>收货人号码：" + order.getPhone() + "<br/>收货人地址：" + order.getShippingAddress();
+		String mailbody = "<h1>" + orderInfo + "</h1>";
+		String sendTo = "liu903265@163.com";
+		String from = "test903265@163.com";
+		String passwd = "cheng903265";
+		String sendStmp = "smtp.163.com";
+		mysendMail.send(title, mailbody, sendTo, from, passwd, sendStmp);
+		/** 发送邮件部分 end **/
 		
 		return "success";
 	}

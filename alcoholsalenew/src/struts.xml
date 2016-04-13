@@ -16,4 +16,5 @@
 	<include file="user.xml"></include>
 	<include file="product.xml"></include>
 	<include file="orders.xml"></include>
+	<include file="admin.xml"></include>
 </struts>    
