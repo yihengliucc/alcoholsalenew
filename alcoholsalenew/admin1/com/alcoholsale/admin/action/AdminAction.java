@@ -20,6 +20,10 @@ import com.alcoholsale.admin.reourse.IndexItemManager;
 import com.alcoholsale.admin.reourse.model.MySite;
 import com.alcoholsale.admin.resource.domain.IndexItem;
 import com.alcoholsale.admin.service.AdminService;
+import com.alcoholsale.service.OrdersService;
+import com.alcoholsale.service.ProductService;
+import com.alcoholsale.service.impl.OrdersServiceImpl;
+import com.alcoholsale.service.impl.ProductServiceImpl;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -32,7 +36,51 @@ public class AdminAction extends ActionSupport implements ServletRequestAware {
 	private String ctx;
 	private IIndexItemManager indexItemManager;
 	private MySite site;
+	private OrdersService orderService;
+	private ProductService productService;
+	private Map orders;
+	private Map products;
 	
+	public Map getOrders() {
+		return orders;
+	}
+
+	public void setOrders(Map orders) {
+		this.orders = orders;
+	}
+
+	public Map getProducts() {
+		return products;
+	}
+
+	public void setProducts(Map products) {
+		this.products = products;
+	}
+
+	public OrdersService getOrderService() {
+		return orderService;
+	}
+
+	public void setOrderService(OrdersService orderService) {
+		this.orderService = orderService;
+	}
+
+	public ProductService getProductService() {
+		return productService;
+	}
+
+	public void setProductService(ProductService productService) {
+		this.productService = productService;
+	}
+
+	public void setOrderService(OrdersServiceImpl orderService) {
+		this.orderService = orderService;
+	}
+
+	public void setProductService(ProductServiceImpl productService) {
+		this.productService = productService;
+	}
+
 	public MySite getSite() {
 		return site;
 	}
@@ -131,19 +179,27 @@ public class AdminAction extends ActionSupport implements ServletRequestAware {
 	 * @return
 	 */
 	public String baseIndexItem() {
-System.out.println("baseIndexItem enter");
-		try {
-			site = MyContext.getContext().getCurrentSite();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 		
-/*		MySite mysite = new MySite();
-		mysite.setSitename("测试站点");
-		mysite.setCreatetime(System.currentTimeMillis());
+		MySite mysite = new MySite();
+		mysite.setSitename("品牌酒");
+		mysite.setCreatetime(1460344096L);
 		mysite.setLastlogin(System.currentTimeMillis());
-		site = mysite;*/
+		site = mysite;
 		return "base";
+	}
+	
+	/**
+	 * 获取首页订单信息
+	 * @return
+	 */
+	public String shopIndexItem() {
+		this.orders = this.orderService.orderStatusStatistic();
+		return "order";
+	}
+	
+	public String productIndexItem() {
+		this.products = this.productService.productStatistic();
+		return "product";
 	}
 	
 	

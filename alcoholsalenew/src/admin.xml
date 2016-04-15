@@ -4,7 +4,7 @@
 	"http://struts.apache.org/dtds/struts-2.1.dtd">
 	<struts>
 	<constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory"></constant>
-	<package name="admin" namespace="/admin" extends="struts-default">   
+	<package name="admin" namespace="/admin" extends="alcololsale_default">   
 	    <action name="adminExit" class="AdminAction" method="adminExit">
 		</action>
 		<action name="adminIndex" class="AdminAction" method="adminIndex">
@@ -13,6 +13,12 @@
 		
 		<action name="baseIndexItem" class="AdminAction" method="baseIndexItem">
 			<result name="base" >index/base.jsp</result>
+		</action>
+		<action name="shopIndexItem" class="AdminAction" method="shopIndexItem">
+			<result name="order" >index/order.jsp</result>
+		</action>
+		<action name="productIndexItem" class="AdminAction" method="productIndexItem">
+			<result name="product" >index/goods.jsp</result>
 		</action>
 	</package> 
 	</struts>

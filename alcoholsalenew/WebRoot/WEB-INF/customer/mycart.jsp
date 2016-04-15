@@ -491,7 +491,7 @@ function setTotal(obj) {
 					</div>
 						<div class="loginMain">
 									<div class="logTab tab-1 addTab" style="display: block;">
-									<form id="loginform" method="post" action="login">
+									<form id="loginform" method="post" action="login.action">
 										<div class="loginType">
 											<div class="loginItem userNameItem">
 												<div class="filter">

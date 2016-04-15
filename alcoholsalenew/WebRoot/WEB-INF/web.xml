@@ -17,7 +17,7 @@
   </welcome-file-list>
      <context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:/beans.xml</param-value>
+		<param-value>classpath*:spring/beans.xml</param-value>
 	</context-param>
 <!-- 	<listener>
 		<listener-class>com.alcoholsale.util.MyListener</listener-class>

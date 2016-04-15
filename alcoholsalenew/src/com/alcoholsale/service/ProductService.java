@@ -1,6 +1,7 @@
 package com.alcoholsale.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.alcoholsale.domain.TProduct;
 
@@ -24,4 +25,9 @@ public interface ProductService extends BaseService {
 	 * @return 返回产品对象
 	 */
 	public TProduct getProductById(int proId) ;
+	/**
+	 * 统计商品情况
+	 * @return
+	 */
+	public Map productStatistic();
 }

@@ -10,9 +10,9 @@ import org.apache.struts2.ServletActionContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.alcoholsal.service.impl.UserServiceImpl;
 import com.alcoholsale.domain.TProduct;
 import com.alcoholsale.service.UserService;
+import com.alcoholsale.service.impl.UserServiceImpl;
 
 public class MyListener implements ServletContextListener{
 

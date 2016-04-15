@@ -47,11 +47,11 @@
 				        	<!-- 获取页数的session，写入html元素供js获取 -->
 				        	<input id="pageCount" type="hidden" value="${pageCount }" />
 				        	<input id="pageNow" type="hidden" value="${pageNow }" />
-				            <li>1</li>
-				            <li>2</li>
-				            <li>3</li>
-				            <li>4</li>
-				            <li>5</li>
+				        	<c:if test="${pageCount le 5}">
+				            	<c:forEach begin="1" end="${pageCount }" step="1" var="item">
+				            		<li>${item}</li>
+				            	</c:forEach>
+				            </c:if>			            
 				        </ul>
 				    </div>
 				    <div class="pageDown">下一页</div>

@@ -57,10 +57,14 @@
 				        
 				        <div class="payBtnBox"><a class="payBtn" href="completePay.action"><i class="payIcon"></i></a></div>
 				    </div>
-			
-			
 		</div>
 	</div>
+	<!--遮罩层start-->
+	<div class="popMask" style="display: none;"></div>
+	<!--遮罩层end-->
+	
+	<!-- 付款中，请等待！ -->
+	<div class="paying" style="display: none;">付款中...<div class="loadingpic"><img src="${pageContext.request.contextPath }/images/others/loading.gif" /></div></div>
 
 	<!-- 引入尾页面 -->
 	<jsp:include page="foot.jsp"></jsp:include>

@@ -376,9 +376,14 @@ System.out.println("支付页面订单编号：" + order.getOrderNo());
 		String from = "test903265@163.com";
 		String passwd = "cheng903265";
 		String sendStmp = "smtp.163.com";
+		
 		mysendMail.send(title, mailbody, sendTo, from, passwd, sendStmp);
 		/** 发送邮件部分 end **/
-		
+		try {
+			Thread.sleep(3000); //1000 毫秒，也就是1秒.
+			} catch(InterruptedException ex) {
+			Thread.currentThread().interrupt();
+		}
 		return "success";
 	}
 }

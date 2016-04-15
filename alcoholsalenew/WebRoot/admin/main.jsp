@@ -117,7 +117,7 @@
 														style="margin-top: 10px; *margin-left: -20px;display:none;"
 														index="tfun3"></div> <a onclick="OpenWindow(this)"
 													style="cursor:pointer" index="3"
-													src="/version4/shop/admin/goods!list.do"
+													src="${pageContext.request.contextPath }/admin/shop/products!list.action"
 													class="cs-navi-tab">商品列表</a>
 												</li>
 												<li>

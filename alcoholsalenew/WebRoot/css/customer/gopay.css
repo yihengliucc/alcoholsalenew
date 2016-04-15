@@ -312,3 +312,49 @@ a:hover {
 .qrcode {
 	float: right;
 }
+
+/*遮罩层*/
+.popMask {
+	display: none;
+	background: #000;
+	width: 100%;
+	height: 100%;
+	z-index: 1001;
+	position: fixed;
+	left: 0;
+	top: 0;
+	opacity: .5;
+	filter: alpha(opacity = 50);
+	_position: absolute;
+	_top: expression(eval(document.documentElement.scrollTop))
+}
+
+/*付款中界面*/
+.paying {
+    width: 281px;
+    height: 58px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: -156px 0 0 -230px;
+    background: #DDFFD9;
+    border: 6px solid #004040;
+    display: none;
+    z-index: 1002;
+    font-size: 37px;
+    padding: 59px;
+    opacity: 0.95;				/*chrome/firefox透明*/
+    filter:alpha(opacity=50);  /*ie下透明*/
+    border-radius: 20px;
+}
+
+.loadingpic {
+	float: right;
+    margin-right: 50;
+}
+
+.loadingpic img {
+	width: 50px;
+    height: 50px;
+}
+

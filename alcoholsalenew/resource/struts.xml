@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory"></constant>
+<!-- 支持动态调用,测试此版本不需要配置也可以支持！动态调用action方法。之前一直报错找不到return配置，重新删除再部署就可以了 -->
+<!-- <constant name="struts.enable.DynamicMethodInvocation" value="true"></constant> -->
+<constant name="struts.multipart.maxSize" value="1000000000"></constant>  
+   <!--  <package name="default" namespace="/" extends="struts-default">
+	    <action name="login" class="com.alcoholsale.web.struts2.action.LoginAction" method="login">
+	    	<result name="input">/WEB-INF\customer\login.jsp</result>
+	    	<result name="success">/WEB-INF\customer\index.jsp</result>
+	    	<result name="failer">/WEB-INF\customer\login.jsp</result>
+	    </action>
+	    <action name="goLoginUI" class="com.alcoholsale.web.struts2.action.LoginAction" method="goLoginUI">
+	    	<result name="success">/WEB-INF\customer\login.jsp</result>
+	    </action>
+	</package> -->
+	
+	
+	<package name="alcololsale_default" extends="struts-default" namespace="/">
+	
+		<interceptors>
+			<interceptor name="fileUpload"
+				class="org.apache.struts2.interceptor.FileUploadInterceptor">
+				<param name="maximumSize">20480000</param>
+			</interceptor>			
+			<interceptor-stack name="fileUploadStack">
+				<interceptor-ref name="fileUpload" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		 </interceptors>
+		 
+		<global-results> 
+		
+			<!-- 后台信息提示页 -->
+			<result name="message" type="dispatcher">
+				<param name="location">/admin/message.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/admin/error_message.jsp</param>
+			</result>	
+			<result name="json_message" type="dispatcher">
+				<param name="location">/admin/json_message.jsp</param>
+			</result>	
+		</global-results>
+		
+	    <global-exception-mappings>
+	        <exception-mapping exception="java.lang.Exception" result="error" />
+	   	</global-exception-mappings>		
+		
+	</package>
+	
+	
+	<include file="user.xml"></include>
+	<include file="product.xml"></include>
+	<include file="orders.xml"></include>
+	<include file="admin.xml"></include>
+	<include file="struts-shop.xml"></include>
+</struts>    

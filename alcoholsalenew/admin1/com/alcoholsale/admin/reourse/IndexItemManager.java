@@ -3,8 +3,8 @@ package com.alcoholsale.admin.reourse;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.alcoholsal.service.impl.BaseServiceImpl;
 import com.alcoholsale.admin.resource.domain.IndexItem;
+import com.alcoholsale.service.impl.BaseServiceImpl;
 
 public class IndexItemManager extends BaseServiceImpl implements
 		IIndexItemManager {

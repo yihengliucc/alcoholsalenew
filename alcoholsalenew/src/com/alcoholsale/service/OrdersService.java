@@ -2,6 +2,7 @@ package com.alcoholsale.service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import com.alcoholsale.domain.TAddress;
@@ -33,4 +34,10 @@ public interface OrdersService extends BaseService {
 	 * @return	订单集合
 	 */
 	public List<TOrder> getMyOrder(TUser user);
+	
+	/**
+	 * 统计订单信息
+	 * @return key为状态值 ，value为此状态订单的数量
+	 */
+	public Map orderStatusStatistic();
 }

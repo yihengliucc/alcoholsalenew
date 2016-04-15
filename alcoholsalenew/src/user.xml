@@ -5,11 +5,11 @@
 <struts>
 	<constant name="struts.objectFactory"
 		value="org.apache.struts2.spring.StrutsSpringObjectFactory"></constant>
-	<package name="default" extends="struts-default">
+	<package name="default" extends="alcololsale_default">
 		<action name="login" class="LoginAction" method="login">
 			<result name="input">/WEB-INF\customer\login.jsp</result>
 			<result name="success">/index.jsp</result>
-			<result name="adminsuccess">/WEB-INF/admin1/main.jsp</result>
+			<result name="adminsuccess">/admin/main.jsp</result>
 			<result name="failer">/WEB-INF\customer\login.jsp</result>
 		</action>
 		<action name="goLoginUI" class="LoginAction" method="goLoginUI">

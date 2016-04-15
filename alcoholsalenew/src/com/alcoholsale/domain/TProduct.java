@@ -25,7 +25,16 @@ public class TProduct implements java.io.Serializable {
 	private  TStock stockid;
 	private Set<TImage> imageid;
 	private Set<TComment> commtentid;
+	private Integer marketenable;	// 是否上架,0下架，1上架
 
+
+	public Integer getMarketenable() {
+		return marketenable;
+	}
+
+	public void setMarketenable(Integer marketenable) {
+		this.marketenable = marketenable;
+	}
 
 	public TProduct() {
 	}

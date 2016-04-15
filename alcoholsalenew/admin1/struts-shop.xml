@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="shop" namespace="/admin/shop" extends="alcololsale_default">
+		<action name="products" class="com.alcoholsale.admin.action.ProductsAction">
+			<result name="list" type="freemarker">products/goods_list.html</result>
+		 	<result name="edit_list">products/goods_edit_list.jsp</result>
+		 	<result name="cat_tree" type="freemarker">cat/select.html</result>
+		 	<result name="bindlist">bind/bind_list.jsp</result>
+		 	<result name="trash_list" type="freemarker">products/goods_trash.html</result>
+		 	<result name="input" type="freemarker">products/goods_input.html</result>
+		 	<result name="select_cat" type="freemarker" >products/select_cat.html</result>
+		</action>
+	</package>
+</struts>

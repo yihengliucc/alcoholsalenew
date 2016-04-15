@@ -4,7 +4,7 @@
 	"http://struts.apache.org/dtds/struts-2.1.dtd">
 	<struts>
 	<constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory"></constant>
-	<package name="order"  extends="struts-default">
+	<package name="order"  extends="alcololsale_default">
 	    <action name="orderAdd" class="com.alcoholsale.web.struts2.action.OrdersAction" method="orderAdd">
 	    	 <result  type= "redirectAction"> goMyOrderUI</result> 
 	    </action>

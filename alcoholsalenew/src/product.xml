@@ -5,7 +5,7 @@
 	<struts>
 	<constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory"></constant>
 	<constant name="struts.multipart.maxSize" value="1000000000"></constant>
-	<package name="product"  extends="struts-default">
+	<package name="product"  extends="alcololsale_default">
 	    <action name="queryallproduct" class="ProductAction" method="queryall">
 	    	<result name="success">/WEB-INF\admin\allProduct.jsp</result>
 	    </action>
